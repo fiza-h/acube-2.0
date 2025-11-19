@@ -1,50 +1,102 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+==================
+Version change: N/A → 1.0.0
+Modified principles: None (initial version)
+Added sections: All sections (initial constitution)
+Removed sections: None
+Templates requiring updates:
+  ✅ .specify/templates/plan-template.md (reviewed - compatible)
+  ✅ .specify/templates/spec-template.md (reviewed - compatible)
+  ✅ .specify/templates/tasks-template.md (reviewed - compatible)
+Follow-up TODOs: None
+-->
+
+# ACube Talent Marketplace Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Design Fidelity
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+The application MUST match the design specifications from the PRD exactly. All visual elements, layouts, and user interface components MUST be implemented as specified without deviation unless explicitly approved.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+**Rationale**: Maintaining design consistency ensures brand identity and user experience quality match stakeholder expectations. The PRD serves as the single source of truth for all design decisions.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### II. Theme Consistency
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+All pages and components MUST use the Dark/Navy Blue/White color scheme as specified. The navigation bar MUST follow vector.io inspiration, and overall design inspiration MUST be derived from https://highfive.global/.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+**Rationale**: Visual consistency across the platform creates a professional appearance and reinforces brand recognition. The specified color palette and design inspiration provide clear guidelines for all UI implementation.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### III. Content Accuracy
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+All content including headlines, subheads, CTAs, section titles, and descriptive text MUST match the PRD verbatim. Navigation items MUST be exactly: "Case Studies", "About Us", "Join Our Talent Pool", "Hire Top Talent".
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+**Rationale**: Precise content implementation ensures marketing messages and user guidance are delivered as intended by stakeholders. Any content deviation could misrepresent the service offering.
+
+### IV. Contact Information Integrity
+
+The contact email (team@acube-tech.com) and Calendly link (https://calendly.com/absaarmalik15/30min) MUST be correctly integrated in the "Hire Now" section without modification.
+
+**Rationale**: Accurate contact information is critical for lead generation and business operations. Any error could result in lost business opportunities.
+
+### V. Talent Categories Completeness
+
+The platform MUST display all five specified talent categories: AI/ML Engineers, Software Developers, UI/UX Designers, Product Managers, and Marketing & Ops Roles.
+
+**Rationale**: Complete representation of talent categories ensures users understand the full service offering and can find the talent type they need.
+
+## Landing Page Structure
+
+The landing page MUST contain exactly these sections in order:
+
+1. **Hero Section**: Headline "Hire world-class remote talent — build faster, spend smarter." with subhead "We connect startups with vetted global professionals in tech and beyond, helping you scale at up to 70% lower cost." and CTAs "Explore Talent" and "Hire Now"
+
+2. **How It Works Section**: Three-step process displayed as:
+   - Step 1: Tell us what you need
+   - Step 2: Get matched with vetted professionals
+   - Step 3: Start building — we handle the rest
+
+3. **Talent Categories Section**: Grid layout showing all five talent categories
+
+4. **Talent Showcase Section**: Display format similar to highfive.global with variations, using dummy data
+
+All sections MUST appear in this exact sequence without omissions or additions.
+
+## Form Implementation Requirements
+
+**Join Talent Pool Form**: MUST implement a "high five similar form" as specified in the PRD when users navigate to "Join Our Talent Pool".
+
+**Hire Now Contact**: MUST display contact details (team@acube-tech.com and Calendly link) rather than a form.
+
+## Development Workflow
+
+### Approval Gate
+
+No implementation may deviate from PRD specifications without explicit stakeholder approval. All design decisions MUST reference the PRD as the authoritative source.
+
+### Dummy Data Standards
+
+Where dummy data is required (Talent Showcase section), it MUST be realistic, professional, and aligned with the talent categories specified. Placeholder content MUST be clearly marked for future replacement with production data.
+
+### Testing Requirements
+
+All implemented features MUST be tested to verify:
+- Content matches PRD exactly (character-by-character for critical text)
+- Contact links function correctly
+- Color scheme matches specification
+- Navigation structure is complete and functional
+- Responsive design maintains layout integrity across devices
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development guidelines for the ACube Talent Marketplace project. Any amendments require:
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+1. Documentation of the proposed change
+2. Explicit approval from project stakeholders
+3. Update of this constitution with incremented version number
+4. Propagation of changes to dependent templates and documentation
+
+All development work MUST verify compliance with these principles before considering a feature complete. Complexity must be justified against the PRD requirements—if the PRD does not specify a feature or technical approach, simpler solutions are preferred.
+
+**Version**: 1.0.0 | **Ratified**: 2025-11-19 | **Last Amended**: 2025-11-19
