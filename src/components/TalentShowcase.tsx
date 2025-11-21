@@ -146,10 +146,10 @@ const TalentShowcase = () => {
         offset: ['start end', 'end start'],
     });
 
-    // Parallax effects: Middle column moves opposite to sides
-    const y1 = useTransform(scrollYProgress, [0, 1], [0, -1000]);
-    const y2 = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
-    const y3 = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+    // Parallax effects: Middle column moves opposite to sides (reduced for smoother feel)
+    const y1 = useTransform(scrollYProgress, [0, 1], [0, -600]);
+    const y2 = useTransform(scrollYProgress, [0, 1], [-600, 0]);
+    const y3 = useTransform(scrollYProgress, [0, 1], [0, -600]);
 
     return (
         <section ref={containerRef} className="relative h-[200vh] bg-zinc-950 overflow-hidden">
