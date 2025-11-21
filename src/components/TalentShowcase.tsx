@@ -125,7 +125,7 @@ const Column = ({
     y
 }: {
     data: typeof talents,
-    y: any
+    y: MotionValue<number>
 }) => {
     return (
         <motion.div

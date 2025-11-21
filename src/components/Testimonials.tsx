@@ -1,7 +1,5 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { animate, utils } from 'animejs';
 import Image from 'next/image';
 import { Quote, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -80,7 +78,7 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: typeof testimoni
 
           {/* Quote Text */}
           <p className="text-white/90 font-medium mb-6 leading-relaxed">
-            "{testimonial.quote}"
+            &ldquo;{testimonial.quote}&rdquo;
           </p>
 
           {/* Author Info */}

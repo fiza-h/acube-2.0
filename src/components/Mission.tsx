@@ -1,7 +1,9 @@
 'use client';
 
+
+
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef, useMemo } from 'react';
+import { useRef } from 'react';
 
 const Mission = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -17,21 +19,41 @@ const Mission = () => {
         "building futures."
     ];
 
-    // Pre-compute all transforms outside of the map
-    const phraseTransforms = useMemo(() => {
-        return phrases.map((_, index) => {
-            const start = index * 0.25;
-            const end = start + 0.25;
+    // Compute transforms for each phrase (4 phrases)
+    const start0 = 0 * 0.25;
+    const end0 = start0 + 0.25;
+    const opacity0 = useTransform(scrollYProgress, [start0, start0 + 0.1, end0 - 0.1, end0], [0, 1, 1, 0]);
 
-            return {
-                opacity: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0, 1, 1, 0]),
-                blur: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [10, 0, 0, 10]),
-                y: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [50, 0, 0, -50]),
-                scale: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0.8, 1, 1, 0.8])
-            };
-        });
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const y0 = useTransform(scrollYProgress, [start0, start0 + 0.1, end0 - 0.1, end0], [50, 0, 0, -50]);
+    const scale0 = useTransform(scrollYProgress, [start0, start0 + 0.1, end0 - 0.1, end0], [0.8, 1, 1, 0.8]);
+
+    const start1 = 1 * 0.25;
+    const end1 = start1 + 0.25;
+    const opacity1 = useTransform(scrollYProgress, [start1, start1 + 0.1, end1 - 0.1, end1], [0, 1, 1, 0]);
+
+    const y1 = useTransform(scrollYProgress, [start1, start1 + 0.1, end1 - 0.1, end1], [50, 0, 0, -50]);
+    const scale1 = useTransform(scrollYProgress, [start1, start1 + 0.1, end1 - 0.1, end1], [0.8, 1, 1, 0.8]);
+
+    const start2 = 2 * 0.25;
+    const end2 = start2 + 0.25;
+    const opacity2 = useTransform(scrollYProgress, [start2, start2 + 0.1, end2 - 0.1, end2], [0, 1, 1, 0]);
+
+    const y2 = useTransform(scrollYProgress, [start2, start2 + 0.1, end2 - 0.1, end2], [50, 0, 0, -50]);
+    const scale2 = useTransform(scrollYProgress, [start2, start2 + 0.1, end2 - 0.1, end2], [0.8, 1, 1, 0.8]);
+
+    const start3 = 3 * 0.25;
+    const end3 = start3 + 0.25;
+    const opacity3 = useTransform(scrollYProgress, [start3, start3 + 0.1, end3 - 0.1, end3], [0, 1, 1, 0]);
+
+    const y3 = useTransform(scrollYProgress, [start3, start3 + 0.1, end3 - 0.1, end3], [50, 0, 0, -50]);
+    const scale3 = useTransform(scrollYProgress, [start3, start3 + 0.1, end3 - 0.1, end3], [0.8, 1, 1, 0.8]);
+
+    const phraseTransforms = [
+        { opacity: opacity0, y: y0, scale: scale0 },
+        { opacity: opacity1, y: y1, scale: scale1 },
+        { opacity: opacity2, y: y2, scale: scale2 },
+        { opacity: opacity3, y: y3, scale: scale3 },
+    ];
 
     return (
         <section ref={containerRef} className="relative h-[300vh] bg-zinc-950">
@@ -65,7 +87,6 @@ const Mission = () => {
                                     key={index}
                                     style={{
                                         opacity: transforms.opacity,
-                                        filter: useTransform(transforms.blur, (v) => `blur(${v}px)`),
                                         y: transforms.y,
                                         scale: transforms.scale
                                     }}

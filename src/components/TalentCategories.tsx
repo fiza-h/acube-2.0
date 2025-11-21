@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { Brain, Code, Palette, Briefcase, TrendingUp, ArrowUpRight, Sparkles, Database, Cloud } from 'lucide-react';
+import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
 import { MouseEvent } from 'react';
 
 const categories = [
@@ -144,7 +144,7 @@ const TalentCategories = () => {
                             Curated <span className="text-cyan-400">Categories</span>
                         </h2>
                         <p className="text-zinc-400 text-lg max-w-xl">
-                            We've organized our talent pool into specialized categories to help you find exactly who you need.
+                            We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
                         </p>
                     </div>
                     <button className="hidden md:flex items-center px-6 py-3 rounded-full bg-cyan-400/10 hover:bg-cyan-400/20 border border-cyan-400/20 hover:border-cyan-400/40 text-white font-medium transition-all group">
@@ -168,7 +168,7 @@ const TalentCategories = () => {
                     >
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
                         <div className="relative z-10">
-                            <h3 className="text-2xl font-bold text-white mb-2">Don't see what you need?</h3>
+                            <h3 className="text-2xl font-bold text-white mb-2">Don&apos;t see what you need?</h3>
                             <p className="text-zinc-400 mb-6 text-sm">
                                 We have a vast network of professionals. Let us find them for you.
                             </p>

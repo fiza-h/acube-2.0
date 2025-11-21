@@ -14,7 +14,7 @@ const CreativeBackground = () => {
         const duration = 6000;
         const delay = duration / numberOfEls;
 
-        let tl = new Timeline({
+        const tl = new Timeline({
             duration: delay,
             onComplete: function () { tl.restart(); }
         });

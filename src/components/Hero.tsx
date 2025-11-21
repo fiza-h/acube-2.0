@@ -118,7 +118,7 @@ const NeuralNetworkBackground = () => {
 
             pulseOffset += 0.02;
 
-            nodes.forEach((node, i) => {
+            nodes.forEach((node) => {
                 node.connections.forEach((targetIndex) => {
                     const target = nodes[targetIndex];
 
