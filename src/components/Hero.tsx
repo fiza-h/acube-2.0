@@ -7,19 +7,19 @@ const Hero = () => {
     return (
         <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             {/* Background Effects */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-800/20 via-zinc-950 to-zinc-950 z-0" />
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-zinc-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/30 via-zinc-950 to-zinc-950 z-0" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-indigo-600/10 rounded-full blur-[100px] animate-pulse delay-1000" />
 
             <div className="container mx-auto px-6 z-10 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm"
+                    className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm hover:bg-white/10 transition-colors"
                 >
-                    <Sparkles className="w-4 h-4 text-white" />
-                    <span className="text-sm text-gray-300">The future of hiring is here</span>
+                    <Sparkles className="w-4 h-4 text-blue-400" />
+                    <span className="text-sm text-zinc-300">The future of hiring is here</span>
                 </motion.div>
 
                 <motion.h1
@@ -28,7 +28,7 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
                 >
-                    Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">build faster</span>, spend smarter.
+                    Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-200 to-blue-500">build faster</span>, spend smarter.
                 </motion.h1>
 
                 <motion.p
