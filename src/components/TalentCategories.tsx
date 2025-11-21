@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
-import { Brain, Code, Palette, Briefcase, TrendingUp, ArrowUpRight, Sparkles, Database, Cloud } from 'lucide-react';
+import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
 import { MouseEvent } from 'react';
 
 const categories = [
@@ -12,7 +12,7 @@ const categories = [
         description: 'Experts in LLMs, Computer Vision, and NLP.',
         skills: ['PyTorch', 'TensorFlow', 'OpenAI'],
         colSpan: 'md:col-span-2',
-        gradient: 'from-zinc-500/20 to-zinc-700/20'
+        gradient: 'from-cyan-400/20 to-cyan-400/20'
     },
     {
         name: 'Software Developers',
@@ -21,7 +21,7 @@ const categories = [
         description: 'Full-stack wizards building scalable apps.',
         skills: ['React', 'Node.js', 'Rust'],
         colSpan: 'md:col-span-1',
-        gradient: 'from-zinc-600/20 to-zinc-800/20'
+        gradient: 'from-cyan-400/20 to-cyan-400/20'
     },
     {
         name: 'UI/UX Designers',
@@ -30,7 +30,7 @@ const categories = [
         description: 'Crafting intuitive and beautiful experiences.',
         skills: ['Figma', 'Prototyping', 'User Research'],
         colSpan: 'md:col-span-1',
-        gradient: 'from-zinc-500/20 to-zinc-600/20'
+        gradient: 'from-cyan-400/20 to-cyan-400/20'
     },
     {
         name: 'Product Managers',
@@ -39,7 +39,7 @@ const categories = [
         description: 'Visionaries who drive product success.',
         skills: ['Strategy', 'Agile', 'Roadmapping'],
         colSpan: 'md:col-span-1',
-        gradient: 'from-zinc-400/20 to-zinc-500/20'
+        gradient: 'from-cyan-400/20 to-cyan-400/20'
     },
     {
         name: 'Cloud Architects',
@@ -48,7 +48,7 @@ const categories = [
         description: 'Designing robust cloud infrastructure.',
         skills: ['AWS', 'Azure', 'GCP'],
         colSpan: 'md:col-span-1',
-        gradient: 'from-zinc-500/20 to-zinc-700/20'
+        gradient: 'from-cyan-400/20 to-cyan-400/20'
     },
 ];
 
@@ -68,7 +68,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 overflow-hidden ${category.colSpan}`}
+            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/30 overflow-hidden ${category.colSpan} transition-all duration-300`}
             onMouseMove={handleMouseMove}
         >
             {/* Spotlight Effect */}
@@ -78,7 +78,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
                     background: useMotionTemplate`
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
-              rgba(255,255,255,0.1),
+              rgba(34, 211, 238, 0.15),
               transparent 80%
             )
           `,
@@ -91,16 +91,16 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
             <div className="relative p-8 h-full flex flex-col justify-between">
                 <div>
                     <div className="flex justify-between items-start mb-6">
-                        <div className="p-3 bg-white/5 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-white/5 group-hover:border-white/20">
-                            <category.icon className="w-8 h-8 text-white" />
+                        <div className="p-3 bg-cyan-400/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-cyan-400/20 group-hover:border-cyan-400/40">
+                            <category.icon className="w-8 h-8 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
                         </div>
-                        <span className="flex items-center text-xs font-bold text-white/60 bg-white/5 px-3 py-1 rounded-full border border-white/5">
-                            <Sparkles className="w-3 h-3 mr-1 text-yellow-400" />
+                        <span className="flex items-center text-xs font-bold text-white/60 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/20">
+                            <Sparkles className="w-3 h-3 mr-1 text-cyan-400" />
                             {category.count}
                         </span>
                     </div>
 
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 transition-transform">
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 group-hover:text-cyan-50 transition-all">
                         {category.name}
                     </h3>
                     <p className="text-gray-400 text-sm mb-6 group-hover:text-gray-300 transition-colors">
@@ -113,14 +113,14 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
                         {category.skills.map((skill) => (
                             <span
                                 key={skill}
-                                className="text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-white/10"
+                                className="text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-cyan-400/20 group-hover:border-cyan-400/40 group-hover:bg-cyan-400/10 transition-all"
                             >
                                 {skill}
                             </span>
                         ))}
                     </div>
 
-                    <div className="flex items-center text-white text-sm font-bold group-hover:text-zinc-300 transition-colors">
+                    <div className="flex items-center text-cyan-400 text-sm font-bold group-hover:text-cyan-300 transition-colors">
                         Explore Talent <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </div>
                 </div>
@@ -141,13 +141,13 @@ const TalentCategories = () => {
                 >
                     <div>
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Curated <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500">Categories</span>
+                            Curated <span className="text-cyan-400">Categories</span>
                         </h2>
                         <p className="text-zinc-400 text-lg max-w-xl">
-                            We've organized our talent pool into specialized categories to help you find exactly who you need.
+                            We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
                         </p>
                     </div>
-                    <button className="hidden md:flex items-center px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium transition-all group">
+                    <button className="hidden md:flex items-center px-6 py-3 rounded-full bg-cyan-400/10 hover:bg-cyan-400/20 border border-cyan-400/20 hover:border-cyan-400/40 text-white font-medium transition-all group">
                         View all categories
                         <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </button>
@@ -164,15 +164,15 @@ const TalentCategories = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.5 }}
-                        className="group relative rounded-3xl bg-gradient-to-br from-zinc-800 to-zinc-900 p-8 flex flex-col justify-center items-center text-center md:col-span-1 overflow-hidden border border-white/10"
+                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-1 overflow-hidden border border-cyan-400/20 hover:border-cyan-400/40 transition-all"
                     >
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
                         <div className="relative z-10">
-                            <h3 className="text-2xl font-bold text-white mb-2">Don't see what you need?</h3>
+                            <h3 className="text-2xl font-bold text-white mb-2">Don&apos;t see what you need?</h3>
                             <p className="text-zinc-400 mb-6 text-sm">
                                 We have a vast network of professionals. Let us find them for you.
                             </p>
-                            <button className="bg-white text-zinc-950 px-6 py-2 rounded-full font-bold text-sm hover:bg-zinc-200 transition-colors shadow-lg">
+                            <button className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20">
                                 Contact Us
                             </button>
                         </div>
