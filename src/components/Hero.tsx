@@ -199,7 +199,7 @@ const Hero = () => {
                     transition={{ duration: 0.6 }}
                     className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm hover:bg-white/10 transition-colors"
                 >
-                    <Sparkles className="w-4 h-4 text-blue-600" />
+                    <Sparkles className="w-4 h-4 text-cyan-400" />
                     <span className="text-sm text-zinc-300">AI-Powered Talent Matching</span>
                 </motion.div>
 
@@ -209,7 +209,7 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
                 >
-                    Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-400 to-blue-600">build faster</span>, spend smarter.
+                    Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-cyan-400">build faster</span>, spend smarter.
                 </motion.h1>
 
                 <motion.p
