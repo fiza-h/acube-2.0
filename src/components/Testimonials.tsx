@@ -60,16 +60,16 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: typeof testimoni
       transition={{ delay: index * 0.1, duration: 0.5 }}
       className="w-full"
     >
-      <div className="relative bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-3xl p-6 overflow-hidden transition-all duration-300 hover:border-blue-500/30 hover:shadow-[0_0_50px_rgba(59,130,246,0.2)] h-full">
+      <div className="relative bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-3xl p-6 overflow-hidden transition-all duration-300 hover:border-blue-600/30 hover:shadow-[0_0_50px_rgba(37,99,235,0.2)] h-full">
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
 
         {/* Content */}
         <div className="relative z-10">
           {/* Quote Icon */}
           <div className="flex items-start justify-between mb-4">
-            <div className="w-10 h-10 rounded-full bg-blue-500/10 flex items-center justify-center">
-              <Quote className="w-5 h-5 text-blue-500" />
+            <div className="w-10 h-10 rounded-full bg-blue-600/10 flex items-center justify-center">
+              <Quote className="w-5 h-5 text-blue-600" />
             </div>
             <div className="flex gap-1">
               {[...Array(5)].map((_, i) => (
@@ -95,7 +95,7 @@ const TestimonialCard = ({ testimonial, index }: { testimonial: typeof testimoni
             </div>
             <div>
               <h4 className="text-white font-bold text-sm">{testimonial.author}</h4>
-              <p className="text-blue-400 text-xs">{testimonial.role}</p>
+              <p className="text-blue-600 text-xs">{testimonial.role}</p>
             </div>
           </div>
         </div>
@@ -109,8 +109,8 @@ const Testimonials = () => {
     <section className="relative py-20 md:py-32 bg-zinc-950 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
       </div>
 
       {/* Grid Pattern */}
@@ -125,7 +125,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6"
           >
-            Trusted by <span className="text-blue-500">Innovators</span>
+            Trusted by <span className="text-blue-600">Innovators</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

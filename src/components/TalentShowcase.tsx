@@ -69,7 +69,7 @@ const TalentCard = ({ talent }: { talent: typeof talents[0] }) => (
     <div className="w-full bg-zinc-900/80 backdrop-blur-md border border-white/5 rounded-2xl p-5 hover:border-white/20 transition-all duration-300 group cursor-pointer hover:bg-zinc-800/50 hover:-translate-y-1 hover:shadow-xl">
         <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-3">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 group-hover:border-blue-500/50 transition-colors">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 group-hover:border-blue-600/50 transition-colors">
                     <Image
                         src={talent.image}
                         alt={talent.name}
@@ -80,7 +80,7 @@ const TalentCard = ({ talent }: { talent: typeof talents[0] }) => (
                 <div>
                     <h3 className="font-bold text-white text-sm flex items-center gap-1.5">
                         {talent.name}
-                        {talent.verified && <CheckCircle className="w-3.5 h-3.5 text-blue-400 fill-blue-400/10" />}
+                        {talent.verified && <CheckCircle className="w-3.5 h-3.5 text-blue-600 fill-blue-600/10" />}
                     </h3>
                     <p className="text-[10px] text-zinc-400 flex items-center uppercase tracking-wider">
                         <MapPin className="w-2.5 h-2.5 mr-1" />
@@ -113,7 +113,7 @@ const TalentCard = ({ talent }: { talent: typeof talents[0] }) => (
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 mr-1.5 animate-pulse" />
                 AVAILABLE
             </span>
-            <button className="text-[10px] font-bold text-white flex items-center group-hover:text-blue-400 transition-colors">
+            <button className="text-[10px] font-bold text-white flex items-center group-hover:text-blue-600 transition-colors">
                 VIEW <ArrowRight className="ml-1 w-3 h-3" />
             </button>
         </div>
@@ -168,7 +168,7 @@ const TalentShowcase = () => {
                         viewport={{ once: true }}
                     >
                         <h2 className="text-4xl md:text-6xl font-bold text-white mb-4 tracking-tight drop-shadow-xl">
-                            World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-white">Talent</span>
+                            World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-white">Talent</span>
                         </h2>
                         <p className="text-zinc-400 max-w-xl mx-auto text-sm md:text-base backdrop-blur-sm bg-zinc-950/30 p-2 rounded-xl">
                             A curated stream of the top 1% global professionals.

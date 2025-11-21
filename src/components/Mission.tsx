@@ -35,7 +35,7 @@ const Mission = () => {
                             rotate: useTransform(scrollYProgress, [0, 1], [360, 0]),
                             scale: useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 0.8, 1.2])
                         }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-500/10 rounded-full opacity-30"
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-blue-600/10 rounded-full opacity-30"
                     />
                 </div>
 
@@ -59,7 +59,7 @@ const Mission = () => {
                                 >
                                     <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-white">
                                         {phrase.split(" ").map((word, i) => (
-                                            <span key={i} className={word === "talent." || word === "futures." ? "text-blue-500" : "text-white"}>
+                                            <span key={i} className={word === "talent." || word === "futures." ? "text-blue-600" : "text-white"}>
                                                 {word}{" "}
                                             </span>
                                         ))}
