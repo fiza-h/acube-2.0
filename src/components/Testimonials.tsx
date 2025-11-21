@@ -150,25 +150,6 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-        >
-          {[
-            { label: 'Companies', value: '500+' },
-            { label: 'Placements', value: '10K+' },
-            { label: 'Success Rate', value: '98%' },
-            { label: 'Avg. Time to Hire', value: '7 Days' },
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">{stat.value}</div>
-              <div className="text-zinc-500 text-xs md:text-sm uppercase tracking-wider">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

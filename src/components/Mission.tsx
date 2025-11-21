@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useMemo } from 'react';
 
 const Mission = () => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -16,6 +16,22 @@ const Mission = () => {
         "Breaking borders,",
         "building futures."
     ];
+
+    // Pre-compute all transforms outside of the map
+    const phraseTransforms = useMemo(() => {
+        return phrases.map((_, index) => {
+            const start = index * 0.25;
+            const end = start + 0.25;
+
+            return {
+                opacity: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0, 1, 1, 0]),
+                blur: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [10, 0, 0, 10]),
+                y: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [50, 0, 0, -50]),
+                scale: useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0.8, 1, 1, 0.8])
+            };
+        });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <section ref={containerRef} className="relative h-[300vh] bg-zinc-950">
@@ -42,19 +58,17 @@ const Mission = () => {
                 <div className="relative z-10 container mx-auto px-6">
                     <div className="max-w-5xl mx-auto">
                         {phrases.map((phrase, index) => {
-                            // Calculate start and end points for each phrase based on scroll progress
-                            const start = index * 0.25;
-                            const end = start + 0.25;
-
-                            const opacity = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0, 1, 1, 0]);
-                            const blur = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [10, 0, 0, 10]);
-                            const y = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [50, 0, 0, -50]);
-                            const scale = useTransform(scrollYProgress, [start, start + 0.1, end - 0.1, end], [0.8, 1, 1, 0.8]);
+                            const transforms = phraseTransforms[index];
 
                             return (
                                 <motion.div
                                     key={index}
-                                    style={{ opacity, filter: useTransform(blur, (v) => `blur(${v}px)`), y, scale }}
+                                    style={{
+                                        opacity: transforms.opacity,
+                                        filter: useTransform(transforms.blur, (v) => `blur(${v}px)`),
+                                        y: transforms.y,
+                                        scale: transforms.scale
+                                    }}
                                     className="absolute top-1/2 left-0 right-0 -translate-y-1/2 text-center"
                                 >
                                     <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-white">

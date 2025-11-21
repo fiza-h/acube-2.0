@@ -62,7 +62,7 @@ const Footer = () => {
                         © {new Date().getFullYear()} ACube Technologies. All rights reserved.
                     </p>
                     <div className="flex space-x-6 text-sm text-gray-500">
-                        <Link href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
+                        <Link href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
                     </div>
                 </div>
