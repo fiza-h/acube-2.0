@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { Star, MapPin, CheckCircle, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRef } from 'react';
