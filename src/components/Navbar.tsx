@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { motion } from 'motion/react';
+import { m } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
@@ -23,7 +23,7 @@ const Navbar = () => {
     ];
 
     return (
-        <motion.nav
+        <m.nav
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             transition={{ duration: 0.5 }}
@@ -32,7 +32,7 @@ const Navbar = () => {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 <Link href="/" className="text-2xl font-bold tracking-tighter text-white">
-                    ACube<span className="text-zinc-400">2.0</span>
+                    ACube<span className="text-cyan-400">2.0</span>
                 </Link>
 
                 {/* Desktop Nav */}
@@ -41,20 +41,20 @@ const Navbar = () => {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+                            className="text-sm font-medium text-zinc-400 hover:text-cyan-400 transition-colors"
                         >
                             {link.name}
                         </Link>
                     ))}
 
-                    <button className="text-sm font-medium text-white hover:text-zinc-300 transition-colors">
+                    <button className="text-sm font-medium text-white hover:text-cyan-400 transition-colors">
                         Join Our Talent Pool
                     </button>
 
                     <Link
                         href="https://calendly.com/absaarmalik15/30min"
                         target="_blank"
-                        className="bg-white text-zinc-950 px-5 py-2.5 rounded-full text-sm font-bold hover:bg-zinc-200 transition-all transform hover:scale-105"
+                        className="bg-cyan-400 text-zinc-950 px-5 py-2.5 rounded-full text-sm font-bold hover:bg-cyan-500 transition-all transform hover:scale-105 shadow-lg shadow-cyan-400/20"
                     >
                         Hire Top Talent
                     </Link>
@@ -71,37 +71,37 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             {isMobileMenuOpen && (
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
-                    className="md:hidden bg-zinc-900 border-t border-white/10"
+                    className="md:hidden bg-zinc-900 border-t border-cyan-400/20"
                 >
                     <div className="flex flex-col p-6 space-y-4">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="text-gray-300 hover:text-white"
+                                className="text-zinc-300 hover:text-cyan-400 transition-colors"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <button className="text-left text-gray-300 hover:text-white">
+                        <button className="text-left text-zinc-300 hover:text-cyan-400 transition-colors">
                             Join Our Talent Pool
                         </button>
                         <Link
                             href="https://calendly.com/absaarmalik15/30min"
                             target="_blank"
-                            className="bg-white text-zinc-950 px-5 py-3 rounded-full text-center font-bold"
+                            className="bg-cyan-400 text-zinc-950 px-5 py-3 rounded-full text-center font-bold hover:bg-cyan-500 transition-colors shadow-lg shadow-cyan-400/20"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Hire Top Talent
                         </Link>
                     </div>
-                </motion.div>
+                </m.div>
             )}
-        </motion.nav>
+        </m.nav>
     );
 };
 

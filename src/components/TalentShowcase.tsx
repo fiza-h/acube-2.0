@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'motion/react';
+import { m, useScroll, useTransform } from 'motion/react';
 import { MapPin, CheckCircle } from 'lucide-react';
 import Image from 'next/image';
 import { useRef } from 'react';
@@ -79,12 +79,12 @@ const TalentShowcase = () => {
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
             </div>
 
-            <motion.div
+            <m.div
                 style={{ opacity, scale }}
                 className="relative z-10 max-w-7xl mx-auto px-6"
             >
                 {/* Header */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "0px 0px -50px 0px" }}
@@ -97,12 +97,12 @@ const TalentShowcase = () => {
                     <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
                         A curated stream of the top 1% global professionals.
                     </p>
-                </motion.div>
+                </m.div>
 
                 {/* Talent Grid - Minimal Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {talents.map((talent, index) => (
-                        <motion.div
+                        <m.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -118,6 +118,8 @@ const TalentShowcase = () => {
                                         src={talent.image}
                                         alt={talent.name}
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                                        loading={index < 3 ? "eager" : "lazy"}
                                         className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                                     />
                                     {/* Overlay gradient */}
@@ -169,12 +171,12 @@ const TalentShowcase = () => {
                                 {/* Hover Line Effect */}
                                 <div className="absolute -bottom-4 left-0 h-px w-0 bg-cyan-400 group-hover:w-full transition-all duration-500" />
                             </div>
-                        </motion.div>
+                        </m.div>
                     ))}
                 </div>
 
                 {/* Bottom CTA */}
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -188,8 +190,8 @@ const TalentShowcase = () => {
                         </button>
                         <div className="h-px w-12 bg-zinc-800" />
                     </div>
-                </motion.div>
-            </motion.div>
+                </m.div>
+            </m.div>
         </section>
     );
 };

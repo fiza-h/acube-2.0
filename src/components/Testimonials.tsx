@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { m, useScroll, useTransform } from 'motion/react';
 import { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -80,18 +80,18 @@ const Testimonials = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
 
         {/* Floating orb */}
-        <motion.div
+        <m.div
           style={{ opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.3, 0]) }}
           className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-cyan-400/5 blur-3xl"
         />
       </div>
 
-      <motion.div
+      <m.div
         style={{ opacity, scale }}
         className="relative z-10 max-w-6xl mx-auto px-6"
       >
         {/* Header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "0px 0px -50px 0px" }}
@@ -104,12 +104,12 @@ const Testimonials = () => {
           <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
             Join hundreds of companies that have transformed their hiring with ACube
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Main Testimonial Display */}
         <div className="relative">
           {/* Large Quote Mark - Decorative */}
-          <motion.div
+          <m.div
             key={`quote-${activeIndex}`}
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 0.05, scale: 1 }}
@@ -117,10 +117,10 @@ const Testimonials = () => {
             className="absolute -top-20 -left-10 text-[300px] font-serif text-cyan-400 leading-none pointer-events-none select-none"
           >
             &ldquo;
-          </motion.div>
+          </m.div>
 
           {/* Quote Text */}
-          <motion.div
+          <m.div
             key={`text-${activeIndex}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,11 +130,11 @@ const Testimonials = () => {
             <p className="text-3xl md:text-5xl font-light text-white leading-relaxed tracking-tight max-w-4xl">
               {active.quote}
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Author Section */}
           <div className="flex items-center justify-between">
-            <motion.div
+            <m.div
               key={`author-${activeIndex}`}
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -147,6 +147,7 @@ const Testimonials = () => {
                   src={active.image}
                   alt={active.author}
                   fill
+                  sizes="80px"
                   className="object-cover"
                 />
               </div>
@@ -156,10 +157,10 @@ const Testimonials = () => {
                 <h4 className="text-xl font-medium text-white mb-1">{active.author}</h4>
                 <p className="text-sm text-cyan-400 font-light tracking-wide">{active.role}</p>
               </div>
-            </motion.div>
+            </m.div>
 
             {/* Navigation Controls */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
@@ -189,11 +190,11 @@ const Testimonials = () => {
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
                 </button>
               </div>
-            </motion.div>
+            </m.div>
           </div>
 
           {/* Progress Indicators */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
@@ -206,7 +207,7 @@ const Testimonials = () => {
                 className="group relative h-1 flex-1 bg-white/5 rounded-full overflow-hidden"
                 aria-label={`Go to testimonial ${index + 1}`}
               >
-                <motion.div
+                <m.div
                   className="absolute inset-0 bg-cyan-400 origin-left"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: index === activeIndex ? 1 : 0 }}
@@ -214,11 +215,11 @@ const Testimonials = () => {
                 />
               </button>
             ))}
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Small Thumbnail Gallery */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -239,12 +240,14 @@ const Testimonials = () => {
                 src={testimonial.image}
                 alt={testimonial.author}
                 fill
+                sizes="48px"
+                loading="lazy"
                 className="object-cover"
               />
             </button>
           ))}
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 };
