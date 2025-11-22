@@ -90,22 +90,20 @@ const Testimonials = () => {
         style={{ opacity, scale }}
         className="relative z-10 max-w-6xl mx-auto px-6"
       >
-        {/* Minimalist Header */}
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 mb-6">
-            <div className="h-px w-8 bg-cyan-400" />
-            <span className="text-xs uppercase tracking-[0.3em] text-cyan-400 font-light">Testimonials</span>
-            <div className="h-px w-8 bg-cyan-400" />
-          </div>
-          <h2 className="text-5xl md:text-7xl font-light text-white tracking-tight">
-            What they <span className="italic font-serif text-cyan-400">say</span>
+          <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+            Trusted by <span className="text-cyan-400">Innovators</span>
           </h2>
+          <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+            Join hundreds of companies that have transformed their hiring with ACube
+          </p>
         </motion.div>
 
         {/* Main Testimonial Display */}
