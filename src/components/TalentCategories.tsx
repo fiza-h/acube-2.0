@@ -138,20 +138,14 @@ const TalentCategories = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "0px 0px -50px 0px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col md:flex-row justify-between items-end mb-16"
+                    className="text-center mb-16"
                 >
-                    <div>
-                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-                            Curated <span className="text-cyan-400">Categories</span>
-                        </h2>
-                        <p className="text-zinc-400 text-lg max-w-xl">
-                            We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
-                        </p>
-                    </div>
-                    <button className="hidden md:flex items-center px-6 py-3 rounded-full bg-cyan-400/10 hover:bg-cyan-400/20 border border-cyan-400/20 hover:border-cyan-400/40 text-white font-medium transition-all group">
-                        View all categories
-                        <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </button>
+                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                        Curated <span className="text-cyan-400">Categories</span>
+                    </h2>
+                    <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                        We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
+                    </p>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
