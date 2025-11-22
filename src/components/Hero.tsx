@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { animate, utils } from 'animejs';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface Node {

@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import { motion, useMotionTemplate, useMotionValue } from 'motion/react';
 import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
 import { MouseEvent } from 'react';
 
@@ -66,8 +66,8 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.1 }}
+            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+            transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
             className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/30 overflow-hidden ${category.colSpan} transition-all duration-300`}
             onMouseMove={handleMouseMove}
         >
@@ -136,7 +136,8 @@ const TalentCategories = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     className="flex flex-col md:flex-row justify-between items-end mb-16"
                 >
                     <div>
@@ -162,8 +163,8 @@ const TalentCategories = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
+                        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                        transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
                         className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-1 overflow-hidden border border-cyan-400/20 hover:border-cyan-400/40 transition-all"
                     >
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
