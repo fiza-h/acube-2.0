@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useScroll, useTransform } from 'motion/react';
+import { m, useScroll, useTransform } from 'motion/react';
 import { MessageSquare, Users, Rocket } from 'lucide-react';
 import { useRef } from 'react';
 
@@ -44,7 +44,7 @@ const HowItWorks = () => {
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -56,12 +56,12 @@ const HowItWorks = () => {
                     <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
                         Three simple steps to build your dream team.
                     </p>
-                </motion.div>
+                </m.div>
 
                 <div className="relative">
                     {/* Connecting Line (Desktop) */}
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2">
-                        <motion.div
+                        <m.div
                             style={{ width: lineWidth }}
                             className="h-full bg-cyan-400"
                         />
@@ -69,7 +69,7 @@ const HowItWorks = () => {
 
                     {/* Connecting Line (Mobile) */}
                     <div className="md:hidden absolute top-0 left-8 w-0.5 h-full bg-white/5">
-                        <motion.div
+                        <m.div
                             style={{ height: lineHeight }}
                             className="w-full bg-cyan-400"
                         />
@@ -77,7 +77,7 @@ const HowItWorks = () => {
 
                     <div className="grid md:grid-cols-3 gap-12 md:gap-8">
                         {steps.map((step, index) => (
-                            <motion.div
+                            <m.div
                                 key={index}
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ const HowItWorks = () => {
                                         {step.description}
                                     </p>
                                 </div>
-                            </motion.div>
+                            </m.div>
                         ))}
                     </div>
                 </div>

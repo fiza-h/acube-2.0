@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, useMotionTemplate, useMotionValue } from 'motion/react';
+import { m, useMotionTemplate, useMotionValue } from 'motion/react';
 import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
 import { MouseEvent } from 'react';
 
@@ -63,7 +63,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
     }
 
     return (
-        <motion.div
+        <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
@@ -72,7 +72,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
             onMouseMove={handleMouseMove}
         >
             {/* Spotlight Effect */}
-            <motion.div
+            <m.div
                 className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
                 style={{
                     background: useMotionTemplate`
@@ -125,7 +125,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
                     </div>
                 </div>
             </div>
-        </motion.div>
+        </m.div>
     );
 }
 
@@ -133,7 +133,7 @@ const TalentCategories = () => {
     return (
         <section className="py-32 bg-zinc-950 relative">
             <div className="container mx-auto px-6">
-                <motion.div
+                <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "0px 0px -50px 0px" }}
@@ -146,7 +146,7 @@ const TalentCategories = () => {
                     <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
                         We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
                     </p>
-                </motion.div>
+                </m.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {categories.map((category, index) => (
@@ -154,7 +154,7 @@ const TalentCategories = () => {
                     ))}
 
                     {/* Call to Action Card */}
-                    <motion.div
+                    <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "0px 0px -100px 0px" }}
@@ -171,7 +171,7 @@ const TalentCategories = () => {
                                 Contact Us
                             </button>
                         </div>
-                    </motion.div>
+                    </m.div>
                 </div>
             </div>
         </section>

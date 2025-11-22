@@ -2,7 +2,7 @@
 
 
 
-import { motion, useScroll, useTransform, useMotionTemplate } from 'motion/react';
+import { m, useScroll, useTransform, useMotionTemplate } from 'motion/react';
 import { useRef } from 'react';
 
 const Mission = () => {
@@ -61,14 +61,14 @@ const Mission = () => {
                 {/* Dynamic Background */}
                 <div className="absolute inset-0 z-0">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-zinc-950 to-zinc-950" />
-                    <motion.div
+                    <m.div
                         style={{
                             rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
                             scale: useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.5, 1])
                         }}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/5 rounded-full opacity-20 dashed-border"
                     />
-                    <motion.div
+                    <m.div
                         style={{
                             rotate: useTransform(scrollYProgress, [0, 1], [360, 0]),
                             scale: useTransform(scrollYProgress, [0, 0.5, 1], [1.2, 0.8, 1.2])
@@ -84,7 +84,7 @@ const Mission = () => {
                             const blurFilter = useMotionTemplate`blur(${transforms.blur}px)`;
 
                             return (
-                                <motion.div
+                                <m.div
                                     key={index}
                                     style={{
                                         opacity: transforms.opacity,
@@ -101,19 +101,19 @@ const Mission = () => {
                                             </span>
                                         ))}
                                     </h2>
-                                </motion.div>
+                                </m.div>
                             );
                         })}
                     </div>
                 </div>
 
                 {/* Scroll Indicator */}
-                <motion.div
+                <m.div
                     style={{ opacity: useTransform(scrollYProgress, [0.9, 1], [1, 0]) }}
                     className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500 text-sm font-medium"
                 >
                     Scroll to explore our mission
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );
