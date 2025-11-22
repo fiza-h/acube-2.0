@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { animate, utils } from 'animejs';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface Node {
@@ -207,7 +207,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
+                    className="text-5xl md:text-8xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
                 >
                     Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-cyan-400">build faster</span>, spend smarter.
                 </motion.h1>

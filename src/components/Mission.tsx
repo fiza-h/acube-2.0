@@ -2,7 +2,7 @@
 
 
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionTemplate } from 'motion/react';
 import { useRef } from 'react';
 
 const Mission = () => {
@@ -22,37 +22,37 @@ const Mission = () => {
     // Compute transforms for each phrase (4 phrases)
     const start0 = 0 * 0.25;
     const end0 = start0 + 0.25;
-    const opacity0 = useTransform(scrollYProgress, [start0, start0 + 0.1, end0 - 0.1, end0], [0, 1, 1, 0]);
-
-    const y0 = useTransform(scrollYProgress, [start0, start0 + 0.1, end0 - 0.1, end0], [50, 0, 0, -50]);
-    const scale0 = useTransform(scrollYProgress, [start0, start0 + 0.1, end0 - 0.1, end0], [0.8, 1, 1, 0.8]);
+    const opacity0 = useTransform(scrollYProgress, [start0, start0 + 0.08, end0 - 0.08, end0], [0, 1, 1, 0]);
+    const y0 = useTransform(scrollYProgress, [start0, start0 + 0.08, end0 - 0.08, end0], [50, 0, 0, -50]);
+    const scale0 = useTransform(scrollYProgress, [start0, start0 + 0.08, end0 - 0.08, end0], [0.8, 1, 1, 0.8]);
+    const blur0 = useTransform(scrollYProgress, [start0, start0 + 0.08, end0 - 0.08, end0], [3, 0, 0, 3]);
 
     const start1 = 1 * 0.25;
     const end1 = start1 + 0.25;
-    const opacity1 = useTransform(scrollYProgress, [start1, start1 + 0.1, end1 - 0.1, end1], [0, 1, 1, 0]);
-
-    const y1 = useTransform(scrollYProgress, [start1, start1 + 0.1, end1 - 0.1, end1], [50, 0, 0, -50]);
-    const scale1 = useTransform(scrollYProgress, [start1, start1 + 0.1, end1 - 0.1, end1], [0.8, 1, 1, 0.8]);
+    const opacity1 = useTransform(scrollYProgress, [start1, start1 + 0.08, end1 - 0.08, end1], [0, 1, 1, 0]);
+    const y1 = useTransform(scrollYProgress, [start1, start1 + 0.08, end1 - 0.08, end1], [50, 0, 0, -50]);
+    const scale1 = useTransform(scrollYProgress, [start1, start1 + 0.08, end1 - 0.08, end1], [0.8, 1, 1, 0.8]);
+    const blur1 = useTransform(scrollYProgress, [start1, start1 + 0.08, end1 - 0.08, end1], [3, 0, 0, 3]);
 
     const start2 = 2 * 0.25;
     const end2 = start2 + 0.25;
-    const opacity2 = useTransform(scrollYProgress, [start2, start2 + 0.1, end2 - 0.1, end2], [0, 1, 1, 0]);
-
-    const y2 = useTransform(scrollYProgress, [start2, start2 + 0.1, end2 - 0.1, end2], [50, 0, 0, -50]);
-    const scale2 = useTransform(scrollYProgress, [start2, start2 + 0.1, end2 - 0.1, end2], [0.8, 1, 1, 0.8]);
+    const opacity2 = useTransform(scrollYProgress, [start2, start2 + 0.08, end2 - 0.08, end2], [0, 1, 1, 0]);
+    const y2 = useTransform(scrollYProgress, [start2, start2 + 0.08, end2 - 0.08, end2], [50, 0, 0, -50]);
+    const scale2 = useTransform(scrollYProgress, [start2, start2 + 0.08, end2 - 0.08, end2], [0.8, 1, 1, 0.8]);
+    const blur2 = useTransform(scrollYProgress, [start2, start2 + 0.08, end2 - 0.08, end2], [3, 0, 0, 3]);
 
     const start3 = 3 * 0.25;
     const end3 = start3 + 0.25;
-    const opacity3 = useTransform(scrollYProgress, [start3, start3 + 0.1, end3 - 0.1, end3], [0, 1, 1, 0]);
-
-    const y3 = useTransform(scrollYProgress, [start3, start3 + 0.1, end3 - 0.1, end3], [50, 0, 0, -50]);
-    const scale3 = useTransform(scrollYProgress, [start3, start3 + 0.1, end3 - 0.1, end3], [0.8, 1, 1, 0.8]);
+    const opacity3 = useTransform(scrollYProgress, [start3, start3 + 0.08, end3 - 0.08, end3], [0, 1, 1, 0]);
+    const y3 = useTransform(scrollYProgress, [start3, start3 + 0.08, end3 - 0.08, end3], [50, 0, 0, -50]);
+    const scale3 = useTransform(scrollYProgress, [start3, start3 + 0.08, end3 - 0.08, end3], [0.8, 1, 1, 0.8]);
+    const blur3 = useTransform(scrollYProgress, [start3, start3 + 0.08, end3 - 0.08, end3], [3, 0, 0, 3]);
 
     const phraseTransforms = [
-        { opacity: opacity0, y: y0, scale: scale0 },
-        { opacity: opacity1, y: y1, scale: scale1 },
-        { opacity: opacity2, y: y2, scale: scale2 },
-        { opacity: opacity3, y: y3, scale: scale3 },
+        { opacity: opacity0, y: y0, scale: scale0, blur: blur0 },
+        { opacity: opacity1, y: y1, scale: scale1, blur: blur1 },
+        { opacity: opacity2, y: y2, scale: scale2, blur: blur2 },
+        { opacity: opacity3, y: y3, scale: scale3, blur: blur3 },
     ];
 
     return (
@@ -81,6 +81,7 @@ const Mission = () => {
                     <div className="max-w-5xl mx-auto">
                         {phrases.map((phrase, index) => {
                             const transforms = phraseTransforms[index];
+                            const blurFilter = useMotionTemplate`blur(${transforms.blur}px)`;
 
                             return (
                                 <motion.div
@@ -88,7 +89,8 @@ const Mission = () => {
                                     style={{
                                         opacity: transforms.opacity,
                                         y: transforms.y,
-                                        scale: transforms.scale
+                                        scale: transforms.scale,
+                                        filter: blurFilter
                                     }}
                                     className="absolute top-1/2 left-0 right-0 -translate-y-1/2 text-center"
                                 >
