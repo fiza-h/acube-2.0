@@ -260,7 +260,7 @@ export default function CaseStudies() {
               Ready to Write Your <span className="text-cyan-400">Success Story?</span>
             </h2>
             <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto">
-              Join the growing number of startups building exceptional products with ACube's top-tier talent
+              Join the growing number of startups building exceptional products with ACube&apos;s top-tier talent
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
