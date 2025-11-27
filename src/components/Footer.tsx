@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import TalentRegistrationModal from './TalentRegistrationModal';
 
@@ -30,8 +30,8 @@ const Footer = () => {
                     <div>
                         <h4 className="text-white font-bold mb-6">Company</h4>
                         <ul className="space-y-4">
-                            <li><Link href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">Case Studies</Link></li>
+                            <li><Link href="/about" className="text-zinc-400 hover:text-cyan-400 transition-colors">About Us</Link></li>
+                            <li><Link href="/case-studies" className="text-zinc-400 hover:text-cyan-400 transition-colors">Case Studies</Link></li>
                             <li>
                                 <button
                                     onClick={() => setShowTalentForm(true)}
@@ -56,6 +56,17 @@ const Footer = () => {
                                     className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/50 underline-offset-4"
                                 >
                                     Schedule a Call
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="https://chat.whatsapp.com/KxJfsyfvcdh3BklH9pWW1z"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
+                                >
+                                    <MessageCircle className="w-4 h-4 mr-2" />
+                                    Join Community
                                 </Link>
                             </li>
                         </ul>

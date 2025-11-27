@@ -15,7 +15,7 @@ const steps = [
         id: '02',
         icon: Users,
         title: 'Get matched',
-        description: 'We connect you with vetted professionals who match your specific needs.',
+        description: 'Our AI-powered matching system connects you with vetted professionals who perfectly align with your specific needs.',
     },
     {
         id: '03',
@@ -94,7 +94,7 @@ const HowItWorks = () => {
                                 </div>
 
                                 {/* Card Content */}
-                                <div className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-cyan-400/30 hover:bg-zinc-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] relative overflow-hidden">
+                                <div className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-cyan-400/30 hover:bg-zinc-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] relative overflow-hidden h-full">
                                     {/* Large Background Number */}
                                     <span className="absolute -right-4 -top-4 text-8xl font-bold text-cyan-400/5 select-none group-hover:text-cyan-400/10 transition-colors">
                                         {step.id}

@@ -88,8 +88,8 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Case Studies', href: '#' },
-        { name: 'About Us', href: '#' },
+        { name: 'Case Studies', href: '/case-studies' },
+        { name: 'About Us', href: '/about' },
     ];
 
     return (
