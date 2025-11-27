@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { m } from 'motion/react';
-import { ArrowRight, TrendingUp, Users, Zap, Clock, DollarSign, Star, MessageCircle } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Zap, Clock, DollarSign, Star } from 'lucide-react';
 
 export default function CaseStudies() {
   const caseStudies = [
@@ -20,7 +20,7 @@ export default function CaseStudies() {
         { metric: '3 weeks', label: 'Time to Hire', icon: Clock },
         { metric: '100%', label: 'Retention Rate', icon: Users },
       ],
-      testimonial: "ACube's talent didn't just meet our expectations—they exceeded them. Our remote team in Pakistan ships features faster than our SF team sometimes.",
+      testimonial: "ACube&apos;s talent didn&apos;t just meet our expectations—they exceeded them. Our remote team in Pakistan ships features faster than our SF team sometimes.",
       author: 'Sarah Chen',
       role: 'CTO & Co-founder',
       gradient: 'from-cyan-500/20 to-cyan-400/20',
@@ -56,7 +56,7 @@ export default function CaseStudies() {
         { metric: '5 months', label: 'Platform Built', icon: Clock },
         { metric: '65%', label: 'Cost Reduction', icon: DollarSign },
       ],
-      testimonial: "The level of professionalism and attention to security detail was outstanding. Our ACube team understood HIPAA requirements better than most US-based contractors we interviewed.",
+      testimonial: "The level of professionalism and attention to security detail was outstanding&period; Our ACube team understood HIPAA requirements better than most US-based contractors we interviewed.",
       author: 'Dr. James Wilson',
       role: 'Chief Medical Officer',
       gradient: 'from-cyan-600/20 to-cyan-400/20',
@@ -104,7 +104,7 @@ export default function CaseStudies() {
             </h1>
 
             <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-              See how startups across the globe are building world-class products with ACube's top 5% offshore talent
+              See how startups across the globe are building world-class products with ACube&apos;s top 5% offshore talent
             </p>
           </m.div>
 
@@ -224,7 +224,7 @@ export default function CaseStudies() {
 
                       {/* Testimonial */}
                       <div className="relative mt-8 p-8 bg-white/5 rounded-2xl border border-white/10">
-                        <div className="absolute -top-4 -left-2 text-6xl text-cyan-400/30 font-serif">"</div>
+                        <div className="absolute -top-4 -left-2 text-6xl text-cyan-400/30 font-serif">&ldquo;</div>
                         <p className="text-lg text-zinc-300 italic leading-relaxed mb-6 relative z-10">
                           {study.testimonial}
                         </p>

@@ -19,7 +19,7 @@ export default function AboutUs() {
             About <span className="text-cyan-400">Us</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 leading-relaxed font-medium">
-            ACube Tech was born from a simple, personal truth: <span className="text-cyan-400">talent is universal, but opportunity is not.</span>
+            ACube Tech was born from a simple, personal truth: <span className="text-cyan-400">talent is universal, but opportunity is not&period;</span>
           </p>
         </div>
 
@@ -30,7 +30,7 @@ export default function AboutUs() {
             <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-to-b from-cyan-400 via-cyan-400/50 to-transparent" />
             <div className="pl-8">
               <p className="text-lg mb-6">
-                We started as a group of college students from developing countries, who were fortunate enough to study abroad at some of the world's leading institutions, including Ivy League institutions. As we navigated our new environments, one realization hit us deeply: many of our friends back home were just as talented, often more talented, but lacked access to the opportunities we were now surrounded by.
+                We started as a group of college students from developing countries, who were fortunate enough to study abroad at some of the world&apos;s leading institutions, including Ivy League institutions. As we navigated our new environments, one realization hit us deeply: many of our friends back home were just as talented, often more talented, but lacked access to the opportunities we were now surrounded by.
               </p>
 
               <div className="space-y-3 my-8 pl-6 border-l-2 border-cyan-400/30">
@@ -122,7 +122,7 @@ export default function AboutUs() {
               </h2>
 
               <div className="space-y-4 text-lg md:text-xl">
-                <p className="font-medium">Because someone's future should not be defined by where they were born.</p>
+                <p className="font-medium">Because someone&apos;s future should not be defined by where they were born.</p>
                 <p className="font-medium">Because global times demand global solutions.</p>
                 <p className="font-medium">Because talent deserves a chance, regardless of passport, income, or geography.</p>
               </div>

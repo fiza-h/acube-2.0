@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
             <p>
-              Welcome to ACube Technologies ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
+              Welcome to ACube Technologies (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
             </p>
           </section>
 
@@ -62,7 +62,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-2xl font-bold text-white mb-4">4. Information Sharing and Disclosure</h2>
             <p className="mb-3">We may share your information in the following circumstances:</p>
             <ul className="list-disc list-inside space-y-2 ml-4">
-              <li><strong>With Clients:</strong> If you're a talent in our pool, we share your professional information with potential employers</li>
+              <li><strong>With Clients:</strong> If you&apos;re a talent in our pool, we share your professional information with potential employers</li>
               <li><strong>Service Providers:</strong> We work with third-party service providers who perform services on our behalf</li>
               <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales</li>
               <li><strong>Legal Requirements:</strong> When required by law or to protect our rights</li>
@@ -74,7 +74,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">5. Data Security</h2>
             <p>
-              We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
+              We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100&percnt; secure, and we cannot guarantee absolute security.
             </p>
           </section>
 
@@ -114,7 +114,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">10. Children's Privacy</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">10. Children&apos;s Privacy</h2>
             <p>
               Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we learn that we have collected personal information from a child, we will delete it promptly.
             </p>
@@ -123,7 +123,7 @@ export default function PrivacyPolicy() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">11. Changes to This Privacy Policy</h2>
             <p>
-              We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. We encourage you to review this Privacy Policy periodically.
+              We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the &ldquo;Last updated&rdquo; date. We encourage you to review this Privacy Policy periodically.
             </p>
           </section>
 

@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { m, useMotionValue, useSpring, useScroll, useTransform } from 'motion/react';
+import { m } from 'motion/react';
 import { Menu, X, Zap } from 'lucide-react';
 import TalentRegistrationModal from './TalentRegistrationModal';
 

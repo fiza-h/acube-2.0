@@ -254,7 +254,7 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                                         </svg>
                                     </m.div>
                                     <h3 className="text-2xl font-bold text-white mb-2">Application Submitted!</h3>
-                                    <p className="text-zinc-400">We'll review your profile and get back to you soon.</p>
+                                    <p className="text-zinc-400">We&apos;ll review your profile and get back to you soon.</p>
                                 </m.div>
                             )}
                         </form>

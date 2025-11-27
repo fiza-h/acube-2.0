@@ -2,13 +2,28 @@
 
 import { m, AnimatePresence } from 'motion/react';
 import { X, Sparkles, Users, Zap } from 'lucide-react';
+import { useMemo } from 'react';
 
 interface ComingSoonModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
+// Generate particles outside component to avoid impure function calls
+const generateParticles = () =>
+    Array.from({ length: 20 }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        duration: 2 + Math.random() * 2,
+        delay: Math.random() * 2,
+    }));
+
+const particlesData = generateParticles();
+
 const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
+    const particles = useMemo(() => particlesData, []);
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -35,22 +50,22 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
 
                         {/* Animated particles */}
                         <div className="absolute inset-0">
-                            {[...Array(20)].map((_, i) => (
+                            {particles.map((particle) => (
                                 <m.div
-                                    key={i}
+                                    key={particle.id}
                                     className="absolute w-1 h-1 bg-cyan-400 rounded-full"
                                     style={{
-                                        left: `${Math.random() * 100}%`,
-                                        top: `${Math.random() * 100}%`,
+                                        left: `${particle.left}%`,
+                                        top: `${particle.top}%`,
                                     }}
                                     animate={{
                                         opacity: [0.2, 0.8, 0.2],
                                         scale: [1, 1.5, 1],
                                     }}
                                     transition={{
-                                        duration: 2 + Math.random() * 2,
+                                        duration: particle.duration,
                                         repeat: Infinity,
-                                        delay: Math.random() * 2,
+                                        delay: particle.delay,
                                     }}
                                 />
                             ))}
@@ -124,7 +139,7 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 transition={{ delay: 0.4 }}
                                 className="text-lg text-zinc-400 mb-8 max-w-md mx-auto leading-relaxed"
                             >
-                                We're building something incredible. Our talent marketplace will launch soon with revolutionary features.
+                                We&apos;re building something incredible. Our talent marketplace will launch soon with revolutionary features.
                             </m.p>
 
                             {/* Features grid */}

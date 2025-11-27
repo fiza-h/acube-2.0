@@ -20,7 +20,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">1. Agreement to Terms</h2>
             <p>
-              By accessing or using ACube Technologies' services ("Services"), you agree to be bound by these Terms of Service ("Terms"). If you disagree with any part of these terms, you may not access our Services.
+              By accessing or using ACube Technologies&apos; services (&ldquo;Services&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;). If you disagree with any part of these terms, you may not access our Services.
             </p>
           </section>
 
@@ -120,7 +120,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">9. Disclaimers and Limitations of Liability</h2>
             <p className="mb-3">
-              Our Services are provided "as is" and "as available" without warranties of any kind, either express or implied.
+              Our Services are provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without warranties of any kind, either express or implied.
             </p>
             <p className="mb-3">
               To the maximum extent permitted by law, ACube Technologies shall not be liable for:
