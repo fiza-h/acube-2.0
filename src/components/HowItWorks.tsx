@@ -36,7 +36,7 @@ const HowItWorks = () => {
     const lineWidth = useTransform(scrollYProgress, [0, 0.5], ['0%', '100%']);
 
     return (
-        <section ref={containerRef} className="py-32 bg-zinc-950 relative overflow-hidden">
+        <section ref={containerRef} className="py-16 bg-zinc-950 relative overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-[100px]" />

@@ -73,7 +73,7 @@ const Testimonials = () => {
   const active = testimonials[activeIndex];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-zinc-950 overflow-hidden flex items-center justify-center py-32">
+    <section ref={containerRef} className="relative min-h-screen bg-zinc-950 overflow-hidden flex items-center justify-center py-16">
       {/* Minimalist Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Subtle grid */}
