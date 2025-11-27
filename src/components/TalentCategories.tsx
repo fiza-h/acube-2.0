@@ -131,7 +131,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
 
 const TalentCategories = () => {
     return (
-        <section className="py-32 bg-zinc-950 relative">
+        <section className="py-16 bg-zinc-950 relative">
             <div className="container mx-auto px-6">
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
@@ -153,13 +153,13 @@ const TalentCategories = () => {
                         <Card key={index} category={category} index={index} />
                     ))}
 
-                    {/* Call to Action Card */}
+                    {/* Call to Action Card - Centered */}
                     <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                         transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-1 overflow-hidden border border-cyan-400/20 hover:border-cyan-400/40 transition-all"
+                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/20 hover:border-cyan-400/40 transition-all"
                     >
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
                         <div className="relative z-10">

@@ -188,8 +188,29 @@ const Hero = () => {
             {/* Dark Overlay for readability */}
             <div className="absolute inset-0 bg-zinc-950/80 z-0" />
 
-            {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-950/20 via-transparent to-transparent z-0" />
+            {/* Subtle Spotlight Effects - inspired by vector-ai.co */}
+            {/* Top center spotlight */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] z-0">
+                <div className="absolute inset-0 bg-cyan-500/[0.08] blur-[120px] rounded-full" />
+            </div>
+
+            {/* Left side ambient light */}
+            <div className="absolute top-1/3 left-0 w-[500px] h-[500px] z-0">
+                <div className="absolute inset-0 bg-cyan-600/[0.05] blur-[100px] rounded-full" />
+            </div>
+
+            {/* Right side ambient light */}
+            <div className="absolute bottom-1/3 right-0 w-[500px] h-[500px] z-0">
+                <div className="absolute inset-0 bg-cyan-400/[0.06] blur-[100px] rounded-full" />
+            </div>
+
+            {/* Center glow behind content */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] z-0">
+                <div className="absolute inset-0 bg-cyan-500/[0.04] blur-[140px] rounded-full" />
+            </div>
+
+            {/* Subtle vignette effect */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_0%,_transparent_50%,_rgba(0,0,0,0.3)_100%)] z-0" />
 
             {/* Content */}
             <div className="container mx-auto px-6 z-10 text-center relative">
@@ -227,13 +248,21 @@ const Hero = () => {
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6"
                 >
-                    <button className="group bg-white text-zinc-950 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all transform hover:scale-105 flex items-center">
+                    <a
+                        href="#talent-showcase"
+                        className="group bg-white text-zinc-950 px-8 py-4 rounded-full font-bold text-lg hover:bg-zinc-200 transition-all transform hover:scale-105 flex items-center"
+                    >
                         Explore Talent
                         <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <button className="px-8 py-4 rounded-full font-bold text-lg text-white border border-white/20 hover:bg-white/10 transition-all">
+                    </a>
+                    <a
+                        href="https://calendly.com/absaarmalik15/30min"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-8 py-4 rounded-full font-bold text-lg text-white border border-white/20 hover:bg-white/10 transition-all"
+                    >
                         Hire Now
-                    </button>
+                    </a>
                 </m.div>
             </div>
         </section>
