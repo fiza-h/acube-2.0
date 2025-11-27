@@ -73,7 +73,7 @@ const TalentShowcase = () => {
     const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
 
     return (
-        <section ref={containerRef} className="relative py-32 bg-zinc-950 overflow-hidden">
+        <section id="talent-showcase" ref={containerRef} className="relative py-32 bg-zinc-950 overflow-hidden">
             {/* Minimal Background */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
