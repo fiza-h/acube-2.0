@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { m, useMotionValue, useSpring, useScroll, useTransform } from 'motion/react';
 import { Menu, X, Zap } from 'lucide-react';
+import TalentRegistrationModal from './TalentRegistrationModal';
 
 const GlitchLink = ({ children, href, onClick }: { children: React.ReactNode; href: string; onClick?: () => void }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -60,6 +61,7 @@ const GlitchLink = ({ children, href, onClick }: { children: React.ReactNode; hr
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [showTalentForm, setShowTalentForm] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const navRef = useRef<HTMLElement>(null);
 
@@ -91,6 +93,7 @@ const Navbar = () => {
     ];
 
     return (
+        <>
         <m.nav
             ref={navRef}
             initial={{ clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
@@ -263,6 +266,7 @@ const Navbar = () => {
                             ))}
 
                             <m.button
+                                onClick={() => setShowTalentForm(true)}
                                 className="relative px-4 py-2 text-sm font-bold tracking-wide font-[var(--font-space-grotesk)] text-zinc-100 group"
                                 whileHover={{ scale: 1.05 }}
                             >
@@ -359,6 +363,10 @@ const Navbar = () => {
                             </m.div>
                         ))}
                         <m.button
+                            onClick={() => {
+                                setIsMobileMenuOpen(false);
+                                setShowTalentForm(true);
+                            }}
                             className="text-left text-zinc-100 hover:text-cyan-400 transition-colors font-bold font-[var(--font-space-grotesk)]"
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
@@ -387,6 +395,13 @@ const Navbar = () => {
                 </m.div>
             )}
         </m.nav>
+
+        {/* Talent Registration Modal */}
+        <TalentRegistrationModal
+            isOpen={showTalentForm}
+            onClose={() => setShowTalentForm(false)}
+        />
+        </>
     );
 };
 

@@ -1,10 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
+import { useState } from 'react';
+import TalentRegistrationModal from './TalentRegistrationModal';
 
 const Footer = () => {
+    const [showTalentForm, setShowTalentForm] = useState(false);
+
     return (
+        <>
         <footer className="bg-zinc-950 border-t border-white/10 pt-20 pb-10">
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
@@ -16,14 +21,8 @@ const Footer = () => {
                             Connecting startups with world-class remote talent. Build faster, spend smarter, and scale without limits.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">
-                                <Twitter className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">
+                            <a href="https://linkedin.com/company/acube-tech" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-cyan-400 transition-colors">
                                 <Linkedin className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">
-                                <Github className="w-5 h-5" />
                             </a>
                         </div>
                     </div>
@@ -33,8 +32,14 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li><Link href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">About Us</Link></li>
                             <li><Link href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">Case Studies</Link></li>
-                            <li><Link href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">Careers</Link></li>
-                            <li><Link href="#" className="text-zinc-400 hover:text-cyan-400 transition-colors">Contact</Link></li>
+                            <li>
+                                <button
+                                    onClick={() => setShowTalentForm(true)}
+                                    className="text-zinc-400 hover:text-cyan-400 transition-colors"
+                                >
+                                    Careers
+                                </button>
+                            </li>
                         </ul>
                     </div>
 
@@ -62,12 +67,19 @@ const Footer = () => {
                         © {new Date().getFullYear()} ACube Technologies. All rights reserved.
                     </p>
                     <div className="flex space-x-6 text-sm text-gray-500">
-                        <Link href="#" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
+                        <Link href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
                     </div>
                 </div>
             </div>
         </footer>
+
+        {/* Talent Registration Modal */}
+        <TalentRegistrationModal
+            isOpen={showTalentForm}
+            onClose={() => setShowTalentForm(false)}
+        />
+        </>
     );
 };
 

@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Mission from '@/components/Mission';
+import Stats from '@/components/Stats';
 import HowItWorks from '@/components/HowItWorks';
 import TalentCategories from '@/components/TalentCategories';
 import TalentShowcase from '@/components/TalentShowcase';
@@ -16,6 +17,7 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Mission />
+        <Stats />
         <HowItWorks />
         <TalentCategories />
         <TalentShowcase />

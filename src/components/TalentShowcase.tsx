@@ -4,6 +4,7 @@ import { m, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { MapPin, CheckCircle, Star, Award, Briefcase, GraduationCap, Code, X, MessageSquare } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
+import ComingSoonModal from './ComingSoonModal';
 
 const talents = [
     {
@@ -267,6 +268,7 @@ const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void 
 const TalentShowcase = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [selectedTalent, setSelectedTalent] = useState<Talent | null>(null);
+    const [showComingSoon, setShowComingSoon] = useState(false);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -375,7 +377,10 @@ const TalentShowcase = () => {
                 >
                     <div className="inline-flex items-center gap-3">
                         <div className="h-px w-12 bg-zinc-800" />
-                        <button className="text-sm text-zinc-400 hover:text-white font-light tracking-wide transition-colors">
+                        <button
+                            onClick={() => setShowComingSoon(true)}
+                            className="text-sm text-zinc-400 hover:text-white font-light tracking-wide transition-colors"
+                        >
                             View all talent
                         </button>
                         <div className="h-px w-12 bg-zinc-800" />
@@ -392,6 +397,12 @@ const TalentShowcase = () => {
                     />
                 )}
             </AnimatePresence>
+
+            {/* Coming Soon Modal */}
+            <ComingSoonModal
+                isOpen={showComingSoon}
+                onClose={() => setShowComingSoon(false)}
+            />
         </section>
     );
 };
