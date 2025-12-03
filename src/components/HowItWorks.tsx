@@ -86,7 +86,7 @@ const HowItWorks = () => {
                                 className="relative pl-20 md:pl-0 md:pt-16 group"
                             >
                                 {/* Step Number/Icon Container */}
-                                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 md:-mt-24 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400/20 to-cyan-400/20 border-2 border-cyan-400/30 flex items-center justify-center z-20 group-hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.2)] group-hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
+                                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 md:-mt-24 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400/20 to-cyan-400/20 border-2 border-cyan-400/15 flex items-center justify-center z-20 group-hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.2)] group-hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
                                     <step.icon className="w-8 h-8 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
 
                                     {/* Pulse Effect */}
@@ -94,7 +94,7 @@ const HowItWorks = () => {
                                 </div>
 
                                 {/* Card Content */}
-                                <div className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-cyan-400/30 hover:bg-zinc-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] relative overflow-hidden h-full">
+                                <div className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-cyan-400/15 hover:bg-zinc-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] relative overflow-hidden h-full">
                                     {/* Large Background Number */}
                                     <span className="absolute -right-4 -top-4 text-8xl font-bold text-cyan-400/5 select-none group-hover:text-cyan-400/10 transition-colors">
                                         {step.id}

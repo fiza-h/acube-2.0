@@ -1,14 +1,14 @@
 'use client';
 
 import { m, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { MapPin, CheckCircle, Star, Award, Briefcase, GraduationCap, Code, X, MessageSquare } from 'lucide-react';
+import { MapPin, CheckCircle, Star, Award, Briefcase, GraduationCap, Code, X, MessageSquare, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 import ComingSoonModal from './ComingSoonModal';
 
 const talents = [
     {
-        name: 'Maryam Farooq',
+        name: 'Maryam',
         role: 'Software Engineer',
         location: 'Islamabad, Pakistan',
         rating: 4.9,
@@ -24,7 +24,7 @@ const talents = [
         timezone: 'GMT+5',
     },
     {
-        name: 'Saad Ali Khan',
+        name: 'Saad',
         role: 'Full Stack Engineer',
         location: 'Lahore, Pakistan',
         rating: 4.9,
@@ -40,7 +40,7 @@ const talents = [
         timezone: 'GMT+5',
     },
     {
-        name: 'Javeria Urooj',
+        name: 'Javeria',
         role: 'Frontend Web Developer',
         location: 'Karachi, Pakistan',
         rating: 4.8,
@@ -56,7 +56,7 @@ const talents = [
         timezone: 'GMT+5',
     },
     {
-        name: 'Kashan Ali',
+        name: 'Kashan',
         role: 'Product Designer',
         location: 'Islamabad, Pakistan',
         rating: 5.0,
@@ -104,22 +104,6 @@ const talents = [
         timezone: 'GMT+5',
     },
     {
-        name: 'Sanjay Muthukumaran',
-        role: 'Software Developer',
-        location: 'India',
-        rating: 4.9,
-        skills: ['Java', 'Spring Boot', 'Microservices', 'AWS', 'Docker'],
-        image: '/Sanjay Muthukumaran Profile.JPG',
-        verified: true,
-        experience: '5+ years',
-        education: 'B.Tech Computer Science',
-        hourlyRate: '$38/hr',
-        projects: 42,
-        bio: 'Backend specialist with expertise in building robust microservices and cloud-native applications.',
-        languages: ['English', 'Tamil', 'Hindi'],
-        timezone: 'GMT+5:30',
-    },
-    {
         name: 'Umer',
         role: 'Backend Engineer',
         location: 'Pakistan',
@@ -139,7 +123,14 @@ const talents = [
 
 type Talent = typeof talents[0];
 
-const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void }) => {
+const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
+    talent: Talent;
+    onClose: () => void;
+    onNext: () => void;
+    onPrev: () => void;
+    hasNext: boolean;
+    hasPrev: boolean;
+}) => {
     return (
         <m.div
             initial={{ opacity: 0 }}
@@ -154,11 +145,35 @@ const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void 
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="h-full w-full max-w-lg bg-zinc-900/95 backdrop-blur-xl border-l border-cyan-400/20 overflow-y-auto"
+                className="h-full w-full max-w-lg bg-zinc-900/95 backdrop-blur-xl border-l border-cyan-400/10 overflow-y-auto"
             >
                 {/* Header */}
                 <div className="sticky top-0 bg-zinc-900/90 backdrop-blur-xl border-b border-white/10 p-6 flex items-center justify-between z-10">
-                    <h3 className="text-xl font-bold text-white">Talent Profile</h3>
+                    <div className="flex items-center gap-3">
+                        <h3 className="text-xl font-bold text-white">Talent Profile</h3>
+                        <div className="flex items-center gap-1">
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onPrev();
+                                }}
+                                disabled={!hasPrev}
+                                className="p-1.5 hover:bg-white/10 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                            >
+                                <ChevronLeft className="w-4 h-4 text-zinc-400" />
+                            </button>
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    onNext();
+                                }}
+                                disabled={!hasNext}
+                                className="p-1.5 hover:bg-white/10 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                            >
+                                <ChevronRight className="w-4 h-4 text-zinc-400" />
+                            </button>
+                        </div>
+                    </div>
                     <button
                         onClick={onClose}
                         className="p-2 hover:bg-white/10 rounded-full transition-colors"
@@ -215,14 +230,14 @@ const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void 
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/20">
+                        <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/10">
                             <div className="flex items-center gap-2 mb-2">
                                 <Briefcase className="w-4 h-4 text-cyan-400" />
                                 <span className="text-xs text-zinc-400">Experience</span>
                             </div>
                             <p className="text-xl font-bold text-white">{talent.experience}</p>
                         </div>
-                        <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/20">
+                        <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/10">
                             <div className="flex items-center gap-2 mb-2">
                                 <Award className="w-4 h-4 text-cyan-400" />
                                 <span className="text-xs text-zinc-400">Projects</span>
@@ -250,7 +265,7 @@ const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void 
                             {talent.skills.map((skill) => (
                                 <span
                                     key={skill}
-                                    className="px-3 py-1.5 bg-cyan-400/10 text-cyan-400 text-xs font-medium rounded-lg border border-cyan-400/20"
+                                    className="px-3 py-1.5 bg-cyan-400/10 text-cyan-400 text-xs font-medium rounded-lg border border-cyan-400/10"
                                 >
                                     {skill}
                                 </span>
@@ -277,7 +292,7 @@ const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void 
                     </div>
 
                     {/* Hourly Rate */}
-                    <div className="p-6 bg-gradient-to-br from-cyan-400/20 to-cyan-400/10 rounded-2xl border border-cyan-400/30 text-center">
+                    <div className="p-6 bg-gradient-to-br from-cyan-400/20 to-cyan-400/10 rounded-2xl border border-cyan-400/15 text-center">
                         <p className="text-sm text-cyan-400 mb-1">Hourly Rate</p>
                         <p className="text-3xl font-bold text-white">{talent.hourlyRate}</p>
                     </div>
@@ -299,7 +314,7 @@ const DetailPanel = ({ talent, onClose }: { talent: Talent; onClose: () => void 
 
 const TalentShowcase = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [selectedTalent, setSelectedTalent] = useState<Talent | null>(null);
+    const [selectedTalentIndex, setSelectedTalentIndex] = useState<number | null>(null);
     const [showComingSoon, setShowComingSoon] = useState(false);
 
     const { scrollYProgress } = useScroll({
@@ -309,6 +324,18 @@ const TalentShowcase = () => {
 
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
     const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
+
+    const handleNext = () => {
+        if (selectedTalentIndex !== null && selectedTalentIndex < talents.length - 1) {
+            setSelectedTalentIndex(selectedTalentIndex + 1);
+        }
+    };
+
+    const handlePrev = () => {
+        if (selectedTalentIndex !== null && selectedTalentIndex > 0) {
+            setSelectedTalentIndex(selectedTalentIndex - 1);
+        }
+    };
 
     return (
         <section id="talent-showcase" ref={containerRef} className="relative py-16 bg-zinc-950 overflow-hidden">
@@ -333,73 +360,86 @@ const TalentShowcase = () => {
                         World-Class <span className="text-cyan-400">Talent</span>
                     </h2>
                     <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-                        Hover over cards to explore detailed profiles of our top 1% global professionals.
+                        Click on cards to explore detailed profiles of our top 1% global professionals.
                     </p>
                 </m.div>
 
-                {/* Talent Grid - Smaller Cards */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-                    {talents.map((talent, index) => (
+                {/* Talent Carousel - Single Row with Sliding */}
+                <div className="relative">
+                    <div className="overflow-hidden">
                         <m.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-                            transition={{ delay: index * 0.05, duration: 0.6, ease: "easeOut" }}
-                            className="group cursor-pointer"
-                            onMouseEnter={() => setSelectedTalent(talent)}
+                            className="flex gap-6"
+                            drag="x"
+                            dragConstraints={{ left: -1000, right: 0 }}
+                            dragElastic={0.1}
                         >
-                            {/* Compact Card */}
-                            <div className="relative">
-                                {/* Avatar */}
-                                <div className="relative aspect-square mb-3 overflow-hidden rounded-xl">
-                                    <Image
-                                        src={talent.image}
-                                        alt={talent.name}
-                                        fill
-                                        sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw"
-                                        loading={index < 6 ? "eager" : "lazy"}
-                                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
-                                    />
-                                    {/* Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
+                            {talents.slice(0, 6).map((talent, index) => (
+                                <m.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                                    transition={{ delay: index * 0.05, duration: 0.6, ease: "easeOut" }}
+                                    className="group cursor-pointer flex-shrink-0 w-[200px]"
+                                    onClick={() => setSelectedTalentIndex(index)}
+                                >
+                                    {/* Compact Card */}
+                                    <div className="relative">
+                                        {/* Avatar */}
+                                        <div className="relative aspect-square mb-3 overflow-hidden rounded-xl">
+                                            <Image
+                                                src={talent.image}
+                                                alt={talent.name}
+                                                fill
+                                                sizes="200px"
+                                                loading={index < 6 ? "eager" : "lazy"}
+                                                className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                                            />
+                                            {/* Overlay */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
 
-                                    {/* Verified Badge */}
-                                    {talent.verified && (
-                                        <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <CheckCircle className="w-4 h-4 text-cyan-400" />
+                                            {/* Verified Badge */}
+                                            {talent.verified && (
+                                                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                    <CheckCircle className="w-4 h-4 text-cyan-400" />
+                                                </div>
+                                            )}
+
+                                            {/* Rating */}
+                                            <div className="absolute bottom-2 left-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                                                <span className="text-xs text-white font-bold">{talent.rating}</span>
+                                            </div>
                                         </div>
-                                    )}
 
-                                    {/* Rating */}
-                                    <div className="absolute bottom-2 left-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                                        <span className="text-xs text-white font-bold">{talent.rating}</span>
+                                        {/* Info */}
+                                        <div className="space-y-1">
+                                            <h3 className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors truncate">
+                                                {talent.name}
+                                            </h3>
+                                            <p className="text-xs text-zinc-500 truncate">
+                                                {talent.role}
+                                            </p>
+                                            <div className="flex items-center gap-1 text-zinc-600">
+                                                <MapPin className="w-3 h-3" />
+                                                <span className="text-xs truncate">{talent.location}</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Hover Line */}
+                                        <div className="absolute -bottom-2 left-0 h-px w-0 bg-cyan-400 group-hover:w-full transition-all duration-500" />
                                     </div>
-                                </div>
-
-                                {/* Info */}
-                                <div className="space-y-1">
-                                    <h3 className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors truncate">
-                                        {talent.name}
-                                    </h3>
-                                    <p className="text-xs text-zinc-500 truncate">
-                                        {talent.role}
-                                    </p>
-                                    <div className="flex items-center gap-1 text-zinc-600">
-                                        <MapPin className="w-3 h-3" />
-                                        <span className="text-xs truncate">{talent.location}</span>
-                                    </div>
-                                </div>
-
-                                {/* Hover Line */}
-                                <div className="absolute -bottom-2 left-0 h-px w-0 bg-cyan-400 group-hover:w-full transition-all duration-500" />
-                            </div>
+                                </m.div>
+                            ))}
                         </m.div>
-                    ))}
+                    </div>
+
+                    {/* Gradient Overlays for sliding effect */}
+                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none" />
                 </div>
 
-                {/* Bottom CTA */}
+                {/* Bottom CTA - More Prominent */}
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -407,25 +447,29 @@ const TalentShowcase = () => {
                     transition={{ delay: 0.8 }}
                     className="text-center mt-16"
                 >
-                    <div className="inline-flex items-center gap-3">
-                        <div className="h-px w-12 bg-zinc-800" />
-                        <button
-                            onClick={() => setShowComingSoon(true)}
-                            className="text-sm text-zinc-400 hover:text-white font-light tracking-wide transition-colors"
-                        >
-                            View all talent
-                        </button>
-                        <div className="h-px w-12 bg-zinc-800" />
-                    </div>
+                    <button
+                        onClick={() => setShowComingSoon(true)}
+                        className="group relative px-8 py-4 bg-gradient-to-r from-cyan-400/10 to-cyan-500/10 hover:from-cyan-400/20 hover:to-cyan-500/20 border border-cyan-400/30 hover:border-cyan-400/50 text-cyan-400 hover:text-cyan-300 font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+                    >
+                        <span className="relative z-10 flex items-center gap-2">
+                            View All Talent
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                    </button>
+                    <p className="text-zinc-500 text-sm mt-4">Explore our complete pool of 200+ vetted professionals</p>
                 </m.div>
             </m.div>
 
             {/* Detail Panel */}
-            <AnimatePresence>
-                {selectedTalent && (
+            <AnimatePresence mode="wait">
+                {selectedTalentIndex !== null && (
                     <DetailPanel
-                        talent={selectedTalent}
-                        onClose={() => setSelectedTalent(null)}
+                        talent={talents[selectedTalentIndex]}
+                        onClose={() => setSelectedTalentIndex(null)}
+                        onNext={handleNext}
+                        onPrev={handlePrev}
+                        hasNext={selectedTalentIndex < talents.length - 1}
+                        hasPrev={selectedTalentIndex > 0}
                     />
                 )}
             </AnimatePresence>

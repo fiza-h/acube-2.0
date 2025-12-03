@@ -10,55 +10,109 @@ export default function CaseStudies() {
   const caseStudies = [
     {
       id: 1,
-      company: 'TechFlow AI',
-      industry: 'AI/ML SaaS',
-      location: 'San Francisco, USA',
-      challenge: 'Needed to scale engineering team rapidly while managing tight Series A budget',
-      solution: 'Hired 3 senior full-stack engineers and 1 ML engineer from ACube talent pool',
+      company: 'MG Bhutan (Dakshat Motors)',
+      industry: 'Automotive',
+      location: 'Bhutan',
+      challenge: 'Needed a modern, professional website to showcase MG vehicles and provide booking options for their authorized dealership in Bhutan',
+      solution: 'Built a complete official website with vehicle showcase, booking system, and dealership information',
       results: [
-        { metric: '70%', label: 'Cost Savings', icon: DollarSign },
-        { metric: '3 weeks', label: 'Time to Hire', icon: Clock },
-        { metric: '100%', label: 'Retention Rate', icon: Users },
+        { metric: '100%', label: 'On-Time Delivery', icon: Clock },
+        { metric: 'Full', label: 'Website Built', icon: Zap },
+        { metric: '5/5', label: 'Client Rating', icon: Star },
       ],
-      testimonial: "ACube&apos;s talent didn&apos;t just meet our expectations—they exceeded them. Our remote team in Pakistan ships features faster than our SF team sometimes.",
-      author: 'Sarah Chen',
-      role: 'CTO & Co-founder',
+      testimonial: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care.",
+      author: 'Dakshat Motors',
+      role: 'MG Authorized Distributor',
       gradient: 'from-cyan-500/20 to-cyan-400/20',
       accentColor: 'cyan',
     },
     {
       id: 2,
-      company: 'FinanceHub',
-      industry: 'FinTech',
-      location: 'Singapore',
-      challenge: 'Required specialized blockchain developers with strong security background',
-      solution: 'Placed 2 senior blockchain engineers with 5+ years experience in DeFi protocols',
+      company: 'Jeneeus',
+      industry: 'Social Networking',
+      location: 'United States',
+      challenge: 'Required expert UI/UX design and offshore development support for a meaningful social networking platform',
+      solution: 'Provided comprehensive UI/UX design and offshore development support to build the social networking app',
       results: [
-        { metric: '2 months', label: 'Product Launch', icon: Zap },
-        { metric: '4.9/5', label: 'Client Rating', icon: Star },
-        { metric: '60%', label: 'Budget Saved', icon: DollarSign },
+        { metric: 'Full', label: 'UI/UX Design', icon: Star },
+        { metric: 'Complete', label: 'Development', icon: Zap },
+        { metric: '70%', label: 'Cost Savings', icon: DollarSign },
       ],
-      testimonial: "Finding blockchain talent locally was impossible within our budget. ACube connected us with world-class engineers who delivered our MVP ahead of schedule.",
-      author: 'Marcus Tan',
-      role: 'Founder & CEO',
+      testimonial: "Great work & very high quality. Absolute pleasure thank you for your professionalism and such a fast turn around. Appreciate your work and will definitely be in contact in the future.",
+      author: 'Pippi',
+      role: 'Client',
       gradient: 'from-cyan-500/20 to-cyan-300/20',
       accentColor: 'cyan',
     },
     {
       id: 3,
-      company: 'HealthTrack',
-      industry: 'HealthTech',
-      location: 'New York, USA',
-      challenge: 'Needed HIPAA-compliant development team to build telehealth platform',
-      solution: 'Assembled dedicated team of 4 developers with healthcare compliance expertise',
+      company: 'GuruIsOnline',
+      industry: 'EdTech',
+      location: 'Singapore',
+      challenge: 'Needed a robust platform to connect Mandarin students with teachers for live online classes',
+      solution: 'Developed the full web platform with live classes, communication tools, and scheduling system',
       results: [
-        { metric: '100%', label: 'Compliance Met', icon: Star },
-        { metric: '5 months', label: 'Platform Built', icon: Clock },
+        { metric: 'Full', label: 'Platform Built', icon: Zap },
+        { metric: 'Live', label: 'Classes System', icon: Users },
         { metric: '65%', label: 'Cost Reduction', icon: DollarSign },
       ],
-      testimonial: "The level of professionalism and attention to security detail was outstanding&period; Our ACube team understood HIPAA requirements better than most US-based contractors we interviewed.",
-      author: 'Dr. James Wilson',
-      role: 'Chief Medical Officer',
+      testimonial: "Their offshore augmentation model delivered significant cost savings while maintaining the highest quality standards.",
+      author: 'David Smith',
+      role: 'Founder, NexGen Apps',
+      gradient: 'from-cyan-600/20 to-cyan-400/20',
+      accentColor: 'cyan',
+    },
+    {
+      id: 4,
+      company: 'AdmitPath',
+      industry: 'EdTech',
+      location: 'United States',
+      challenge: 'Required a two-sided marketplace to connect college applicants with experienced counselors',
+      solution: 'Built the complete product end-to-end, from design to deployment, creating a seamless marketplace experience',
+      results: [
+        { metric: 'End-to-End', label: 'Product Built', icon: Zap },
+        { metric: '2-Sided', label: 'Marketplace', icon: Users },
+        { metric: '100%', label: 'Design + Dev', icon: Star },
+      ],
+      testimonial: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care.",
+      author: 'Adila Sayyed',
+      role: 'Founder, 3D Heroes',
+      gradient: 'from-cyan-500/20 to-cyan-400/20',
+      accentColor: 'cyan',
+    },
+    {
+      id: 5,
+      company: 'EduVille',
+      industry: 'EdTech',
+      location: 'Singapore',
+      challenge: 'Needed offshore UI/UX design and front-end development for a gamified Tamil learning platform for kids',
+      solution: 'Supported the product with offshore UI/UX design and front-end development resources',
+      results: [
+        { metric: 'Gamified', label: 'Learning Platform', icon: Star },
+        { metric: 'Complete', label: 'UI/UX + Frontend', icon: Zap },
+        { metric: '70%', label: 'Cost Savings', icon: DollarSign },
+      ],
+      testimonial: "Great work & very high quality. Absolute pleasure thank you for your professionalism and such a fast turn around.",
+      author: 'Client',
+      role: 'EduVille Team',
+      gradient: 'from-cyan-500/20 to-cyan-300/20',
+      accentColor: 'cyan',
+    },
+    {
+      id: 6,
+      company: '3D Heroes',
+      industry: 'Gaming/Design',
+      location: 'United States',
+      challenge: 'Game designers needed a fast search platform to find high-quality 3D assets instantly',
+      solution: 'Developed the entire platform from scratch with advanced search capabilities',
+      results: [
+        { metric: 'Full', label: 'Platform Built', icon: Zap },
+        { metric: 'Fast', label: 'Search System', icon: TrendingUp },
+        { metric: '100%', label: 'From Scratch', icon: Star },
+      ],
+      testimonial: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care. ACube felt less like an outsourced team and more like a true tech partner.",
+      author: 'Adila Sayyed',
+      role: 'Founder, 3D Heroes',
       gradient: 'from-cyan-600/20 to-cyan-400/20',
       accentColor: 'cyan',
     },
@@ -94,7 +148,7 @@ export default function CaseStudies() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-block mb-6 px-4 py-2 bg-cyan-400/10 border border-cyan-400/20 rounded-full"
+              className="inline-block mb-6 px-4 py-2 bg-cyan-400/10 border border-cyan-400/10 rounded-full"
             >
               <span className="text-cyan-400 text-sm font-bold tracking-wide">SUCCESS STORIES</span>
             </m.div>
@@ -149,7 +203,7 @@ export default function CaseStudies() {
                   {/* Glow Effect on Hover */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/10 to-cyan-600/10 rounded-3xl opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-500" />
 
-                  <div className={`relative bg-gradient-to-br ${study.gradient} backdrop-blur-sm rounded-3xl border border-cyan-400/20 overflow-hidden`}>
+                  <div className={`relative bg-gradient-to-br ${study.gradient} backdrop-blur-sm rounded-3xl border border-cyan-400/10 overflow-hidden`}>
                     {/* Top Section - Company Info */}
                     <div className="p-8 md:p-12 border-b border-white/10">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -158,7 +212,7 @@ export default function CaseStudies() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="inline-block mb-3 px-3 py-1 bg-cyan-400/10 border border-cyan-400/30 rounded-full"
+                            className="inline-block mb-3 px-3 py-1 bg-cyan-400/10 border border-cyan-400/15 rounded-full"
                           >
                             <span className="text-cyan-400 text-xs font-bold tracking-wider">{study.industry}</span>
                           </m.div>
@@ -212,7 +266,7 @@ export default function CaseStudies() {
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
                               transition={{ delay: idx * 0.1 }}
-                              className="text-center p-6 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-2xl border border-cyan-400/20 hover:border-cyan-400/40 transition-colors"
+                              className="text-center p-6 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-2xl border border-cyan-400/10 hover:border-cyan-400/40 transition-colors"
                             >
                               <Icon className="w-6 h-6 text-cyan-400 mx-auto mb-3" />
                               <div className="text-3xl font-black text-white mb-2">{result.metric}</div>

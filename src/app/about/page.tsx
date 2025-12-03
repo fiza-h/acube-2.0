@@ -19,7 +19,7 @@ export default function AboutUs() {
             About <span className="text-cyan-400">Us</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-300 leading-relaxed font-medium">
-            ACube Tech was born from a simple, personal truth: <span className="text-cyan-400">talent is universal, but opportunity is not&period;</span>
+            ACube Tech was born from a simple, personal truth: <span className="text-cyan-400">talent is universal, but opportunity is not.</span>
           </p>
         </div>
 
@@ -33,7 +33,7 @@ export default function AboutUs() {
                 We started as a group of college students from developing countries, who were fortunate enough to study abroad at some of the world&apos;s leading institutions, including Ivy League institutions. As we navigated our new environments, one realization hit us deeply: many of our friends back home were just as talented, often more talented, but lacked access to the opportunities we were now surrounded by.
               </p>
 
-              <div className="space-y-3 my-8 pl-6 border-l-2 border-cyan-400/30">
+              <div className="space-y-3 my-8 pl-6 border-l-2 border-cyan-400/15">
                 <p className="text-zinc-400 italic">Not because they were not capable.</p>
                 <p className="text-zinc-400 italic">Not because they did not dream big.</p>
                 <p className="text-zinc-400 italic">But because resources, information, and sometimes just luck stood in the way.</p>

@@ -95,7 +95,7 @@ const Stats = () => {
                                 className="relative text-center group"
                             >
                                 {/* Subtle border effect */}
-                                <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/5 to-transparent rounded-2xl border border-cyan-400/10 group-hover:border-cyan-400/20 transition-colors" />
+                                <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/5 to-transparent rounded-2xl border border-cyan-400/10 group-hover:border-cyan-400/10 transition-colors" />
 
                                 {/* Content */}
                                 <div className="relative p-8">

@@ -228,7 +228,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-5xl md:text-8xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
+                    className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
                 >
                     Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-cyan-400">build faster</span>, spend smarter.
                 </m.h1>

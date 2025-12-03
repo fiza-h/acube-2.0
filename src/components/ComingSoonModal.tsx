@@ -42,7 +42,7 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 {[...Array(12)].map((_, i) => (
                                     <div
                                         key={i}
-                                        className="aspect-square rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/30"
+                                        className="aspect-square rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15"
                                     />
                                 ))}
                             </div>
@@ -82,7 +82,7 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/20 shadow-2xl shadow-cyan-400/10 overflow-hidden"
+                        className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden"
                     >
                         {/* Animated gradient border */}
                         <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
@@ -117,7 +117,7 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 mb-8"
+                                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15 mb-8"
                             >
                                 <Sparkles className="w-10 h-10 text-cyan-400" />
                             </m.div>
