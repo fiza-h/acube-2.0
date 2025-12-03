@@ -67,7 +67,7 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/20 shadow-2xl shadow-cyan-400/10 overflow-hidden"
+                            className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden"
                         >
                         {/* Animated gradient border effect */}
                         <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
@@ -98,7 +98,7 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                         {/* Header */}
                         <div className="relative p-8 pb-6 border-b border-white/10">
                             <div className="flex items-center gap-4 mb-3">
-                                <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/30">
+                                <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15">
                                     <Sparkles className="w-6 h-6 text-cyan-400" />
                                 </div>
                                 <div>
@@ -247,7 +247,7 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                                         initial={{ scale: 0 }}
                                         animate={{ scale: 1 }}
                                         transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                                        className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/30 mb-6"
+                                        className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15 mb-6"
                                     >
                                         <svg className="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

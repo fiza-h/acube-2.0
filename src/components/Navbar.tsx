@@ -239,7 +239,7 @@ const Navbar = () => {
                 <div className="hidden md:flex items-center gap-2">
                     {/* Futuristic container with border animation */}
                     <m.div
-                        className="relative px-6 py-2"
+                        className="relative px-1 py-1"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3 }}
@@ -293,14 +293,27 @@ const Navbar = () => {
                                 style={{
                                     background: 'linear-gradient(to right, #06b6d4, #22d3ee, #06b6d4, #0891b2)',
                                     backgroundSize: '300% 100%',
+                                    boxShadow: '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4), 0 0 90px rgba(6, 182, 212, 0.2)',
                                 }}
                                 animate={{
                                     backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                                    boxShadow: [
+                                        '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4), 0 0 90px rgba(6, 182, 212, 0.2)',
+                                        '0 0 40px rgba(6, 182, 212, 0.8), 0 0 80px rgba(6, 182, 212, 0.5), 0 0 120px rgba(6, 182, 212, 0.3)',
+                                        '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4), 0 0 90px rgba(6, 182, 212, 0.2)',
+                                    ],
                                 }}
                                 transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: 'linear',
+                                    backgroundPosition: {
+                                        duration: 3,
+                                        repeat: Infinity,
+                                        ease: 'linear',
+                                    },
+                                    boxShadow: {
+                                        duration: 2,
+                                        repeat: Infinity,
+                                        ease: 'easeInOut',
+                                    },
                                 }}
                             >
                                 <span className="relative z-10 font-[var(--font-space-grotesk)] tracking-wide">
@@ -311,9 +324,21 @@ const Navbar = () => {
                                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             </m.div>
 
-                            {/* Subtle outer glow */}
+                            {/* Strong outer glow */}
                             <m.div
-                                className="absolute -inset-1 bg-cyan-400/30 blur-lg -z-10 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg"
+                                className="absolute -inset-2 blur-2xl -z-10 rounded-lg"
+                                style={{
+                                    background: 'radial-gradient(circle, rgba(6, 182, 212, 0.6) 0%, rgba(6, 182, 212, 0.3) 50%, transparent 70%)',
+                                }}
+                                animate={{
+                                    opacity: [0.6, 1, 0.6],
+                                    scale: [1, 1.1, 1],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                }}
                             />
                         </m.div>
                     </Link>
@@ -321,7 +346,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <m.button
-                    className="md:hidden text-white relative p-2 border border-cyan-400/30"
+                    className="md:hidden text-white relative p-2 border border-cyan-400/15"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     whileTap={{ scale: 0.9 }}
                     style={{
@@ -343,7 +368,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
-                    className="md:hidden bg-black/95 backdrop-blur-2xl border-t border-cyan-400/20"
+                    className="md:hidden bg-black/95 backdrop-blur-2xl border-t border-cyan-400/10"
                 >
                     <div className="flex flex-col p-6 space-y-4">
                         {navLinks.map((link, i) => (

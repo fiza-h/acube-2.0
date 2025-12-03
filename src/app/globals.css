@@ -28,6 +28,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ensure all clickable elements show pointer cursor */
+a, button, [role="button"], [onClick], .cursor-pointer {
+  cursor: pointer !important;
+}
+
+button:disabled, [disabled] {
+  cursor: not-allowed !important;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

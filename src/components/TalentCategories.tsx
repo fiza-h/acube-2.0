@@ -68,7 +68,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
             transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/30 overflow-hidden ${category.colSpan} transition-all duration-300`}
+            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/15 overflow-hidden ${category.colSpan} transition-all duration-300`}
             onMouseMove={handleMouseMove}
         >
             {/* Spotlight Effect */}
@@ -91,10 +91,10 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
             <div className="relative p-8 h-full flex flex-col justify-between">
                 <div>
                     <div className="flex justify-between items-start mb-6">
-                        <div className="p-3 bg-cyan-400/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-cyan-400/20 group-hover:border-cyan-400/40">
+                        <div className="p-3 bg-cyan-400/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-cyan-400/10 group-hover:border-cyan-400/40">
                             <category.icon className="w-8 h-8 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
                         </div>
-                        <span className="flex items-center text-xs font-bold text-white/60 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/20">
+                        <span className="flex items-center text-xs font-bold text-white/60 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/10">
                             <Sparkles className="w-3 h-3 mr-1 text-cyan-400" />
                             {category.count}
                         </span>
@@ -113,7 +113,7 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
                         {category.skills.map((skill) => (
                             <span
                                 key={skill}
-                                className="text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-cyan-400/20 group-hover:border-cyan-400/40 group-hover:bg-cyan-400/10 transition-all"
+                                className="text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-cyan-400/10 group-hover:border-cyan-400/40 group-hover:bg-cyan-400/10 transition-all"
                             >
                                 {skill}
                             </span>
@@ -159,7 +159,7 @@ const TalentCategories = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                         transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/20 hover:border-cyan-400/40 transition-all"
+                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/10 hover:border-cyan-400/40 transition-all"
                     >
                         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
                         <div className="relative z-10">
