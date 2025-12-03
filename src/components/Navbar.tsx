@@ -293,14 +293,14 @@ const Navbar = () => {
                                 style={{
                                     background: 'linear-gradient(to right, #06b6d4, #22d3ee, #06b6d4, #0891b2)',
                                     backgroundSize: '300% 100%',
-                                    boxShadow: '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4), 0 0 90px rgba(6, 182, 212, 0.2)',
+                                    boxShadow: '0 0 10px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.2)',
                                 }}
                                 animate={{
                                     backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                                     boxShadow: [
-                                        '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4), 0 0 90px rgba(6, 182, 212, 0.2)',
-                                        '0 0 40px rgba(6, 182, 212, 0.8), 0 0 80px rgba(6, 182, 212, 0.5), 0 0 120px rgba(6, 182, 212, 0.3)',
-                                        '0 0 30px rgba(6, 182, 212, 0.6), 0 0 60px rgba(6, 182, 212, 0.4), 0 0 90px rgba(6, 182, 212, 0.2)',
+                                        '0 0 10px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.2)',
+                                        '0 0 15px rgba(6, 182, 212, 0.4), 0 0 25px rgba(6, 182, 212, 0.25)',
+                                        '0 0 10px rgba(6, 182, 212, 0.3), 0 0 20px rgba(6, 182, 212, 0.2)',
                                     ],
                                 }}
                                 transition={{
@@ -324,15 +324,15 @@ const Navbar = () => {
                                 <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             </m.div>
 
-                            {/* Strong outer glow */}
+                            {/* Subtle outer glow */}
                             <m.div
-                                className="absolute -inset-2 blur-2xl -z-10 rounded-lg"
+                                className="absolute -inset-1 blur-xl -z-10 rounded-lg"
                                 style={{
-                                    background: 'radial-gradient(circle, rgba(6, 182, 212, 0.6) 0%, rgba(6, 182, 212, 0.3) 50%, transparent 70%)',
+                                    background: 'radial-gradient(circle, rgba(6, 182, 212, 0.25) 0%, rgba(6, 182, 212, 0.15) 50%, transparent 70%)',
                                 }}
                                 animate={{
-                                    opacity: [0.6, 1, 0.6],
-                                    scale: [1, 1.1, 1],
+                                    opacity: [0.3, 0.5, 0.3],
+                                    scale: [1, 1.05, 1],
                                 }}
                                 transition={{
                                     duration: 2,
