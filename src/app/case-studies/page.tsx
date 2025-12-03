@@ -153,11 +153,11 @@ export default function CaseStudies() {
               <span className="text-cyan-400 text-sm font-bold tracking-wide">SUCCESS STORIES</span>
             </m.div>
 
-            <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-6 tracking-tight px-4">
               Real Impact, <span className="text-cyan-400">Real Results</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed px-4">
               See how startups across the globe are building world-class products with ACube&apos;s top 5% offshore talent
             </p>
           </m.div>
@@ -203,9 +203,9 @@ export default function CaseStudies() {
                   {/* Glow Effect on Hover */}
                   <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/10 to-cyan-600/10 rounded-3xl opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-500" />
 
-                  <div className={`relative bg-gradient-to-br ${study.gradient} backdrop-blur-sm rounded-3xl border border-cyan-400/10 overflow-hidden`}>
+                  <div className={`relative bg-gradient-to-br ${study.gradient} backdrop-blur-sm rounded-2xl sm:rounded-3xl border border-cyan-400/10 overflow-hidden`}>
                     {/* Top Section - Company Info */}
-                    <div className="p-8 md:p-12 border-b border-white/10">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-12 border-b border-white/10">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                         <div>
                           <m.div
@@ -216,19 +216,19 @@ export default function CaseStudies() {
                           >
                             <span className="text-cyan-400 text-xs font-bold tracking-wider">{study.industry}</span>
                           </m.div>
-                          <h2 className="text-4xl md:text-5xl font-black text-white mb-3">{study.company}</h2>
-                          <p className="text-zinc-400 flex items-center gap-2">
+                          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3">{study.company}</h2>
+                          <p className="text-sm sm:text-base text-zinc-400 flex items-center gap-2">
                             <span className="w-2 h-2 bg-cyan-400 rounded-full" />
                             {study.location}
                           </p>
                         </div>
 
                         {/* Results Preview */}
-                        <div className="flex gap-4">
+                        <div className="flex gap-2 sm:gap-4">
                           {study.results.slice(0, 2).map((result, idx) => (
-                            <div key={idx} className="text-center p-4 bg-white/5 rounded-xl border border-white/10">
-                              <div className="text-2xl font-black text-cyan-400">{result.metric}</div>
-                              <div className="text-xs text-zinc-400 mt-1">{result.label}</div>
+                            <div key={idx} className="text-center p-3 sm:p-4 bg-white/5 rounded-xl border border-white/10 flex-1 sm:flex-initial">
+                              <div className="text-lg sm:text-xl md:text-2xl font-black text-cyan-400">{result.metric}</div>
+                              <div className="text-[10px] sm:text-xs text-zinc-400 mt-1">{result.label}</div>
                             </div>
                           ))}
                         </div>
@@ -236,27 +236,27 @@ export default function CaseStudies() {
                     </div>
 
                     {/* Middle Section - Challenge & Solution */}
-                    <div className="p-8 md:p-12 grid md:grid-cols-2 gap-8 border-b border-white/10">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-12 grid md:grid-cols-2 gap-6 sm:gap-8 border-b border-white/10">
                       <div>
-                        <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                          <TrendingUp className="w-4 h-4" />
+                        <h3 className="text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                          <TrendingUp className="w-3 h-3 sm:w-4 sm:h-4" />
                           The Challenge
                         </h3>
-                        <p className="text-zinc-300 leading-relaxed">{study.challenge}</p>
+                        <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">{study.challenge}</p>
                       </div>
                       <div>
-                        <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-2">
-                          <Zap className="w-4 h-4" />
+                        <h3 className="text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider mb-3 flex items-center gap-2">
+                          <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
                           Our Solution
                         </h3>
-                        <p className="text-zinc-300 leading-relaxed">{study.solution}</p>
+                        <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">{study.solution}</p>
                       </div>
                     </div>
 
                     {/* Results Section */}
-                    <div className="p-8 md:p-12 bg-black/20">
-                      <h3 className="text-sm font-bold text-cyan-400 uppercase tracking-wider mb-6">Key Results</h3>
-                      <div className="grid grid-cols-3 gap-6 mb-8">
+                    <div className="p-4 sm:p-6 md:p-8 lg:p-12 bg-black/20">
+                      <h3 className="text-xs sm:text-sm font-bold text-cyan-400 uppercase tracking-wider mb-4 sm:mb-6">Key Results</h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
                         {study.results.map((result, idx) => {
                           const Icon = result.icon;
                           return (
@@ -266,29 +266,29 @@ export default function CaseStudies() {
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
                               transition={{ delay: idx * 0.1 }}
-                              className="text-center p-6 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-2xl border border-cyan-400/10 hover:border-cyan-400/40 transition-colors"
+                              className="text-center p-4 sm:p-5 md:p-6 bg-gradient-to-br from-cyan-400/10 to-transparent rounded-xl sm:rounded-2xl border border-cyan-400/10 hover:border-cyan-400/40 transition-colors"
                             >
-                              <Icon className="w-6 h-6 text-cyan-400 mx-auto mb-3" />
-                              <div className="text-3xl font-black text-white mb-2">{result.metric}</div>
-                              <div className="text-sm text-zinc-400 font-medium">{result.label}</div>
+                              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-cyan-400 mx-auto mb-2 sm:mb-3" />
+                              <div className="text-2xl sm:text-3xl font-black text-white mb-1 sm:mb-2">{result.metric}</div>
+                              <div className="text-xs sm:text-sm text-zinc-400 font-medium">{result.label}</div>
                             </m.div>
                           );
                         })}
                       </div>
 
                       {/* Testimonial */}
-                      <div className="relative mt-8 p-8 bg-white/5 rounded-2xl border border-white/10">
-                        <div className="absolute -top-4 -left-2 text-6xl text-cyan-400/30 font-serif">&ldquo;</div>
-                        <p className="text-lg text-zinc-300 italic leading-relaxed mb-6 relative z-10">
+                      <div className="relative mt-6 sm:mt-8 p-4 sm:p-6 md:p-8 bg-white/5 rounded-xl sm:rounded-2xl border border-white/10">
+                        <div className="absolute -top-2 sm:-top-4 -left-1 sm:-left-2 text-3xl sm:text-5xl md:text-6xl text-cyan-400/30 font-serif">&ldquo;</div>
+                        <p className="text-sm sm:text-base md:text-lg text-zinc-300 italic leading-relaxed mb-4 sm:mb-6 relative z-10">
                           {study.testimonial}
                         </p>
-                        <div className="flex items-center gap-4">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white font-bold text-lg">
+                        <div className="flex items-center gap-3 sm:gap-4">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white font-bold text-base sm:text-lg flex-shrink-0">
                             {study.author.charAt(0)}
                           </div>
                           <div>
-                            <div className="font-bold text-white">{study.author}</div>
-                            <div className="text-sm text-zinc-400">{study.role}, {study.company}</div>
+                            <div className="font-bold text-white text-sm sm:text-base">{study.author}</div>
+                            <div className="text-xs sm:text-sm text-zinc-400">{study.role}, {study.company}</div>
                           </div>
                         </div>
                       </div>
@@ -310,10 +310,10 @@ export default function CaseStudies() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-6xl font-black mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-black mb-6 px-4">
               Ready to Write Your <span className="text-cyan-400">Success Story?</span>
             </h2>
-            <p className="text-xl text-zinc-400 mb-12 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
               Join the growing number of startups building exceptional products with ACube&apos;s top-tier talent
             </p>
 
