@@ -1,7 +1,7 @@
 'use client';
 
 import { m, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { MapPin, CheckCircle, Star, Briefcase, GraduationCap, Code, X, MessageSquare, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { MapPin, CheckCircle, Star, Briefcase, GraduationCap, Code, X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import ComingSoonModal from './ComingSoonModal';
@@ -286,30 +286,6 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
                                 </span>
                             ))}
                         </div>
-                    </div>
-
-                    {/* Languages */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-3">
-                            <MessageSquare className="w-5 h-5 text-cyan-400" />
-                            <span className="text-sm font-medium text-zinc-400">Languages</span>
-                        </div>
-                        <div className="flex flex-wrap gap-2">
-                            {talent.languages.map((lang) => (
-                                <span
-                                    key={lang}
-                                    className="px-3 py-1.5 bg-white/5 text-zinc-300 text-xs font-medium rounded-lg border border-white/10"
-                                >
-                                    {lang}
-                                </span>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Hourly Rate */}
-                    <div className="p-6 bg-gradient-to-br from-cyan-400/20 to-cyan-400/10 rounded-2xl border border-cyan-400/15 text-center">
-                        <p className="text-sm text-cyan-400 mb-1">Hourly Rate</p>
-                        <p className="text-3xl font-bold text-white">{talent.hourlyRate}</p>
                     </div>
 
                     {/* CTA Buttons */}
