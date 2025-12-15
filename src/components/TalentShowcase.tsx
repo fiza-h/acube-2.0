@@ -135,21 +135,19 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
 
     // Lock body scroll when modal is open
     useEffect(() => {
+        // Store the current scroll position
         const scrollY = window.scrollY;
-        const body = document.body;
 
-        // Lock scroll position
-        body.style.position = 'fixed';
-        body.style.top = `-${scrollY}px`;
-        body.style.width = '100%';
-        body.style.overflow = 'hidden';
+        // Prevent scrolling on body
+        document.body.style.overflow = 'hidden';
+        document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`;
 
         return () => {
-            // Restore scroll position
-            body.style.position = '';
-            body.style.top = '';
-            body.style.width = '';
-            body.style.overflow = '';
+            // Restore body scroll
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+
+            // Maintain scroll position (it should already be maintained with overflow: hidden)
             window.scrollTo(0, scrollY);
         };
     }, []);
