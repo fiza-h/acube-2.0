@@ -2,7 +2,7 @@
 
 import { m, AnimatePresence } from 'motion/react';
 import { X, Upload, MapPin, Briefcase, User, Linkedin, FileText, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface TalentRegistrationModalProps {
     isOpen: boolean;
@@ -19,6 +19,30 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
     const [cvFile, setCvFile] = useState<File | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const modalContentRef = useRef<HTMLDivElement>(null);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        if (isOpen) {
+            const scrollY = window.scrollY;
+            const body = document.body;
+
+            // Lock scroll position
+            body.style.position = 'fixed';
+            body.style.top = `-${scrollY}px`;
+            body.style.width = '100%';
+            body.style.overflow = 'hidden';
+
+            return () => {
+                // Restore scroll position
+                body.style.position = '';
+                body.style.top = '';
+                body.style.width = '';
+                body.style.overflow = '';
+                window.scrollTo(0, scrollY);
+            };
+        }
+    }, [isOpen]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -45,6 +69,13 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
         }
     };
 
+    // Redirect all wheel events to modal content for better UX
+    const handleWheel = (e: React.WheelEvent) => {
+        if (modalContentRef.current) {
+            modalContentRef.current.scrollTop += e.deltaY;
+        }
+    };
+
     return (
         <AnimatePresence>
             {isOpen && (
@@ -52,14 +83,18 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-50 overflow-y-auto"
+                    className="fixed inset-0 z-50"
                     onClick={onClose}
+                    onWheel={handleWheel}
                 >
                     {/* Backdrop */}
                     <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
 
                     {/* Centered container */}
-                    <div className="min-h-screen flex items-center justify-center p-4">
+                    <div
+                        ref={modalContentRef}
+                        className="relative h-full overflow-y-auto flex items-center justify-center p-4"
+                    >
                         {/* Modal Content */}
                         <m.div
                             initial={{ scale: 0.95, opacity: 0, y: 20 }}
@@ -67,7 +102,7 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden"
+                            className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden my-8"
                         >
                         {/* Animated gradient border effect */}
                         <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">

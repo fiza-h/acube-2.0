@@ -4,15 +4,18 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { m } from 'motion/react';
-import { ArrowRight, TrendingUp, Users, Zap, Clock, DollarSign, Star } from 'lucide-react';
+import { ArrowRight, TrendingUp, Zap, Clock, DollarSign, Star, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
 export default function CaseStudies() {
   const caseStudies = [
     {
       id: 1,
-      company: 'MG Bhutan (Dakshat Motors)',
+      company: 'MG Bhutan (Daksho Motors)',
       industry: 'Automotive',
       location: 'Bhutan',
+      website: 'https://www.dakshomgmotors.com/',
+      logo: '/daksho-motors-logo.svg',
       challenge: 'Needed a modern, professional website to showcase MG vehicles and provide booking options for their authorized dealership in Bhutan',
       solution: 'Built a complete official website with vehicle showcase, booking system, and dealership information',
       results: [
@@ -20,9 +23,9 @@ export default function CaseStudies() {
         { metric: 'Full', label: 'Website Built', icon: Zap },
         { metric: '5/5', label: 'Client Rating', icon: Star },
       ],
-      testimonial: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care.",
-      author: 'Dakshat Motors',
-      role: 'MG Authorized Distributor',
+      testimonial: "We are really happy with the website that ACube Tech's created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
+      author: 'Saroj Rai',
+      role: 'Manager, Daksho MG Motors Pvt. Ltd.',
       gradient: 'from-cyan-500/20 to-cyan-400/20',
       accentColor: 'cyan',
     },
@@ -31,6 +34,8 @@ export default function CaseStudies() {
       company: 'Jeneeus',
       industry: 'Social Networking',
       location: 'United States',
+      website: null,
+      logo: '/Jeeneus.png',
       challenge: 'Required expert UI/UX design and offshore development support for a meaningful social networking platform',
       solution: 'Provided comprehensive UI/UX design and offshore development support to build the social networking app',
       results: [
@@ -39,52 +44,18 @@ export default function CaseStudies() {
         { metric: '70%', label: 'Cost Savings', icon: DollarSign },
       ],
       testimonial: "Great work & very high quality. Absolute pleasure thank you for your professionalism and such a fast turn around. Appreciate your work and will definitely be in contact in the future.",
-      author: 'Pippi',
-      role: 'Client',
+      author: 'Glahens',
+      role: 'Co-founder and CTO, Jeneeus',
       gradient: 'from-cyan-500/20 to-cyan-300/20',
       accentColor: 'cyan',
     },
     {
       id: 3,
-      company: 'GuruIsOnline',
-      industry: 'EdTech',
-      location: 'Singapore',
-      challenge: 'Needed a robust platform to connect Mandarin students with teachers for live online classes',
-      solution: 'Developed the full web platform with live classes, communication tools, and scheduling system',
-      results: [
-        { metric: 'Full', label: 'Platform Built', icon: Zap },
-        { metric: 'Live', label: 'Classes System', icon: Users },
-        { metric: '65%', label: 'Cost Reduction', icon: DollarSign },
-      ],
-      testimonial: "Their offshore augmentation model delivered significant cost savings while maintaining the highest quality standards.",
-      author: 'David Smith',
-      role: 'Founder, NexGen Apps',
-      gradient: 'from-cyan-600/20 to-cyan-400/20',
-      accentColor: 'cyan',
-    },
-    {
-      id: 4,
-      company: 'AdmitPath',
-      industry: 'EdTech',
-      location: 'United States',
-      challenge: 'Required a two-sided marketplace to connect college applicants with experienced counselors',
-      solution: 'Built the complete product end-to-end, from design to deployment, creating a seamless marketplace experience',
-      results: [
-        { metric: 'End-to-End', label: 'Product Built', icon: Zap },
-        { metric: '2-Sided', label: 'Marketplace', icon: Users },
-        { metric: '100%', label: 'Design + Dev', icon: Star },
-      ],
-      testimonial: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care.",
-      author: 'Adila Sayyed',
-      role: 'Founder, 3D Heroes',
-      gradient: 'from-cyan-500/20 to-cyan-400/20',
-      accentColor: 'cyan',
-    },
-    {
-      id: 5,
       company: 'EduVille',
       industry: 'EdTech',
       location: 'Singapore',
+      website: 'https://www.eduville.com/',
+      logo: '/eduville.avif',
       challenge: 'Needed offshore UI/UX design and front-end development for a gamified Tamil learning platform for kids',
       solution: 'Supported the product with offshore UI/UX design and front-end development resources',
       results: [
@@ -92,17 +63,19 @@ export default function CaseStudies() {
         { metric: 'Complete', label: 'UI/UX + Frontend', icon: Zap },
         { metric: '70%', label: 'Cost Savings', icon: DollarSign },
       ],
-      testimonial: "Great work & very high quality. Absolute pleasure thank you for your professionalism and such a fast turn around.",
-      author: 'Client',
-      role: 'EduVille Team',
+      testimonial: "Working with ACube allowed us to bring our vision to life faster than we imagined. Their designer understood our cultural nuances, and the developer delivered top-notch code.",
+      author: 'Sanjay',
+      role: 'Co-Founder, EduVille',
       gradient: 'from-cyan-500/20 to-cyan-300/20',
       accentColor: 'cyan',
     },
     {
-      id: 6,
+      id: 4,
       company: '3D Heroes',
       industry: 'Gaming/Design',
       location: 'United States',
+      website: 'https://3dheroes.io/',
+      logo: '/3dheroes-logo.png',
       challenge: 'Game designers needed a fast search platform to find high-quality 3D assets instantly',
       solution: 'Developed the entire platform from scratch with advanced search capabilities',
       results: [
@@ -120,8 +93,8 @@ export default function CaseStudies() {
 
   const stats = [
     { value: '95%', label: 'Client Retention' },
-    { value: '3 weeks', label: 'Avg Time to Hire' },
-    { value: '68%', label: 'Avg Cost Savings' },
+    { value: '72 hours', label: 'Avg Time to Hire' },
+    { value: '72%', label: 'Avg Cost Savings' },
     { value: '4.9/5', label: 'Avg Client Rating' },
   ];
 
@@ -216,11 +189,36 @@ export default function CaseStudies() {
                           >
                             <span className="text-cyan-400 text-xs font-bold tracking-wider">{study.industry}</span>
                           </m.div>
-                          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3">{study.company}</h2>
-                          <p className="text-sm sm:text-base text-zinc-400 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-cyan-400 rounded-full" />
-                            {study.location}
-                          </p>
+                          <div className="flex items-center gap-4 mb-3">
+                            {study.logo && (
+                              <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0">
+                                <Image
+                                  src={study.logo}
+                                  alt={`${study.company} logo`}
+                                  fill
+                                  className="object-contain"
+                                />
+                              </div>
+                            )}
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white">{study.company}</h2>
+                          </div>
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                            <p className="text-sm sm:text-base text-zinc-400 flex items-center gap-2">
+                              <span className="w-2 h-2 bg-cyan-400 rounded-full" />
+                              {study.location}
+                            </p>
+                            {study.website && (
+                              <a
+                                href={study.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm sm:text-base text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 group"
+                              >
+                                Visit Website
+                                <ExternalLink className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                              </a>
+                            )}
+                          </div>
                         </div>
 
                         {/* Results Preview */}

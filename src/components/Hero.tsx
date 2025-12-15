@@ -218,7 +218,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-8 backdrop-blur-sm hover:bg-white/10 transition-colors"
+                    className="inline-flex items-center space-x-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-12 backdrop-blur-sm hover:bg-white/10 transition-colors"
                 >
                     <Sparkles className="w-4 h-4 text-cyan-400" />
                     <span className="text-sm text-zinc-300">AI-Powered Talent Matching</span>
@@ -228,7 +228,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
+                    className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-white mb-6 max-w-5xl mx-auto leading-tight"
                 >
                     Hire world-class remote talent — <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-cyan-400">build faster</span>, spend smarter.
                 </m.h1>
@@ -237,7 +237,7 @@ const Hero = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-xl text-zinc-400 mb-10 max-w-3xl mx-auto leading-relaxed"
+                    className="text-lg text-zinc-400 mb-10 max-w-3xl mx-auto leading-relaxed"
                 >
                     We connect startups with vetted global professionals in tech and beyond, helping you scale at up to 70% lower cost.
                 </m.p>
