@@ -1,9 +1,9 @@
 'use client';
 
 import { m, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { MapPin, CheckCircle, Star, Award, Briefcase, GraduationCap, Code, X, MessageSquare, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { MapPin, CheckCircle, Star, Briefcase, GraduationCap, Code, X, MessageSquare, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import ComingSoonModal from './ComingSoonModal';
 
 const talents = [
@@ -131,6 +131,36 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
     hasNext: boolean;
     hasPrev: boolean;
 }) => {
+    const sidebarRef = useRef<HTMLDivElement>(null);
+
+    // Lock body scroll when modal is open
+    useEffect(() => {
+        const scrollY = window.scrollY;
+        const body = document.body;
+
+        // Lock scroll position
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.width = '100%';
+        body.style.overflow = 'hidden';
+
+        return () => {
+            // Restore scroll position
+            body.style.position = '';
+            body.style.top = '';
+            body.style.width = '';
+            body.style.overflow = '';
+            window.scrollTo(0, scrollY);
+        };
+    }, []);
+
+    // Redirect all wheel events to sidebar for better UX
+    const handleWheel = (e: React.WheelEvent) => {
+        if (sidebarRef.current) {
+            sidebarRef.current.scrollTop += e.deltaY;
+        }
+    };
+
     return (
         <m.div
             initial={{ opacity: 0 }}
@@ -138,14 +168,17 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 flex items-center justify-end bg-black/60 backdrop-blur-sm"
             onClick={onClose}
+            onWheel={handleWheel}
         >
             <m.div
+                ref={sidebarRef}
                 initial={{ x: '100%' }}
                 animate={{ x: 0 }}
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="h-full w-full max-w-lg bg-zinc-900/95 backdrop-blur-xl border-l border-cyan-400/10 overflow-y-auto"
+                className="h-full w-full max-w-lg bg-zinc-900/95 backdrop-blur-xl border-l border-cyan-400/10 overflow-y-scroll overscroll-contain"
+                style={{ WebkitOverflowScrolling: 'touch' }}
             >
                 {/* Header */}
                 <div className="sticky top-0 bg-zinc-900/90 backdrop-blur-xl border-b border-white/10 p-6 flex items-center justify-between z-10">
@@ -212,37 +245,19 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
                         </div>
                     </div>
 
-                    {/* Rating */}
-                    <div className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/10">
-                        <div className="flex items-center gap-1">
-                            <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
-                            <span className="text-2xl font-bold text-white">{talent.rating}</span>
-                        </div>
-                        <div className="text-sm text-zinc-400">
-                            Based on {talent.projects} projects
-                        </div>
-                    </div>
-
                     {/* Bio */}
                     <div>
                         <p className="text-zinc-300 leading-relaxed">{talent.bio}</p>
                     </div>
 
                     {/* Stats Grid */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4">
                         <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/10">
                             <div className="flex items-center gap-2 mb-2">
                                 <Briefcase className="w-4 h-4 text-cyan-400" />
                                 <span className="text-xs text-zinc-400">Experience</span>
                             </div>
                             <p className="text-xl font-bold text-white">{talent.experience}</p>
-                        </div>
-                        <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/10">
-                            <div className="flex items-center gap-2 mb-2">
-                                <Award className="w-4 h-4 text-cyan-400" />
-                                <span className="text-xs text-zinc-400">Projects</span>
-                            </div>
-                            <p className="text-xl font-bold text-white">{talent.projects}</p>
                         </div>
                     </div>
 
@@ -317,6 +332,9 @@ const TalentShowcase = () => {
     const [selectedTalentIndex, setSelectedTalentIndex] = useState<number | null>(null);
     const [showComingSoon, setShowComingSoon] = useState(false);
 
+    // Filter out Kashan from the talents array
+    const filteredTalents = talents.filter(t => t.name !== 'Kashan');
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ['start end', 'end start'],
@@ -326,7 +344,7 @@ const TalentShowcase = () => {
     const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
 
     const handleNext = () => {
-        if (selectedTalentIndex !== null && selectedTalentIndex < talents.length - 1) {
+        if (selectedTalentIndex !== null && selectedTalentIndex < filteredTalents.length - 1) {
             setSelectedTalentIndex(selectedTalentIndex + 1);
         }
     };
@@ -373,7 +391,7 @@ const TalentShowcase = () => {
                             dragConstraints={{ left: -1000, right: 0 }}
                             dragElastic={0.1}
                         >
-                            {talents.slice(0, 6).map((talent, index) => (
+                            {filteredTalents.slice(0, 6).map((talent, index) => (
                                 <m.div
                                     key={index}
                                     initial={{ opacity: 0, y: 30 }}
@@ -464,11 +482,11 @@ const TalentShowcase = () => {
             <AnimatePresence mode="wait">
                 {selectedTalentIndex !== null && (
                     <DetailPanel
-                        talent={talents[selectedTalentIndex]}
+                        talent={filteredTalents[selectedTalentIndex]}
                         onClose={() => setSelectedTalentIndex(null)}
                         onNext={handleNext}
                         onPrev={handlePrev}
-                        hasNext={selectedTalentIndex < talents.length - 1}
+                        hasNext={selectedTalentIndex < filteredTalents.length - 1}
                         hasPrev={selectedTalentIndex > 0}
                     />
                 )}

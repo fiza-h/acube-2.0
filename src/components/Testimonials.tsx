@@ -13,15 +13,21 @@ const testimonials = [
   },
   {
     id: 2,
-    quote: "Great work & very high quality. Absolute pleasure thank you for your professionalism and such a fast turn around. Appreciate your work and will definitely be in contact in the future.",
-    author: "Pippi",
-    role: "Client, Company Name",
+    quote: "We are really happy with the website that ACube Tech's created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
+    author: "Saroj Rai",
+    role: "Manager, Daksho MG Motors Pvt. Ltd.",
   },
   {
     id: 3,
-    quote: "Their offshore augmentation model delivered significant cost savings while maintaining the highest quality standards.",
-    author: "David Smith",
-    role: "Founder, NexGen Apps",
+    quote: "Working with ACube allowed us to bring our vision to life faster than we imagined. Their designer understood our cultural nuances, and the developer delivered top-notch code.",
+    author: "Sanjay",
+    role: "Co-Founder, EduVille",
+  },
+  {
+    id: 4,
+    quote: "We've been partnering with Acube since the start of the year, and it's been an exceptional experience. The founders provided some of the best customer service I've ever received. They don't just match you with talent - they keep open communication to ensure you get the highest quality work from the people they source. Connecting with them has made talent sourcing significantly easier for our early-stage startup.",
+    author: "Glahens Paul",
+    role: "Co-founder and CTO, JeneeUS",
   },
 ];
 
@@ -102,7 +108,7 @@ const Testimonials = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative mb-8 sm:mb-12 md:mb-16"
           >
-            <p className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-light text-white leading-relaxed tracking-tight max-w-4xl">
+            <p className="text-base sm:text-xl md:text-2xl lg:text-3xl font-light text-white leading-relaxed tracking-tight max-w-4xl">
               {active.quote}
             </p>
           </m.div>
