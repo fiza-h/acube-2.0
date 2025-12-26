@@ -1,22 +1,20 @@
 'use client';
 
 import { m, AnimatePresence } from 'motion/react';
-import { X, Upload, MapPin, Briefcase, User, Linkedin, FileText, Sparkles } from 'lucide-react';
+import { X, User, Mail, MessageSquare, Send } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
-interface TalentRegistrationModalProps {
+interface ContactFormModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalProps) => {
+const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
     const [formData, setFormData] = useState({
         name: '',
-        location: '',
-        role: '',
-        linkedin: '',
+        email: '',
+        message: '',
     });
-    const [cvFile, setCvFile] = useState<File | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
     const modalContentRef = useRef<HTMLDivElement>(null);
@@ -49,27 +47,18 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
         setIsSubmitting(true);
 
         try {
-            // Create FormData for file upload
-            const submitData = new FormData();
-            submitData.append('name', formData.name);
-            submitData.append('location', formData.location);
-            submitData.append('role', formData.role);
-            submitData.append('linkedin', formData.linkedin);
-
-            if (cvFile) {
-                submitData.append('cv', cvFile);
-            }
-
-            // Send to API
-            const response = await fetch('/api/talent/register', {
+            const response = await fetch('/api/contact', {
                 method: 'POST',
-                body: submitData,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
             });
 
             const result = await response.json();
 
             if (!response.ok) {
-                throw new Error(result.error || 'Failed to submit application');
+                throw new Error(result.error || 'Failed to send message');
             }
 
             setIsSubmitting(false);
@@ -79,20 +68,12 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
             setTimeout(() => {
                 setIsSuccess(false);
                 onClose();
-                setFormData({ name: '', location: '', role: '', linkedin: '' });
-                setCvFile(null);
+                setFormData({ name: '', email: '', message: '' });
             }, 2000);
         } catch (error) {
-            console.error('Error submitting application:', error);
+            console.error('Error sending message:', error);
             setIsSubmitting(false);
-            // You could add an error state here to show to the user
-            alert('Failed to submit application. Please try again.');
-        }
-    };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setCvFile(e.target.files[0]);
+            alert('Failed to send message. Please try again.');
         }
     };
 
@@ -161,14 +142,14 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                         <div className="relative p-8 pb-6 border-b border-white/10">
                             <div className="flex items-center gap-4 mb-3">
                                 <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15">
-                                    <Sparkles className="w-6 h-6 text-cyan-400" />
+                                    <MessageSquare className="w-6 h-6 text-cyan-400" />
                                 </div>
                                 <div>
                                     <h2 className="text-3xl font-black text-white tracking-tight font-[var(--font-space-grotesk)]">
-                                        Join Our <span className="text-cyan-400">Talent Pool</span>
+                                        Get in <span className="text-cyan-400">Touch</span>
                                     </h2>
                                     <p className="text-sm text-zinc-400 mt-1">
-                                        Connect with top companies worldwide
+                                        Send us a message and we&apos;ll reply via email
                                     </p>
                                 </div>
                             </div>
@@ -182,7 +163,7 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
                                             <User className="w-4 h-4 text-cyan-400" />
-                                            Full Name *
+                                            Your Name *
                                         </label>
                                         <input
                                             type="text"
@@ -194,92 +175,43 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                                         />
                                     </div>
 
-                                    {/* Location */}
+                                    {/* Email */}
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
-                                            <MapPin className="w-4 h-4 text-cyan-400" />
-                                            Location *
+                                            <Mail className="w-4 h-4 text-cyan-400" />
+                                            Email Address *
                                         </label>
                                         <input
-                                            type="text"
+                                            type="email"
                                             required
-                                            value={formData.location}
-                                            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                                            placeholder="New York, USA"
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            placeholder="john@example.com"
                                             className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all"
                                         />
                                     </div>
 
-                                    {/* Role */}
+                                    {/* Message */}
                                     <div>
                                         <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
-                                            <Briefcase className="w-4 h-4 text-cyan-400" />
-                                            Role / Expertise *
+                                            <MessageSquare className="w-4 h-4 text-cyan-400" />
+                                            Your Message *
                                         </label>
-                                        <input
-                                            type="text"
+                                        <textarea
                                             required
-                                            value={formData.role}
-                                            onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                                            placeholder="Senior Full Stack Developer"
-                                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all"
+                                            value={formData.message}
+                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            placeholder="Tell us about your project or inquiry..."
+                                            rows={6}
+                                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all resize-none"
                                         />
-                                    </div>
-
-                                    {/* LinkedIn */}
-                                    <div>
-                                        <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
-                                            <Linkedin className="w-4 h-4 text-cyan-400" />
-                                            LinkedIn Profile
-                                            <span className="text-xs text-zinc-600">(Optional)</span>
-                                        </label>
-                                        <input
-                                            type="url"
-                                            value={formData.linkedin}
-                                            onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-                                            placeholder="https://linkedin.com/in/johndoe"
-                                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all"
-                                        />
-                                    </div>
-
-                                    {/* CV Upload */}
-                                    <div>
-                                        <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
-                                            <FileText className="w-4 h-4 text-cyan-400" />
-                                            Upload CV *
-                                        </label>
-                                        <div className="relative">
-                                            <input
-                                                type="file"
-                                                required
-                                                accept=".pdf,.doc,.docx"
-                                                onChange={handleFileChange}
-                                                className="hidden"
-                                                id="cv-upload"
-                                            />
-                                            <label
-                                                htmlFor="cv-upload"
-                                                className="flex items-center justify-center gap-3 w-full px-4 py-4 rounded-xl bg-white/5 border-2 border-dashed border-white/20 hover:border-cyan-400/50 hover:bg-white/10 text-zinc-400 hover:text-cyan-400 cursor-pointer transition-all group"
-                                            >
-                                                <Upload className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                                <span className="text-sm font-medium">
-                                                    {cvFile ? cvFile.name : 'Click to upload CV (PDF, DOC, DOCX)'}
-                                                </span>
-                                            </label>
-                                        </div>
-                                        {cvFile && (
-                                            <p className="text-xs text-cyan-400 mt-2 flex items-center gap-1">
-                                                <FileText className="w-3 h-3" />
-                                                {cvFile.name} ({(cvFile.size / 1024).toFixed(0)} KB)
-                                            </p>
-                                        )}
                                     </div>
 
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
                                         disabled={isSubmitting}
-                                        className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-zinc-950 font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-400/20"
+                                        className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-zinc-950 font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-400/20 flex items-center justify-center gap-2"
                                     >
                                         {isSubmitting ? (
                                             <span className="flex items-center justify-center gap-2">
@@ -287,15 +219,18 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                                                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                                                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                                                 </svg>
-                                                Submitting...
+                                                Sending...
                                             </span>
                                         ) : (
-                                            'Submit Application'
+                                            <>
+                                                <Send className="w-5 h-5" />
+                                                Send Message
+                                            </>
                                         )}
                                     </button>
 
                                     <p className="text-xs text-center text-zinc-500">
-                                        By submitting, you agree to our terms and privacy policy
+                                        We typically respond within 24 hours
                                     </p>
                                 </div>
                             ) : (
@@ -315,8 +250,8 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                         </svg>
                                     </m.div>
-                                    <h3 className="text-2xl font-bold text-white mb-2">Application Submitted!</h3>
-                                    <p className="text-zinc-400">We&apos;ll review your profile and get back to you soon.</p>
+                                    <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                                    <p className="text-zinc-400">We&apos;ve received your message and will get back to you via email soon.</p>
                                 </m.div>
                             )}
                         </form>
@@ -328,4 +263,4 @@ const TalentRegistrationModal = ({ isOpen, onClose }: TalentRegistrationModalPro
     );
 };
 
-export default TalentRegistrationModal;
+export default ContactFormModal;

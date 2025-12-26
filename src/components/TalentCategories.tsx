@@ -2,7 +2,9 @@
 
 import { m, useMotionTemplate, useMotionValue } from 'motion/react';
 import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
-import { MouseEvent } from 'react';
+import { MouseEvent, useState } from 'react';
+import ContactFormModal from './ContactFormModal';
+import ComingSoonModal from './ComingSoonModal';
 
 const categories = [
     {
@@ -52,7 +54,7 @@ const categories = [
     },
 ];
 
-function Card({ category, index }: { category: typeof categories[0], index: number }) {
+function Card({ category, index, onClick }: { category: typeof categories[0], index: number, onClick: () => void }) {
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
@@ -68,8 +70,9 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
             transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/15 overflow-hidden ${category.colSpan} transition-all duration-300`}
+            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/15 overflow-hidden ${category.colSpan} transition-all duration-300 cursor-pointer`}
             onMouseMove={handleMouseMove}
+            onClick={onClick}
         >
             {/* Spotlight Effect */}
             <m.div
@@ -130,7 +133,11 @@ function Card({ category, index }: { category: typeof categories[0], index: numb
 }
 
 const TalentCategories = () => {
+    const [showContactModal, setShowContactModal] = useState(false);
+    const [showComingSoon, setShowComingSoon] = useState(false);
+
     return (
+        <>
         <section className="py-16 bg-zinc-950 relative">
             <div className="container mx-auto px-6">
                 <m.div
@@ -150,7 +157,7 @@ const TalentCategories = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {categories.map((category, index) => (
-                        <Card key={index} category={category} index={index} />
+                        <Card key={index} category={category} index={index} onClick={() => setShowComingSoon(true)} />
                     ))}
 
                     {/* Call to Action Card - Centered */}
@@ -167,7 +174,10 @@ const TalentCategories = () => {
                             <p className="text-zinc-400 mb-6 text-sm">
                                 We have a vast network of professionals. Let us find them for you.
                             </p>
-                            <button className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20">
+                            <button
+                                onClick={() => setShowContactModal(true)}
+                                className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20"
+                            >
                                 Contact Us
                             </button>
                         </div>
@@ -175,6 +185,19 @@ const TalentCategories = () => {
                 </div>
             </div>
         </section>
+
+        {/* Contact Form Modal */}
+        <ContactFormModal
+            isOpen={showContactModal}
+            onClose={() => setShowContactModal(false)}
+        />
+
+        {/* Coming Soon Modal */}
+        <ComingSoonModal
+            isOpen={showComingSoon}
+            onClose={() => setShowComingSoon(false)}
+        />
+        </>
     );
 };
 

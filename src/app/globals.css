@@ -55,3 +55,13 @@ button:disabled, [disabled] {
   background: #52525b;
   /* Zinc 600 */
 }
+
+/* Hide scrollbar for specific elements */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
