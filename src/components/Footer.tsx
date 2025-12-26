@@ -1,12 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Linkedin, Mail, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import TalentRegistrationModal from './TalentRegistrationModal';
+import ContactFormModal from './ContactFormModal';
 
 const Footer = () => {
     const [showTalentForm, setShowTalentForm] = useState(false);
+    const [showContactModal, setShowContactModal] = useState(false);
 
     return (
         <>
@@ -14,8 +17,18 @@ const Footer = () => {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                     <div className="col-span-1 md:col-span-2">
-                        <Link href="/" className="text-2xl font-bold tracking-tighter text-white mb-6 block group">
-                            ACube<span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">2.0</span>
+                        <Link href="/" className="flex items-center gap-3 mb-6 group">
+                            <div className="relative w-10 h-10">
+                                <Image
+                                    src="/acubelogo.png"
+                                    alt="ACube Tech"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <span className="text-2xl font-bold tracking-tighter text-white">
+                                ACube <span className="text-cyan-400 group-hover:text-cyan-300 transition-colors">Tech</span>
+                            </span>
                         </Link>
                         <p className="text-zinc-400 max-w-sm mb-8">
                             Connecting startups with world-class remote talent. Build faster, spend smarter, and scale without limits.
@@ -51,6 +64,14 @@ const Footer = () => {
                                 team@acube-tech.com
                             </li>
                             <li>
+                                <button
+                                    onClick={() => setShowContactModal(true)}
+                                    className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/50 underline-offset-4"
+                                >
+                                    Send us a Message
+                                </button>
+                            </li>
+                            <li>
                                 <Link
                                     href="https://calendly.com/absaarmalik15/30min"
                                     className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/50 underline-offset-4"
@@ -75,7 +96,7 @@ const Footer = () => {
 
                 <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
                     <p className="text-gray-500 text-sm mb-4 md:mb-0">
-                        © {new Date().getFullYear()} ACube Technologies. All rights reserved.
+                        © {new Date().getFullYear()} ACube Tech. All rights reserved.
                     </p>
                     <div className="flex space-x-6 text-sm text-gray-500">
                         <Link href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
@@ -89,6 +110,12 @@ const Footer = () => {
         <TalentRegistrationModal
             isOpen={showTalentForm}
             onClose={() => setShowTalentForm(false)}
+        />
+
+        {/* Contact Form Modal */}
+        <ContactFormModal
+            isOpen={showContactModal}
+            onClose={() => setShowContactModal(false)}
         />
         </>
     );

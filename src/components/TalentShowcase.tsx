@@ -1,17 +1,17 @@
 'use client';
 
 import { m, useScroll, useTransform, AnimatePresence } from 'motion/react';
-import { MapPin, CheckCircle, Star, Briefcase, GraduationCap, Code, X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { MapPin, CheckCircle, Briefcase, GraduationCap, Code, X, ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState, useEffect } from 'react';
 import ComingSoonModal from './ComingSoonModal';
+import ContactFormModal from './ContactFormModal';
 
 const talents = [
     {
         name: 'Maryam',
         role: 'Software Engineer',
         location: 'Islamabad, Pakistan',
-        rating: 4.9,
         skills: ['React.js', 'Node.js', 'Angular', 'Jest', 'MERN Stack'],
         image: '/maryam.jpeg',
         verified: true,
@@ -27,7 +27,6 @@ const talents = [
         name: 'Saad',
         role: 'Full Stack Engineer',
         location: 'Lahore, Pakistan',
-        rating: 4.9,
         skills: ['React', 'TypeScript', 'Node.js', 'AWS', 'PostgreSQL'],
         image: '/saad-ali.jpeg',
         verified: true,
@@ -43,7 +42,6 @@ const talents = [
         name: 'Javeria',
         role: 'Frontend Web Developer',
         location: 'Karachi, Pakistan',
-        rating: 4.8,
         skills: ['React.js', 'Redux', 'JavaScript', 'Ant Design', 'Bootstrap'],
         image: '/javeria-urooj.png',
         verified: true,
@@ -59,7 +57,6 @@ const talents = [
         name: 'Kashan',
         role: 'Product Designer',
         location: 'Islamabad, Pakistan',
-        rating: 5.0,
         skills: ['Figma', 'UI/UX Design', 'Product Design', 'User Research', 'Prototyping'],
         image: '/kashan-ali.jpeg',
         verified: true,
@@ -75,7 +72,6 @@ const talents = [
         name: 'Abdullah',
         role: 'Software Engineer',
         location: 'Pakistan',
-        rating: 4.9,
         skills: ['JavaScript', 'React', 'Node.js', 'Python', 'MongoDB'],
         image: '/abdullah.jpeg',
         verified: true,
@@ -91,7 +87,6 @@ const talents = [
         name: 'Shahab',
         role: 'Full Stack Developer',
         location: 'Pakistan',
-        rating: 4.8,
         skills: ['React', 'TypeScript', 'Node.js', 'Express', 'PostgreSQL'],
         image: '/sahab.jpeg',
         verified: true,
@@ -107,7 +102,6 @@ const talents = [
         name: 'Umer',
         role: 'Backend Engineer',
         location: 'Pakistan',
-        rating: 4.8,
         skills: ['Python', 'Django', 'FastAPI', 'MySQL', 'Redis'],
         image: '/umer.JPG',
         verified: true,
@@ -123,13 +117,14 @@ const talents = [
 
 type Talent = typeof talents[0];
 
-const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
+const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMessage }: {
     talent: Talent;
     onClose: () => void;
     onNext: () => void;
     onPrev: () => void;
     hasNext: boolean;
     hasPrev: boolean;
+    onMessage: () => void;
 }) => {
     const sidebarRef = useRef<HTMLDivElement>(null);
 
@@ -288,10 +283,21 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
 
                     {/* CTA Buttons */}
                     <div className="flex gap-3 pt-4">
-                        <button className="flex-1 bg-cyan-400 hover:bg-cyan-500 text-zinc-950 py-3 rounded-xl font-bold transition-colors">
+                        <a
+                            href="https://calendly.com/absaarmalik15/30min"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1 bg-cyan-400 hover:bg-cyan-500 text-zinc-950 py-3 rounded-xl font-bold transition-colors text-center"
+                        >
                             Hire Now
-                        </button>
-                        <button className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl font-medium border border-white/10 transition-colors">
+                        </a>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onMessage();
+                            }}
+                            className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl font-medium border border-white/10 transition-colors"
+                        >
                             Message
                         </button>
                     </div>
@@ -303,8 +309,12 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev }: {
 
 const TalentShowcase = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
     const [selectedTalentIndex, setSelectedTalentIndex] = useState<number | null>(null);
     const [showComingSoon, setShowComingSoon] = useState(false);
+    const [showContactModal, setShowContactModal] = useState(false);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(true);
 
     // Filter out Kashan from the talents array
     const filteredTalents = talents.filter(t => t.name !== 'Kashan');
@@ -316,6 +326,44 @@ const TalentShowcase = () => {
 
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
     const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
+
+    // Check scroll position
+    const checkScroll = () => {
+        if (carouselRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+            setCanScrollLeft(scrollLeft > 0);
+            setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+        }
+    };
+
+    // Carousel navigation
+    const scrollCarousel = (direction: 'left' | 'right') => {
+        if (carouselRef.current) {
+            const scrollAmount = 250; // Scroll by approximately 1 card width + gap
+            const newScrollLeft = direction === 'left'
+                ? carouselRef.current.scrollLeft - scrollAmount
+                : carouselRef.current.scrollLeft + scrollAmount;
+
+            carouselRef.current.scrollTo({
+                left: newScrollLeft,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    useEffect(() => {
+        const carousel = carouselRef.current;
+        if (carousel) {
+            checkScroll();
+            carousel.addEventListener('scroll', checkScroll);
+            window.addEventListener('resize', checkScroll);
+
+            return () => {
+                carousel.removeEventListener('scroll', checkScroll);
+                window.removeEventListener('resize', checkScroll);
+            };
+        }
+    }, []);
 
     const handleNext = () => {
         if (selectedTalentIndex !== null && selectedTalentIndex < filteredTalents.length - 1) {
@@ -358,13 +406,35 @@ const TalentShowcase = () => {
 
                 {/* Talent Carousel - Single Row with Sliding */}
                 <div className="relative">
-                    <div className="overflow-hidden">
-                        <m.div
-                            className="flex gap-6"
-                            drag="x"
-                            dragConstraints={{ left: -1000, right: 0 }}
-                            dragElastic={0.1}
-                        >
+                    {/* Navigation Arrows */}
+                    <button
+                        onClick={() => scrollCarousel('left')}
+                        disabled={!canScrollLeft}
+                        className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 text-cyan-400 hover:bg-zinc-800 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+                        aria-label="Previous talents"
+                    >
+                        <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
+                    </button>
+
+                    <button
+                        onClick={() => scrollCarousel('right')}
+                        disabled={!canScrollRight}
+                        className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 text-cyan-400 hover:bg-zinc-800 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+                        aria-label="Next talents"
+                    >
+                        <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
+                    </button>
+
+                    <div
+                        ref={carouselRef}
+                        className="overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth snap-x snap-mandatory"
+                        style={{
+                            scrollbarWidth: 'none',
+                            msOverflowStyle: 'none',
+                            WebkitOverflowScrolling: 'touch'
+                        }}
+                    >
+                        <div className="flex gap-6 px-2 md:px-4">
                             {filteredTalents.slice(0, 6).map((talent, index) => (
                                 <m.div
                                     key={index}
@@ -372,7 +442,7 @@ const TalentShowcase = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                                     transition={{ delay: index * 0.05, duration: 0.6, ease: "easeOut" }}
-                                    className="group cursor-pointer flex-shrink-0 w-[200px]"
+                                    className="group cursor-pointer flex-shrink-0 w-[200px] md:w-[220px] snap-start"
                                     onClick={() => setSelectedTalentIndex(index)}
                                 >
                                     {/* Compact Card */}
@@ -396,12 +466,6 @@ const TalentShowcase = () => {
                                                     <CheckCircle className="w-4 h-4 text-cyan-400" />
                                                 </div>
                                             )}
-
-                                            {/* Rating */}
-                                            <div className="absolute bottom-2 left-2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
-                                                <span className="text-xs text-white font-bold">{talent.rating}</span>
-                                            </div>
                                         </div>
 
                                         {/* Info */}
@@ -423,7 +487,7 @@ const TalentShowcase = () => {
                                     </div>
                                 </m.div>
                             ))}
-                        </m.div>
+                        </div>
                     </div>
 
                     {/* Gradient Overlays for sliding effect */}
@@ -462,6 +526,7 @@ const TalentShowcase = () => {
                         onPrev={handlePrev}
                         hasNext={selectedTalentIndex < filteredTalents.length - 1}
                         hasPrev={selectedTalentIndex > 0}
+                        onMessage={() => setShowContactModal(true)}
                     />
                 )}
             </AnimatePresence>
@@ -470,6 +535,12 @@ const TalentShowcase = () => {
             <ComingSoonModal
                 isOpen={showComingSoon}
                 onClose={() => setShowComingSoon(false)}
+            />
+
+            {/* Contact Form Modal */}
+            <ContactFormModal
+                isOpen={showContactModal}
+                onClose={() => setShowContactModal(false)}
             />
         </section>
     );

@@ -3,7 +3,8 @@
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { m } from 'motion/react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import Image from 'next/image';
 import TalentRegistrationModal from './TalentRegistrationModal';
 
 const GlitchLink = ({ children, href, onClick }: { children: React.ReactNode; href: string; onClick?: () => void }) => {
@@ -143,95 +144,29 @@ const Navbar = () => {
             />
 
             <div className="container mx-auto px-6 flex items-center justify-between relative z-10">
-                {/* Logo with glitch and neon effect */}
+                {/* Logo */}
                 <m.div
                     className="relative"
                     whileHover={{ scale: 1.05 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                 >
-                    <Link href="/" className="relative group block">
-                        {/* Main logo */}
-                        <m.span
-                            className="relative text-4xl font-black tracking-tighter font-[var(--font-space-grotesk)]"
-                            style={{
-                                textShadow: '0 0 20px rgba(6,182,212,0.5)',
-                            }}
-                        >
-                            <span className="relative">
-                                <span className="text-white">A</span>
-                                <span className="relative inline-block">
-                                    <span className="text-cyan-400">CUBE</span>
-                                    {/* Glitch layers */}
-                                    <m.span
-                                        className="absolute top-0 left-0 text-cyan-400 opacity-70"
-                                        animate={{
-                                            x: [-2, 2, -2],
-                                            opacity: [0, 0.7, 0],
-                                        }}
-                                        transition={{
-                                            duration: 0.2,
-                                            repeat: Infinity,
-                                            repeatDelay: 3,
-                                        }}
-                                        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 45%, 0 45%)' }}
-                                    >
-                                        CUBE
-                                    </m.span>
-                                    <m.span
-                                        className="absolute top-0 left-0 text-cyan-300 opacity-60"
-                                        animate={{
-                                            x: [2, -2, 2],
-                                            opacity: [0, 0.6, 0],
-                                        }}
-                                        transition={{
-                                            duration: 0.2,
-                                            repeat: Infinity,
-                                            repeatDelay: 3,
-                                            delay: 0.05,
-                                        }}
-                                        style={{ clipPath: 'polygon(0 55%, 100% 55%, 100% 100%, 0 100%)' }}
-                                    >
-                                        CUBE
-                                    </m.span>
-                                </span>
+                    <Link href="/" className="relative group flex items-center gap-3">
+                        {/* Logo Image */}
+                        <div className="relative w-10 h-10 md:w-12 md:h-12">
+                            <Image
+                                src="/acubelogo.png"
+                                alt="ACube Tech"
+                                fill
+                                className="object-contain"
+                                priority
+                            />
+                        </div>
+                        {/* Logo Text */}
+                        <div className="flex flex-col">
+                            <span className="text-xl md:text-2xl font-bold text-white font-[var(--font-space-grotesk)]">
+                                ACube <span className="text-cyan-400">Tech</span>
                             </span>
-                            <span className="relative ml-1">
-                                <span className="text-cyan-400">2.0</span>
-                                {/* Electric border */}
-                                <m.span
-                                    className="absolute -bottom-1 left-0 right-0 h-[3px] bg-cyan-400"
-                                    animate={{
-                                        opacity: [0.5, 1, 0.5],
-                                        boxShadow: [
-                                            '0 0 5px rgba(6,182,212,0.5)',
-                                            '0 0 20px rgba(6,182,212,1)',
-                                            '0 0 5px rgba(6,182,212,0.5)',
-                                        ],
-                                    }}
-                                    transition={{
-                                        duration: 1.5,
-                                        repeat: Infinity,
-                                        ease: 'easeInOut',
-                                    }}
-                                />
-                            </span>
-                        </m.span>
-
-                        {/* Zap icon */}
-                        <m.div
-                            className="absolute -right-8 top-0"
-                            animate={{
-                                rotate: [0, 10, -10, 0],
-                                scale: [1, 1.2, 1],
-                            }}
-                            transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: 'easeInOut',
-                            }}
-                        >
-                            <Zap className="w-5 h-5 text-cyan-400 fill-cyan-400/20" />
-                        </m.div>
+                        </div>
                     </Link>
                 </m.div>
 

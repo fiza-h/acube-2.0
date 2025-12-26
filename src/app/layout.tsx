@@ -20,8 +20,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ACube 2.0 - Hire World-Class Remote Talent",
-  description: "Connect with vetted global professionals in tech and beyond.",
+  title: "ACube Tech - Hire World-Class Remote Talent",
+  description: "Connect with vetted global professionals in tech and beyond. Build faster, spend smarter, and scale without limits.",
 };
 
 export default function RootLayout({
