@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     // Send email with Resend
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: process.env.NOTIFICATION_EMAIL || 'your-email@example.com',
+      to: ['team@acube-tech.com', 'absaarmalik15@gmail.com'],
       subject: `New Talent Registration: ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

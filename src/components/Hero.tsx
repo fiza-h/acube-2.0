@@ -31,9 +31,9 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-6xl md:text-7xl lg:text-8xl font-serif font-medium text-white leading-[1.1] mb-8 tracking-tight"
+                        className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium text-white leading-[1.1] mb-8 tracking-tight"
                     >
-                        Hiring, made <span className="italic text-cyan-400">perfectly.</span>
+                        Hire world-class remote talent — <span className="italic text-cyan-400">build faster, spend smarter.</span>
                     </m.h1>
 
                     {/* Subheading */}
@@ -41,9 +41,9 @@ const Hero = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-xl md:text-2xl text-zinc-400 font-serif font-light leading-relaxed mb-12 max-w-2xl mx-auto"
+                        className="text-xl md:text-2xl text-zinc-400 font-serif font-light leading-relaxed mb-12 max-w-3xl mx-auto"
                     >
-                        Access a curated network of world-class developers and designers. We handle the vetting, so you can focus on building the extraordinary.
+                        We connect startups with vetted global professionals in tech and beyond, helping you scale at up to 70% lower cost.
                     </m.p>
 
                     {/* CTA Buttons */}
