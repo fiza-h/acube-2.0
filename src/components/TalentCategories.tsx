@@ -1,8 +1,8 @@
 'use client';
 
-import { m, useMotionTemplate, useMotionValue } from 'motion/react';
+import { m } from 'motion/react';
 import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
-import { MouseEvent, useState } from 'react';
+import { useState } from 'react';
 import ContactFormModal from './ContactFormModal';
 import ComingSoonModal from './ComingSoonModal';
 
@@ -13,8 +13,7 @@ const categories = [
         count: '120+',
         description: 'Experts in LLMs, Computer Vision, and NLP.',
         skills: ['PyTorch', 'TensorFlow', 'OpenAI'],
-        colSpan: 'md:col-span-2',
-        gradient: 'from-cyan-400/20 to-cyan-400/20'
+        gradient: 'from-blue-500/10 to-purple-500/10'
     },
     {
         name: 'Software Developers',
@@ -22,8 +21,7 @@ const categories = [
         count: '300+',
         description: 'Full-stack wizards building scalable apps.',
         skills: ['React', 'Node.js', 'Rust'],
-        colSpan: 'md:col-span-1',
-        gradient: 'from-cyan-400/20 to-cyan-400/20'
+        gradient: 'from-blue-500/10 to-cyan-500/10'
     },
     {
         name: 'UI/UX Designers',
@@ -31,8 +29,7 @@ const categories = [
         count: '80+',
         description: 'Crafting intuitive and beautiful experiences.',
         skills: ['Figma', 'Prototyping', 'User Research'],
-        colSpan: 'md:col-span-1',
-        gradient: 'from-cyan-400/20 to-cyan-400/20'
+        gradient: 'from-pink-500/10 to-rose-500/10'
     },
     {
         name: 'Product Managers',
@@ -40,8 +37,7 @@ const categories = [
         count: '50+',
         description: 'Visionaries who drive product success.',
         skills: ['Strategy', 'Agile', 'Roadmapping'],
-        colSpan: 'md:col-span-1',
-        gradient: 'from-cyan-400/20 to-cyan-400/20'
+        gradient: 'from-amber-500/10 to-orange-500/10'
     },
     {
         name: 'Cloud Architects',
@@ -49,82 +45,56 @@ const categories = [
         count: '45+',
         description: 'Designing robust cloud infrastructure.',
         skills: ['AWS', 'Azure', 'GCP'],
-        colSpan: 'md:col-span-1',
-        gradient: 'from-cyan-400/20 to-cyan-400/20'
+        gradient: 'from-emerald-500/10 to-teal-500/10'
     },
 ];
 
 function Card({ category, index, onClick }: { category: typeof categories[0], index: number, onClick: () => void }) {
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
-        const { left, top } = currentTarget.getBoundingClientRect();
-        mouseX.set(clientX - left);
-        mouseY.set(clientY - top);
-    }
-
     return (
         <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-            transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/15 overflow-hidden ${category.colSpan} transition-all duration-300 cursor-pointer`}
-            onMouseMove={handleMouseMove}
+            viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+            transition={{ delay: index * 0.1, duration: 0.5 }}
+            className="group relative flex flex-col justify-between p-8 bg-white rounded-[2rem] shadow-lg border border-gray-100 hover:shadow-2xl hover:border-french-blue/30 transition-all duration-500 cursor-pointer overflow-hidden hover:-translate-y-2"
             onClick={onClick}
         >
-            {/* Spotlight Effect */}
-            <m.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(34, 211, 238, 0.15),
-              transparent 80%
-            )
-          `,
-                }}
-            />
-
-            {/* Gradient Background on Hover */}
+            {/* Background Gradient on Hover */}
             <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
 
-            <div className="relative p-8 h-full flex flex-col justify-between">
-                <div>
-                    <div className="flex justify-between items-start mb-6">
-                        <div className="p-3 bg-cyan-400/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-cyan-400/10 group-hover:border-cyan-400/40">
-                            <category.icon className="w-8 h-8 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-                        </div>
-                        <span className="flex items-center text-xs font-bold text-white/60 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/10">
-                            <Sparkles className="w-3 h-3 mr-1 text-cyan-400" />
-                            {category.count}
-                        </span>
+            <div className="relative z-10">
+                <div className="flex justify-between items-start mb-6">
+                    <div className="p-4 bg-gray-50 rounded-2xl group-hover:bg-white group-hover:scale-110 transition-all duration-300 shadow-sm">
+                        <category.icon className="w-8 h-8 text-french-blue" />
                     </div>
-
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 group-hover:text-cyan-50 transition-all">
-                        {category.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-6 group-hover:text-gray-300 transition-colors">
-                        {category.description}
-                    </p>
+                    <span className="flex items-center gap-1 px-3 py-1 bg-french-blue/5 text-french-blue text-xs font-bold uppercase tracking-wider rounded-full border border-french-blue/10">
+                        <Sparkles className="w-3 h-3" />
+                        {category.count}
+                    </span>
                 </div>
 
-                <div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {category.skills.map((skill) => (
-                            <span
-                                key={skill}
-                                className="text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-cyan-400/10 group-hover:border-cyan-400/40 group-hover:bg-cyan-400/10 transition-all"
-                            >
-                                {skill}
-                            </span>
-                        ))}
-                    </div>
+                <h3 className="text-2xl font-serif font-bold text-deep-twilight mb-3 group-hover:text-french-blue transition-colors">
+                    {category.name}
+                </h3>
 
-                    <div className="flex items-center text-cyan-400 text-sm font-bold group-hover:text-cyan-300 transition-colors">
-                        Explore Talent <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <p className="text-gray-600 mb-8 font-sans font-light leading-relaxed">
+                    {category.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-8">
+                    {category.skills.map((skill) => (
+                        <span key={skill} className="px-3 py-1 bg-white border border-gray-200 rounded-lg text-xs font-medium text-gray-500 shadow-sm group-hover:border-french-blue/20 transition-colors">
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="relative z-10 pt-4 border-t border-gray-100 group-hover:border-french-blue/10 transition-colors mt-auto">
+                <div className="flex items-center justify-between text-deep-twilight font-semibold group-hover:text-french-blue transition-colors">
+                    <span>Explore Talent</span>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-french-blue group-hover:text-white transition-all duration-300">
+                        <ArrowUpRight className="w-4 h-4" />
                     </div>
                 </div>
             </div>
@@ -138,65 +108,76 @@ const TalentCategories = () => {
 
     return (
         <>
-        <section className="py-16 bg-zinc-950 relative">
-            <div className="container mx-auto px-6">
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                        Curated <span className="text-cyan-400">Categories</span>
-                    </h2>
-                    <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                        We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
-                    </p>
-                </m.div>
+            <section className="py-24 bg-gray-50/50 relative overflow-hidden">
+                {/* Decorative Background Elements */}
+                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                    <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-french-blue/5 rounded-full blur-[100px]" />
+                    <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-bright-teal-blue/5 rounded-full blur-[100px]" />
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {categories.map((category, index) => (
-                        <Card key={index} category={category} index={index} onClick={() => setShowComingSoon(true)} />
-                    ))}
-
-                    {/* Call to Action Card - Centered */}
+                <div className="container mx-auto px-6 relative z-10">
                     <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-                        transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/10 hover:border-cyan-400/40 transition-all"
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="text-center mb-16 max-w-3xl mx-auto"
                     >
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold text-white mb-2">Don&apos;t see what you need?</h3>
-                            <p className="text-zinc-400 mb-6 text-sm">
-                                We have a vast network of professionals. Let us find them for you.
-                            </p>
-                            <button
-                                onClick={() => setShowContactModal(true)}
-                                className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20"
-                            >
-                                Contact Us
-                            </button>
-                        </div>
+                        <h2 className="text-5xl md:text-6xl font-serif font-medium text-deep-twilight mb-6">
+                            Curated <span className="italic text-french-blue">Categories</span>
+                        </h2>
+                        <p className="text-xl text-gray-600 font-light font-sans">
+                            We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
+                        </p>
                     </m.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {categories.map((category, index) => (
+                            <Card key={index} category={category} index={index} onClick={() => setShowComingSoon(true)} />
+                        ))}
+
+                        {/* CTA Card */}
+                        <m.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.5, duration: 0.5 }}
+                            className="bg-deep-twilight rounded-[2rem] p-8 flex flex-col justify-center items-center text-center text-white shadow-2xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-br from-french-blue/20 to-transparent opacity-50" />
+                            <div className="absolute -right-10 -top-10 w-40 h-40 bg-french-blue/30 rounded-full blur-3xl group-hover:bg-french-blue/50 transition-colors duration-500" />
+
+                            <div className="relative z-10 flex flex-col items-center h-full justify-center">
+                                <div className="p-4 bg-white/10 rounded-2xl mb-6 backdrop-blur-sm">
+                                    <Sparkles className="w-8 h-8 text-light-cyan" />
+                                </div>
+                                <h3 className="text-3xl font-serif font-medium mb-4">
+                                    Don&apos;t see what you need?
+                                </h3>
+                                <p className="text-gray-300 mb-8 font-light leading-relaxed max-w-xs">
+                                    We have a vast network of professionals. Let us find them for you.
+                                </p>
+                                <button
+                                    onClick={() => setShowContactModal(true)}
+                                    className="px-8 py-3 bg-white text-deep-twilight rounded-full font-bold hover:bg-light-cyan transition-colors shadow-lg w-full sm:w-auto"
+                                >
+                                    Contact Us
+                                </button>
+                            </div>
+                        </m.div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        {/* Contact Form Modal */}
-        <ContactFormModal
-            isOpen={showContactModal}
-            onClose={() => setShowContactModal(false)}
-        />
+            <ContactFormModal
+                isOpen={showContactModal}
+                onClose={() => setShowContactModal(false)}
+            />
 
-        {/* Coming Soon Modal */}
-        <ComingSoonModal
-            isOpen={showComingSoon}
-            onClose={() => setShowComingSoon(false)}
-        />
+            <ComingSoonModal
+                isOpen={showComingSoon}
+                onClose={() => setShowComingSoon(false)}
+            />
         </>
     );
 };

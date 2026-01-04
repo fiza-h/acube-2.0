@@ -1,21 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google"; // [NEW] Serif and Sans fonts
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import { MotionProvider } from "@/components/MotionProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// [NEW] Configure Inter (Sans)
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// [NEW] Configure Playfair Display (Serif)
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
@@ -32,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} antialiased`}
       >
         <MotionProvider>
           <SmoothScroll>

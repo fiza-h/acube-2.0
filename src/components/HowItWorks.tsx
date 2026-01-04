@@ -36,11 +36,11 @@ const HowItWorks = () => {
     const lineWidth = useTransform(scrollYProgress, [0, 0.5], ['0%', '100%']);
 
     return (
-        <section ref={containerRef} className="py-16 bg-zinc-950 relative overflow-hidden">
+        <section ref={containerRef} className="py-24 bg-white relative overflow-hidden">
             {/* Background Gradients */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-[100px]" />
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-400/10 rounded-full blur-[100px]" />
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-frosted-blue/20 rounded-full blur-[100px]" />
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-light-cyan/40 rounded-full blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10">
@@ -50,28 +50,28 @@ const HowItWorks = () => {
                     viewport={{ once: true }}
                     className="text-center mb-24"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                        How It <span className="text-cyan-400">Works</span>
+                    <h2 className="text-4xl md:text-6xl font-serif font-medium text-deep-twilight mb-6 tracking-tight">
+                        How It <span className="text-french-blue">Works</span>
                     </h2>
-                    <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg font-sans font-light">
                         Three simple steps to build your dream team.
                     </p>
                 </m.div>
 
                 <div className="relative">
                     {/* Connecting Line (Desktop) */}
-                    <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-white/5 -translate-y-1/2">
+                    <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-100 -translate-y-1/2">
                         <m.div
                             style={{ width: lineWidth }}
-                            className="h-full bg-cyan-400"
+                            className="h-full bg-french-blue/30"
                         />
                     </div>
 
                     {/* Connecting Line (Mobile) */}
-                    <div className="md:hidden absolute top-0 left-8 w-0.5 h-full bg-white/5">
+                    <div className="md:hidden absolute top-0 left-8 w-0.5 h-full bg-gray-100">
                         <m.div
                             style={{ height: lineHeight }}
-                            className="w-full bg-cyan-400"
+                            className="w-full bg-french-blue/30"
                         />
                     </div>
 
@@ -86,22 +86,19 @@ const HowItWorks = () => {
                                 className="relative pl-20 md:pl-0 md:pt-16 group"
                             >
                                 {/* Step Number/Icon Container */}
-                                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 md:-mt-24 w-16 h-16 rounded-full bg-gradient-to-br from-cyan-400/20 to-cyan-400/20 border-2 border-cyan-400/15 flex items-center justify-center z-20 group-hover:border-cyan-400 transition-all duration-300 shadow-[0_0_20px_rgba(34,211,238,0.2)] group-hover:shadow-[0_0_30px_rgba(34,211,238,0.5)]">
-                                    <step.icon className="w-8 h-8 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-
-                                    {/* Pulse Effect */}
-                                    <div className="absolute inset-0 rounded-full border border-cyan-400/50 scale-100 animate-ping opacity-0 group-hover:opacity-20" />
+                                <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 md:-mt-24 w-16 h-16 rounded-full bg-white border border-gray-100 flex items-center justify-center z-20 group-hover:border-french-blue transition-all duration-300 shadow-sm group-hover:shadow-md">
+                                    <step.icon className="w-6 h-6 text-french-blue transition-colors" />
                                 </div>
 
                                 {/* Card Content */}
-                                <div className="bg-zinc-900/50 backdrop-blur-sm p-8 rounded-2xl border border-white/5 hover:border-cyan-400/15 hover:bg-zinc-800/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(34,211,238,0.15)] relative overflow-hidden h-full">
+                                <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-french-blue/20 hover:bg-light-cyan/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg relative overflow-hidden h-full">
                                     {/* Large Background Number */}
-                                    <span className="absolute -right-4 -top-4 text-8xl font-bold text-cyan-400/5 select-none group-hover:text-cyan-400/10 transition-colors">
+                                    <span className="absolute -right-2 -top-4 text-8xl font-serif font-bold text-gray-50/80 group-hover:text-french-blue/5 transition-colors select-none">
                                         {step.id}
                                     </span>
 
-                                    <h3 className="text-2xl font-bold text-white mb-4 relative z-10 group-hover:text-cyan-50 transition-colors">{step.title}</h3>
-                                    <p className="text-zinc-400 leading-relaxed relative z-10">
+                                    <h3 className="text-2xl font-serif font-medium text-deep-twilight mb-4 relative z-10">{step.title}</h3>
+                                    <p className="text-gray-600 leading-relaxed relative z-10 font-sans font-light">
                                         {step.description}
                                     </p>
                                 </div>
