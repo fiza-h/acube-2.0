@@ -91,14 +91,14 @@ export default function CaseStudies() {
   ];
 
   return (
-    <main className="min-h-screen bg-white text-deep-twilight">
+    <main className="min-h-screen bg-zinc-950 text-white">
       <Navbar />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-frosted-blue/10 rounded-full blur-[100px] opacity-60 mix-blend-multiply" />
+          <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-cyan-500/10 rounded-full blur-[100px] opacity-40 mix-blend-screen" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -112,17 +112,17 @@ export default function CaseStudies() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-light-cyan/30 border border-french-blue/10 mb-8"
+              className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-cyan-900/20 border border-cyan-500/20 mb-8"
             >
-              <Star className="w-3.5 h-3.5 text-french-blue fill-french-blue" />
-              <span className="text-french-blue text-sm font-serif font-medium tracking-wide uppercase">Success Stories</span>
+              <Star className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400" />
+              <span className="text-cyan-400 text-sm font-serif font-medium tracking-wide uppercase">Success Stories</span>
             </m.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-8 tracking-tight text-deep-twilight">
-              Real Impact, <span className="italic text-french-blue">Real Results</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-8 tracking-tight text-white">
+              Real Impact, <span className="italic text-cyan-400">Real Results</span>
             </h1>
 
-            <p className="text-xl text-gray-600 font-sans font-light max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl text-zinc-400 font-sans font-light max-w-2xl mx-auto leading-relaxed">
               See how startups across the globe are building world-class products with ACube&apos;s top 5% offshore talent.
             </p>
           </m.div>
@@ -140,10 +140,10 @@ export default function CaseStudies() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + index * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-white border border-gray-100 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all"
+                className="text-center p-6 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-lg hover:shadow-cyan-400/10 hover:border-cyan-400/20 hover:-translate-y-1 transition-all"
               >
-                <div className="text-3xl md:text-4xl font-serif font-medium text-french-blue mb-2">{stat.value}</div>
-                <div className="text-sm text-gray-500 font-sans font-medium uppercase tracking-wide">{stat.label}</div>
+                <div className="text-3xl md:text-4xl font-serif font-medium text-cyan-400 mb-2">{stat.value}</div>
+                <div className="text-sm text-zinc-500 font-sans font-medium uppercase tracking-wide">{stat.label}</div>
               </m.div>
             ))}
           </m.div>
@@ -151,7 +151,7 @@ export default function CaseStudies() {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 bg-gray-50/50">
+      <section className="py-20 bg-zinc-950">
         <div className="container mx-auto px-6">
           <div className="space-y-20">
             {caseStudies.map((study, index) => (
@@ -161,10 +161,10 @@ export default function CaseStudies() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group relative bg-white rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-gray-100 hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-zinc-900 rounded-[2.5rem] p-8 md:p-12 shadow-xl border border-zinc-800 hover:shadow-2xl hover:border-cyan-500/20 transition-all duration-500"
               >
                 {/* Decorative Gradient Blob */}
-                <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-light-cyan/20 to-frosted-blue/20 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-gradient-to-br from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl -z-10 group-hover:scale-110 transition-transform duration-700" />
 
                 <div className="grid lg:grid-cols-12 gap-12">
                   {/* Left Column: Company & Challenge */}
@@ -172,7 +172,7 @@ export default function CaseStudies() {
                     <div className="mb-8">
                       <div className="flex items-center gap-4 mb-6">
                         {study.logo && (
-                          <div className="relative w-16 h-16 flex-shrink-0 p-3 bg-gray-50 rounded-2xl border border-gray-100">
+                          <div className="relative w-16 h-16 flex-shrink-0 p-3 bg-zinc-800 rounded-2xl border border-zinc-700">
                             <Image
                               src={study.logo}
                               alt={`${study.company} logo`}
@@ -182,45 +182,45 @@ export default function CaseStudies() {
                           </div>
                         )}
                         <div>
-                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-french-blue/5 border border-french-blue/10 text-french-blue text-xs font-bold uppercase tracking-wider mb-2">
+                          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-400/10 border border-cyan-400/20 text-cyan-400 text-xs font-bold uppercase tracking-wider mb-2">
                             {study.industry}
                           </div>
-                          <h2 className="text-3xl font-serif font-bold text-deep-twilight leading-none">{study.company}</h2>
+                          <h2 className="text-3xl font-serif font-bold text-white leading-none">{study.company}</h2>
                         </div>
                       </div>
 
                       <div className="space-y-6">
                         <div>
-                          <h3 className="flex items-center gap-2 text-sm font-bold text-french-blue uppercase tracking-wide mb-2">
+                          <h3 className="flex items-center gap-2 text-sm font-bold text-cyan-400 uppercase tracking-wide mb-2">
                             <TrendingUp className="w-4 h-4" />
                             The Challenge
                           </h3>
-                          <p className="text-gray-600 leading-relaxed font-sans font-light">
+                          <p className="text-zinc-400 leading-relaxed font-sans font-light">
                             {study.challenge}
                           </p>
                         </div>
                         <div>
-                          <h3 className="flex items-center gap-2 text-sm font-bold text-french-blue uppercase tracking-wide mb-2">
+                          <h3 className="flex items-center gap-2 text-sm font-bold text-cyan-400 uppercase tracking-wide mb-2">
                             <Zap className="w-4 h-4" />
                             The Solution
                           </h3>
-                          <p className="text-gray-600 leading-relaxed font-sans font-light">
+                          <p className="text-zinc-400 leading-relaxed font-sans font-light">
                             {study.solution}
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
-                      <div className="text-sm text-gray-500">
-                        <span className="font-semibold text-deep-twilight">Location:</span> {study.location}
+                    <div className="mt-auto pt-6 border-t border-zinc-800 flex items-center justify-between">
+                      <div className="text-sm text-zinc-500">
+                        <span className="font-semibold text-zinc-300">Location:</span> {study.location}
                       </div>
                       {study.website && (
                         <a
                           href={study.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm font-bold text-french-blue hover:text-deep-twilight transition-colors flex items-center gap-1 group/link"
+                          className="text-sm font-bold text-cyan-400 hover:text-white transition-colors flex items-center gap-1 group/link"
                         >
                           Visit Website
                           <ExternalLink className="w-3.5 h-3.5 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform" />
@@ -235,29 +235,29 @@ export default function CaseStudies() {
                       {study.results.map((result, idx) => {
                         const Icon = result.icon;
                         return (
-                          <div key={idx} className="bg-gray-50 rounded-2xl p-4 text-center border border-gray-100 group-hover:bg-french-blue/5 group-hover:border-french-blue/10 transition-colors duration-300">
-                            <Icon className="w-5 h-5 text-french-blue mx-auto mb-2" />
-                            <div className="text-2xl font-serif font-bold text-deep-twilight mb-1">{result.metric}</div>
-                            <div className="text-xs text-gray-500 font-medium uppercase tracking-wide">{result.label}</div>
+                          <div key={idx} className="bg-zinc-800 rounded-2xl p-4 text-center border border-zinc-700 group-hover:bg-cyan-400/5 group-hover:border-cyan-400/20 transition-colors duration-300">
+                            <Icon className="w-5 h-5 text-cyan-400 mx-auto mb-2" />
+                            <div className="text-2xl font-serif font-bold text-white mb-1">{result.metric}</div>
+                            <div className="text-xs text-zinc-500 font-medium uppercase tracking-wide">{result.label}</div>
                           </div>
                         )
                       })}
                     </div>
 
-                    <div className="bg-deep-twilight rounded-2xl p-8 relative overflow-hidden text-white flex-1 flex flex-col justify-center">
-                      <div className="absolute top-0 right-0 w-64 h-64 bg-french-blue/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                    <div className="bg-zinc-800 rounded-2xl p-8 relative overflow-hidden text-white flex-1 flex flex-col justify-center border border-zinc-700">
+                      <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-400/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                       <div className="relative z-10">
-                        <Sparkles className="w-6 h-6 text-light-cyan mb-4 opacity-50" />
-                        <blockquote className="text-lg font-light italic leading-relaxed text-gray-100 mb-6 font-serif">
+                        <Sparkles className="w-6 h-6 text-cyan-400 mb-4 opacity-70" />
+                        <blockquote className="text-lg font-light italic leading-relaxed text-zinc-100 mb-6 font-serif">
                           &ldquo;{study.testimonial}&rdquo;
                         </blockquote>
                         <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-french-blue to-bright-teal-blue flex items-center justify-center text-white font-serif font-bold text-lg">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white font-serif font-bold text-lg">
                             {study.author.charAt(0)}
                           </div>
                           <div>
                             <div className="font-bold text-white text-sm">{study.author}</div>
-                            <div className="text-xs text-gray-300">{study.role}</div>
+                            <div className="text-xs text-zinc-400">{study.role}</div>
                           </div>
                         </div>
                       </div>
@@ -271,8 +271,8 @@ export default function CaseStudies() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden bg-white">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
+      <section className="py-24 relative overflow-hidden bg-zinc-950">
+        <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-10">
           <m.div
@@ -281,10 +281,10 @@ export default function CaseStudies() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-serif font-medium text-deep-twilight mb-6">
-              Ready to Write Your <span className="italic text-french-blue">Success Story?</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-medium text-white mb-6">
+              Ready to Write Your <span className="italic text-cyan-400">Success Story?</span>
             </h2>
-            <p className="text-lg text-gray-600 mb-10 max-w-2xl mx-auto font-light font-sans">
+            <p className="text-lg text-zinc-400 mb-10 max-w-2xl mx-auto font-light font-sans">
               Join the growing number of startups building exceptional products with ACube&apos;s top-tier talent.
             </p>
 
@@ -292,14 +292,14 @@ export default function CaseStudies() {
               <Link
                 href="https://calendly.com/absaarmalik15/30min"
                 target="_blank"
-                className="px-8 py-4 bg-deep-twilight text-white font-bold rounded-full hover:bg-french-blue transition-all transform hover:scale-105 shadow-lg shadow-deep-twilight/20 flex items-center gap-2 group"
+                className="px-8 py-4 bg-cyan-400 text-zinc-950 font-bold rounded-full hover:bg-cyan-300 transition-all transform hover:scale-105 shadow-lg shadow-cyan-400/20 flex items-center gap-2 group"
               >
                 Schedule a Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 href="/"
-                className="px-8 py-4 bg-white border border-gray-200 text-deep-twilight font-bold rounded-full hover:bg-gray-50 transition-all hover:border-gray-300"
+                className="px-8 py-4 bg-zinc-900 border border-zinc-800 text-white font-bold rounded-full hover:bg-zinc-800 transition-all hover:border-zinc-700"
               >
                 Back to Home
               </Link>
