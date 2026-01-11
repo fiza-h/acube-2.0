@@ -6,6 +6,7 @@ import HowItWorks from '@/components/HowItWorks';
 import TalentCategories from '@/components/TalentCategories';
 import TalentShowcase from '@/components/TalentShowcase';
 import Testimonials from '@/components/Testimonials';
+import DimensionLabsHomeSection from '@/components/DimensionLabsHomeSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <TalentCategories />
         <TalentShowcase />
         <Testimonials />
+        <DimensionLabsHomeSection />
         <Footer />
       </div>
     </main>
