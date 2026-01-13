@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     // Send email notification to you
     const { data, error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-      to: ['team@acube-tech.com', 'absaarmalik15@gmail.com'],
+      to: process.env.NOTIFICATION_EMAIL || 'your-email@example.com',
       replyTo: email,
       subject: `New Contact Form Message from ${name}`,
       html: `
