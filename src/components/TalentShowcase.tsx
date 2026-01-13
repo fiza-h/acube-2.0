@@ -130,17 +130,24 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
 
     // Lock body scroll when modal is open
     useEffect(() => {
+        // Store the current scroll position
         const scrollY = window.scrollY;
+
+        // Prevent scrolling on body
         document.body.style.overflow = 'hidden';
         document.body.style.paddingRight = `${window.innerWidth - document.documentElement.clientWidth}px`;
 
         return () => {
+            // Restore body scroll
             document.body.style.overflow = '';
             document.body.style.paddingRight = '';
+
+            // Maintain scroll position (it should already be maintained with overflow: hidden)
             window.scrollTo(0, scrollY);
         };
     }, []);
 
+    // Redirect all wheel events to sidebar for better UX
     const handleWheel = (e: React.WheelEvent) => {
         if (sidebarRef.current) {
             sidebarRef.current.scrollTop += e.deltaY;
@@ -152,7 +159,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-end bg-black/50 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-end bg-black/20 backdrop-blur-sm"
             onClick={onClose}
             onWheel={handleWheel}
         >
@@ -163,13 +170,13 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="h-full w-full max-w-lg bg-zinc-900 border-l border-zinc-800 overflow-y-scroll overscroll-contain shadow-2xl"
+                className="h-full w-full max-w-lg bg-white/95 backdrop-blur-xl border-l border-gray-100 overflow-y-scroll overscroll-contain shadow-2xl"
                 style={{ WebkitOverflowScrolling: 'touch' }}
             >
                 {/* Header */}
-                <div className="sticky top-0 bg-zinc-900/95 backdrop-blur-xl border-b border-zinc-800 p-6 flex items-center justify-between z-10">
+                <div className="sticky top-0 bg-white/90 backdrop-blur-xl border-b border-gray-100 p-6 flex items-center justify-between z-10">
                     <div className="flex items-center gap-3">
-                        <h3 className="text-xl font-serif font-bold text-white">Talent Profile</h3>
+                        <h3 className="text-xl font-serif font-bold text-deep-twilight">Talent Profile</h3>
                         <div className="flex items-center gap-1">
                             <button
                                 onClick={(e) => {
@@ -177,9 +184,9 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                                     onPrev();
                                 }}
                                 disabled={!hasPrev}
-                                className="p-1.5 hover:bg-zinc-800 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-zinc-400 hover:text-white"
+                                className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                             >
-                                <ChevronLeft className="w-4 h-4" />
+                                <ChevronLeft className="w-4 h-4 text-gray-400" />
                             </button>
                             <button
                                 onClick={(e) => {
@@ -187,17 +194,17 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                                     onNext();
                                 }}
                                 disabled={!hasNext}
-                                className="p-1.5 hover:bg-zinc-800 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed text-zinc-400 hover:text-white"
+                                className="p-1.5 hover:bg-gray-100 rounded-lg transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                             >
-                                <ChevronRight className="w-4 h-4" />
+                                <ChevronRight className="w-4 h-4 text-gray-400" />
                             </button>
                         </div>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 hover:bg-zinc-800 rounded-full transition-colors"
+                        className="p-2 hover:bg-gray-100 rounded-full transition-colors"
                     >
-                        <X className="w-5 h-5 text-zinc-400 hover:text-white" />
+                        <X className="w-5 h-5 text-gray-400" />
                     </button>
                 </div>
 
@@ -205,7 +212,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                 <div className="p-6 space-y-6">
                     {/* Profile Header */}
                     <div className="flex items-start gap-4">
-                        <div className="relative w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-zinc-700">
+                        <div className="relative w-24 h-24 rounded-2xl overflow-hidden flex-shrink-0 border border-gray-100">
                             <Image
                                 src={talent.image}
                                 alt={talent.name}
@@ -215,16 +222,16 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                         </div>
                         <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                                <h4 className="text-2xl font-serif font-bold text-white">{talent.name}</h4>
+                                <h4 className="text-2xl font-serif font-bold text-deep-twilight">{talent.name}</h4>
                                 {talent.verified && (
-                                    <CheckCircle className="w-5 h-5 text-cyan-400" />
+                                    <CheckCircle className="w-5 h-5 text-french-blue" />
                                 )}
                             </div>
-                            <p className="text-cyan-400 font-medium mb-2">{talent.role}</p>
-                            <div className="flex items-center gap-2 text-sm text-zinc-500">
+                            <p className="text-french-blue font-medium mb-2">{talent.role}</p>
+                            <div className="flex items-center gap-2 text-sm text-gray-500">
                                 <MapPin className="w-4 h-4" />
                                 <span>{talent.location}</span>
-                                <span className="text-zinc-600">•</span>
+                                <span className="text-gray-300">•</span>
                                 <span>{talent.timezone}</span>
                             </div>
                         </div>
@@ -232,40 +239,40 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
 
                     {/* Bio */}
                     <div>
-                        <p className="text-zinc-400 leading-relaxed font-sans font-light">{talent.bio}</p>
+                        <p className="text-gray-600 leading-relaxed font-sans font-light">{talent.bio}</p>
                     </div>
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-1 gap-4">
-                        <div className="p-4 bg-zinc-800/50 rounded-xl border border-zinc-700/50">
+                        <div className="p-4 bg-light-cyan/30 rounded-xl border border-french-blue/10">
                             <div className="flex items-center gap-2 mb-2">
-                                <Briefcase className="w-4 h-4 text-cyan-400" />
-                                <span className="text-xs text-zinc-500 font-medium">Experience</span>
+                                <Briefcase className="w-4 h-4 text-french-blue" />
+                                <span className="text-xs text-gray-500 font-medium">Experience</span>
                             </div>
-                            <p className="text-xl font-bold text-white">{talent.experience}</p>
+                            <p className="text-xl font-bold text-deep-twilight">{talent.experience}</p>
                         </div>
                     </div>
 
                     {/* Education */}
-                    <div className="p-4 bg-zinc-800/30 rounded-xl border border-zinc-700/50">
+                    <div className="p-4 bg-gray-50 rounded-xl border border-gray-100">
                         <div className="flex items-center gap-2 mb-2">
-                            <GraduationCap className="w-5 h-5 text-cyan-400" />
-                            <span className="text-sm font-medium text-zinc-500">Education</span>
+                            <GraduationCap className="w-5 h-5 text-french-blue" />
+                            <span className="text-sm font-medium text-gray-500">Education</span>
                         </div>
-                        <p className="text-white">{talent.education}</p>
+                        <p className="text-deep-twilight">{talent.education}</p>
                     </div>
 
                     {/* Skills */}
                     <div>
                         <div className="flex items-center gap-2 mb-3">
-                            <Code className="w-5 h-5 text-cyan-400" />
-                            <span className="text-sm font-medium text-zinc-500">Tech Stack</span>
+                            <Code className="w-5 h-5 text-french-blue" />
+                            <span className="text-sm font-medium text-gray-500">Tech Stack</span>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {talent.skills.map((skill) => (
                                 <span
                                     key={skill}
-                                    className="px-3 py-1.5 bg-zinc-800 text-zinc-300 text-xs font-medium rounded-lg border border-zinc-700"
+                                    className="px-3 py-1.5 bg-white text-gray-600 text-xs font-medium rounded-lg border border-gray-200"
                                 >
                                     {skill}
                                 </span>
@@ -279,7 +286,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                             href="https://calendly.com/absaarmalik15/30min"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 bg-cyan-400 hover:bg-cyan-300 text-zinc-950 py-3 rounded-xl font-bold transition-all text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5 shadow-cyan-400/20"
+                            className="flex-1 bg-french-blue hover:bg-bright-teal-blue text-white py-3 rounded-xl font-bold transition-all text-center shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                         >
                             Hire Now
                         </a>
@@ -288,7 +295,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                                 e.stopPropagation();
                                 onMessage();
                             }}
-                            className="px-6 py-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-xl font-medium border border-zinc-700 transition-colors"
+                            className="px-6 py-3 bg-white hover:bg-gray-50 text-deep-twilight rounded-xl font-medium border border-gray-200 transition-colors"
                         >
                             Message
                         </button>
@@ -308,6 +315,7 @@ const TalentShowcase = () => {
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(true);
 
+    // Filter out Kashan from the talents array
     const filteredTalents = talents.filter(t => t.name !== 'Kashan');
 
     const { scrollYProgress } = useScroll({
@@ -318,6 +326,7 @@ const TalentShowcase = () => {
     const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
     const scale = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.95, 1, 1, 0.95]);
 
+    // Check scroll position
     const checkScroll = () => {
         if (carouselRef.current) {
             const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
@@ -326,9 +335,10 @@ const TalentShowcase = () => {
         }
     };
 
+    // Carousel navigation
     const scrollCarousel = (direction: 'left' | 'right') => {
         if (carouselRef.current) {
-            const scrollAmount = 250;
+            const scrollAmount = 250; // Scroll by approximately 1 card width + gap
             const newScrollLeft = direction === 'left'
                 ? carouselRef.current.scrollLeft - scrollAmount
                 : carouselRef.current.scrollLeft + scrollAmount;
@@ -367,12 +377,12 @@ const TalentShowcase = () => {
     };
 
     return (
-        <section id="talent-showcase" ref={containerRef} className="relative py-24 bg-zinc-950 overflow-hidden">
-            {/* Minimal Background - Dark */}
+        <section id="talent-showcase" ref={containerRef} className="relative py-24 bg-white overflow-hidden">
+            {/* Minimal Background */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
-                <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-cyan-500/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-600/5 rounded-full blur-[100px]" />
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(2,62,138,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(2,62,138,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
+                <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-frosted-blue/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-light-cyan/30 rounded-full blur-[100px]" />
             </div>
 
             <m.div
@@ -387,21 +397,21 @@ const TalentShowcase = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-serif font-medium text-white mb-6 tracking-tight">
-                        World-Class <span className="text-cyan-400">Talent</span>
+                    <h2 className="text-4xl md:text-6xl font-serif font-medium text-deep-twilight mb-6 tracking-tight">
+                        World-Class <span className="text-french-blue">Talent</span>
                     </h2>
-                    <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-sans font-light">
+                    <p className="text-gray-600 max-w-2xl mx-auto text-lg font-sans font-light">
                         Click on cards to explore detailed profiles of our top 1% global professionals.
                     </p>
                 </m.div>
 
-                {/* Talent Carousel */}
+                {/* Talent Carousel - Single Row with Sliding */}
                 <div className="relative">
                     {/* Navigation Arrows */}
                     <button
                         onClick={() => scrollCarousel('left')}
                         disabled={!canScrollLeft}
-                        className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-zinc-700 text-cyan-400 hover:bg-zinc-800 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+                        className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-french-blue hover:bg-gray-50 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
                         aria-label="Previous talents"
                     >
                         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
@@ -410,7 +420,7 @@ const TalentShowcase = () => {
                     <button
                         onClick={() => scrollCarousel('right')}
                         disabled={!canScrollRight}
-                        className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-zinc-700 text-cyan-400 hover:bg-zinc-800 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+                        className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-french-blue hover:bg-gray-50 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
                         aria-label="Next talents"
                     >
                         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
@@ -436,10 +446,10 @@ const TalentShowcase = () => {
                                     className="group cursor-pointer flex-shrink-0 w-[200px] md:w-[220px] snap-start"
                                     onClick={() => setSelectedTalentIndex(index)}
                                 >
-                                    {/* Compact Card - Dark Mode */}
-                                    <div className="relative bg-zinc-900 p-3 rounded-2xl border border-zinc-800 hover:border-cyan-400/20 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-400/5 hover:-translate-y-1">
+                                    {/* Compact Card */}
+                                    <div className="relative bg-white p-3 rounded-2xl border border-gray-100 hover:border-french-blue/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                                         {/* Avatar */}
-                                        <div className="relative aspect-square mb-4 overflow-hidden rounded-xl bg-zinc-800 border border-zinc-800">
+                                        <div className="relative aspect-square mb-4 overflow-hidden rounded-xl">
                                             <Image
                                                 src={talent.image}
                                                 alt={talent.name}
@@ -451,21 +461,21 @@ const TalentShowcase = () => {
 
                                             {/* Verified Badge */}
                                             {talent.verified && (
-                                                <div className="absolute top-2 right-2 bg-zinc-900/90 backdrop-blur-sm rounded-full p-1 shadow-sm border border-zinc-700">
-                                                    <CheckCircle className="w-3 h-3 text-cyan-400" />
+                                                <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm rounded-full p-1 shadow-sm">
+                                                    <CheckCircle className="w-3 h-3 text-french-blue" />
                                                 </div>
                                             )}
                                         </div>
 
                                         {/* Info */}
                                         <div className="space-y-1 px-1">
-                                            <h3 className="text-lg font-serif font-bold text-white group-hover:text-cyan-400 transition-colors truncate">
+                                            <h3 className="text-lg font-serif font-bold text-deep-twilight group-hover:text-french-blue transition-colors truncate">
                                                 {talent.name}
                                             </h3>
-                                            <p className="text-xs text-zinc-500 truncate font-medium">
+                                            <p className="text-xs text-gray-500 truncate font-medium">
                                                 {talent.role}
                                             </p>
-                                            <div className="flex items-center gap-1 text-zinc-600">
+                                            <div className="flex items-center gap-1 text-gray-400">
                                                 <MapPin className="w-3 h-3" />
                                                 <span className="text-xs truncate">{talent.location}</span>
                                             </div>
@@ -477,11 +487,11 @@ const TalentShowcase = () => {
                     </div>
 
                     {/* Gradient Overlays for sliding effect */}
-                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-zinc-950 to-transparent pointer-events-none" />
-                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-zinc-950 to-transparent pointer-events-none" />
+                    <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white to-transparent pointer-events-none" />
                 </div>
 
-                {/* Bottom CTA */}
+                {/* Bottom CTA - More Prominent */}
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -491,14 +501,14 @@ const TalentShowcase = () => {
                 >
                     <button
                         onClick={() => setShowComingSoon(true)}
-                        className="group relative px-8 py-4 bg-cyan-400 hover:bg-cyan-300 text-zinc-950 font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-cyan-400/20"
+                        className="group relative px-8 py-4 bg-french-blue hover:bg-bright-teal-blue text-white font-bold text-lg rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-french-blue/20"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             View All Talent
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
                     </button>
-                    <p className="text-zinc-500 text-sm mt-4 font-light">Explore our complete pool of 200+ vetted professionals</p>
+                    <p className="text-gray-500 text-sm mt-4 font-light">Explore our complete pool of 200+ vetted professionals</p>
                 </m.div>
             </m.div>
 

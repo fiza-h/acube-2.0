@@ -66,7 +66,7 @@ const AnimatedCounter = ({ value, suffix = '' }: { value: string; suffix?: strin
     }, [isVisible, targetValue]);
 
     return (
-        <div ref={ref} className="text-4xl md:text-5xl font-serif font-bold text-white">
+        <div ref={ref} className="text-4xl md:text-5xl font-serif font-bold text-deep-twilight">
             {count}{suffix}
         </div>
     );
@@ -74,13 +74,11 @@ const AnimatedCounter = ({ value, suffix = '' }: { value: string; suffix?: strin
 
 const Stats = () => {
     return (
-        <section className="py-24 relative overflow-hidden bg-zinc-950">
-            <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none" />
-
-            <div className="container mx-auto px-6 relative z-10">
+        <section className="py-24 relative overflow-hidden bg-white">
+            <div className="container mx-auto px-6">
                 <div className="relative">
                     {/* Stats Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-zinc-800">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-gray-100">
                         {stats.map((stat, index) => (
                             <m.div
                                 key={stat.label}
@@ -96,7 +94,7 @@ const Stats = () => {
                                     <AnimatedCounter value={stat.value} suffix={stat.suffix} />
 
                                     {/* Label */}
-                                    <div className="text-zinc-500 text-sm md:text-base font-sans tracking-wide">
+                                    <div className="text-gray-500 text-sm md:text-base font-sans tracking-wide">
                                         {stat.label}
                                     </div>
                                 </div>

@@ -4,29 +4,23 @@
   --font-sans: var(--font-inter);
   --font-serif: var(--font-playfair);
 
-  /* Retaining variable names but mapping to Dark Theme values */
-  --color-deep-twilight: #ffffff;
-  /* Main text (White) */
-  --color-french-blue: #22d3ee;
-  /* Primary Accent (Cyan-400) */
-  --color-bright-teal-blue: #06b6d4;
-  /* Secondary Accent (Cyan-500) */
-
-  /* Backgrounds */
-  --color-light-cyan: #09090b;
-  /* Main Background (Zinc-950) */
-  --color-frosted-blue: #18181b;
-  /* Surface/Card Background (Zinc-900) */
-  --color-frosted-blue-2: #27272a;
-  /* Hover states (Zinc-800) */
-
+  --color-deep-twilight: #03045eff;
+  --color-french-blue: #023e8aff;
+  --color-bright-teal-blue: #0077b6ff;
+  --color-blue-green: #0096c7ff;
+  --color-turquoise-surf: #00b4d8ff;
+  --color-sky-aqua: #48cae4ff;
+  --color-frosted-blue: #90e0efff;
+  --color-frosted-blue-2: #ade8f4ff;
+  --color-light-cyan: #caf0f8ff;
+  
   --color-background: var(--color-light-cyan);
   --color-foreground: var(--color-deep-twilight);
 }
 
 :root {
-  --background: #09090b;
-  --foreground: #ffffff;
+  --background: var(--color-light-cyan);
+  --foreground: var(--color-deep-twilight);
 }
 
 html {
@@ -42,16 +36,11 @@ body {
 }
 
 /* Ensure all clickable elements show pointer cursor */
-a,
-button,
-[role="button"],
-[onClick],
-.cursor-pointer {
+a, button, [role="button"], [onClick], .cursor-pointer {
   cursor: pointer !important;
 }
 
-button:disabled,
-[disabled] {
+button:disabled, [disabled] {
   cursor: not-allowed !important;
 }
 
@@ -61,16 +50,17 @@ button:disabled,
 }
 
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: var(--color-zinc-950);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: var(--color-zinc-800);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: #52525b;
+  /* Zinc 600 */
 }
 
 /* Hide scrollbar for specific elements */

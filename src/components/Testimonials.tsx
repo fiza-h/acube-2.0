@@ -54,16 +54,16 @@ const Testimonials = () => {
   const active = testimonials[activeIndex];
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-zinc-950 overflow-hidden flex items-center justify-center py-24">
+    <section ref={containerRef} className="relative min-h-screen bg-light-cyan/10 overflow-hidden flex items-center justify-center py-24">
       {/* Minimalist Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {/* Subtle grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(2,62,138,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(2,62,138,0.03)_1px,transparent_1px)] bg-[size:100px_100px]" />
 
         {/* Floating orb */}
         <m.div
           style={{ opacity: useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.3, 0]) }}
-          className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-cyan-500/10 blur-3xl"
+          className="absolute top-1/4 right-1/4 w-[600px] h-[600px] rounded-full bg-frosted-blue/20 blur-3xl"
         />
       </div>
 
@@ -79,10 +79,10 @@ const Testimonials = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16 md:mb-24"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-medium text-white mb-4 sm:mb-6 tracking-tight">
-            Trusted by <span className="text-cyan-400">Innovators</span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-serif font-medium text-deep-twilight mb-4 sm:mb-6 tracking-tight">
+            Trusted by <span className="text-french-blue">Innovators</span>
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg px-4 font-sans font-light">
+          <p className="text-gray-600 max-w-2xl mx-auto text-base sm:text-lg px-4 font-sans font-light">
             Join hundreds of companies that have transformed their hiring with ACube
           </p>
         </m.div>
@@ -95,7 +95,7 @@ const Testimonials = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 0.1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="absolute -top-12 sm:-top-16 md:-top-24 -left-4 sm:-left-6 md:-left-12 text-[120px] sm:text-[200px] md:text-[300px] font-serif text-cyan-400 leading-none pointer-events-none select-none z-0"
+            className="absolute -top-12 sm:-top-16 md:-top-24 -left-4 sm:-left-6 md:-left-12 text-[120px] sm:text-[200px] md:text-[300px] font-serif text-french-blue leading-none pointer-events-none select-none z-0"
           >
             &ldquo;
           </m.div>
@@ -108,13 +108,13 @@ const Testimonials = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="relative mb-12 sm:mb-16 md:mb-20 z-10"
           >
-            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif italic text-white leading-relaxed tracking-tight max-w-5xl mx-auto text-center">
+            <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif italic text-deep-twilight leading-relaxed tracking-tight max-w-5xl mx-auto text-center">
               {active.quote}
             </p>
           </m.div>
 
           {/* Author Section */}
-          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8 border-t border-zinc-800 pt-8">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-8 border-t border-french-blue/10 pt-8">
             <m.div
               key={`author-${activeIndex}`}
               initial={{ opacity: 0, x: -30 }}
@@ -124,8 +124,8 @@ const Testimonials = () => {
             >
               {/* Author Details */}
               <div className="text-center sm:text-left">
-                <h4 className="text-lg sm:text-xl font-bold text-white mb-1">{active.author}</h4>
-                <p className="text-sm sm:text-base text-cyan-400 font-medium tracking-wide">{active.role}</p>
+                <h4 className="text-lg sm:text-xl font-bold text-deep-twilight mb-1">{active.author}</h4>
+                <p className="text-sm sm:text-base text-french-blue font-medium tracking-wide">{active.role}</p>
               </div>
             </m.div>
 
@@ -137,8 +137,8 @@ const Testimonials = () => {
               className="flex items-center gap-3 sm:gap-6"
             >
               {/* Counter */}
-              <div className="text-sm text-zinc-500 font-medium tabular-nums">
-                <span className="text-white text-lg">{String(activeIndex + 1).padStart(2, '0')}</span>
+              <div className="text-sm text-gray-400 font-medium tabular-nums">
+                <span className="text-deep-twilight text-lg">{String(activeIndex + 1).padStart(2, '0')}</span>
                 <span className="mx-2">/</span>
                 <span>{String(testimonials.length).padStart(2, '0')}</span>
               </div>
@@ -147,14 +147,14 @@ const Testimonials = () => {
               <div className="flex gap-3">
                 <button
                   onClick={prevTestimonial}
-                  className="w-12 h-12 rounded-full border border-zinc-800 bg-zinc-900 flex items-center justify-center text-white hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 group shadow-sm hover:shadow-md"
+                  className="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-deep-twilight hover:border-french-blue hover:text-french-blue transition-all duration-300 group shadow-sm hover:shadow-md"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
                 </button>
                 <button
                   onClick={nextTestimonial}
-                  className="w-12 h-12 rounded-full border border-zinc-800 bg-zinc-900 flex items-center justify-center text-white hover:border-cyan-400 hover:text-cyan-400 transition-all duration-300 group shadow-sm hover:shadow-md"
+                  className="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-deep-twilight hover:border-french-blue hover:text-french-blue transition-all duration-300 group shadow-sm hover:shadow-md"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
@@ -174,11 +174,11 @@ const Testimonials = () => {
               <button
                 key={index}
                 onClick={() => setActiveIndex(index)}
-                className="group relative w-12 h-1 bg-zinc-800 rounded-full overflow-hidden transition-colors hover:bg-zinc-700"
+                className="group relative w-12 h-1 bg-gray-200 rounded-full overflow-hidden transition-colors hover:bg-gray-300"
                 aria-label={`Go to testimonial ${index + 1}`}
               >
                 <m.div
-                  className="absolute inset-0 bg-cyan-400 origin-left"
+                  className="absolute inset-0 bg-french-blue origin-left"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: index === activeIndex ? 1 : 0 }}
                   transition={{ duration: 0.4 }}

@@ -50,11 +50,11 @@ const Mission = () => {
     ];
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-zinc-950">
+        <section ref={containerRef} className="relative h-[300vh] bg-white">
             <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                 {/* Minimal Background */}
-                <div className="absolute inset-0 z-0 bg-zinc-950">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/10 to-transparent" />
+                <div className="absolute inset-0 z-0 bg-white">
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-light-cyan/20 to-transparent" />
                 </div>
 
                 <div className="relative z-10 container mx-auto px-6">
@@ -73,9 +73,9 @@ const Mission = () => {
                                     }}
                                     className="absolute top-1/2 left-0 right-0 -translate-y-1/2 text-center"
                                 >
-                                    <h2 className="text-5xl md:text-8xl font-serif font-medium tracking-tight text-white">
+                                    <h2 className="text-5xl md:text-8xl font-serif font-medium tracking-tight text-deep-twilight">
                                         {phrase.split(" ").map((word, i) => (
-                                            <span key={i} className={word === "talent." || word === "futures." ? "text-cyan-400 italic" : "text-white"}>
+                                            <span key={i} className={word === "talent." || word === "futures." ? "text-bright-teal-blue italic" : "text-deep-twilight"}>
                                                 {word}{" "}
                                             </span>
                                         ))}
@@ -89,7 +89,7 @@ const Mission = () => {
                 {/* Scroll Indicator */}
                 <m.div
                     style={{ opacity: useTransform(scrollYProgress, [0.9, 1], [1, 0]) }}
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-zinc-500 text-sm font-sans tracking-widest uppercase"
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-400 text-sm font-sans tracking-widest uppercase"
                 >
                     Scroll to explore
                 </m.div>

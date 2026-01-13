@@ -64,14 +64,14 @@ export default function JoinTalentPool() {
     };
 
     return (
-        <main className="min-h-screen bg-zinc-950 text-white selection:bg-cyan-500/30">
+        <main className="min-h-screen bg-white text-deep-twilight">
             <Navbar />
 
             {/* Hero Section */}
             <section className="relative pt-40 pb-20 overflow-hidden">
                 {/* Background Effects */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
-                    <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-cyan-500/10 rounded-full blur-[100px] opacity-40 mix-blend-screen" />
+                    <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-frosted-blue/10 rounded-full blur-[100px] opacity-60 mix-blend-multiply" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
@@ -85,17 +85,17 @@ export default function JoinTalentPool() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-cyan-900/20 border border-cyan-500/20 mb-8"
+                            className="inline-flex items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-light-cyan/30 border border-french-blue/10 mb-8"
                         >
-                            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                            <span className="text-cyan-400 text-sm font-serif font-medium tracking-wide uppercase">Join Our Network</span>
+                            <Sparkles className="w-3.5 h-3.5 text-french-blue" />
+                            <span className="text-french-blue text-sm font-serif font-medium tracking-wide uppercase">Join Our Network</span>
                         </m.div>
 
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-8 tracking-tight text-white">
-                            Build Your <span className="italic text-cyan-400">Future</span>
+                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-8 tracking-tight text-deep-twilight">
+                            Build Your <span className="italic text-french-blue">Future</span>
                         </h1>
 
-                        <p className="text-xl text-zinc-400 font-sans font-light max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xl text-gray-600 font-sans font-light max-w-2xl mx-auto leading-relaxed">
                             Connect with world-class startups and global companies. We help exceptional talent find exceptional opportunities.
                         </p>
                     </m.div>
@@ -109,10 +109,10 @@ export default function JoinTalentPool() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="max-w-3xl mx-auto bg-zinc-900 rounded-[2.5rem] shadow-xl border border-zinc-800 overflow-hidden p-8 md:p-12 relative"
+                        className="max-w-3xl mx-auto bg-white rounded-[2.5rem] shadow-xl border border-gray-100 overflow-hidden p-8 md:p-12 relative"
                     >
                         {/* Decorative Gradient */}
-                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-cyan-900/20 to-transparent rounded-full blur-3xl -z-10" />
+                        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-gradient-to-br from-light-cyan/10 to-transparent rounded-full blur-3xl -z-10" />
 
                         {!isSuccess ? (
                             <form onSubmit={handleSubmit} className="space-y-8">
@@ -120,8 +120,8 @@ export default function JoinTalentPool() {
                                     <div className="grid md:grid-cols-2 gap-6">
                                         {/* Name */}
                                         <div>
-                                            <label className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                                                <User className="w-4 h-4 text-cyan-400" />
+                                            <label className="flex items-center gap-2 text-sm font-bold text-deep-twilight mb-2">
+                                                <User className="w-4 h-4 text-french-blue" />
                                                 Full Name *
                                             </label>
                                             <input
@@ -130,14 +130,14 @@ export default function JoinTalentPool() {
                                                 value={formData.name}
                                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                                 placeholder="John Doe"
-                                                className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-zinc-950 focus:ring-4 focus:ring-cyan-500/5 transition-all"
+                                                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white focus:ring-4 focus:ring-french-blue/5 transition-all"
                                             />
                                         </div>
 
                                         {/* Location */}
                                         <div>
-                                            <label className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                                                <MapPin className="w-4 h-4 text-cyan-400" />
+                                            <label className="flex items-center gap-2 text-sm font-bold text-deep-twilight mb-2">
+                                                <MapPin className="w-4 h-4 text-french-blue" />
                                                 Location *
                                             </label>
                                             <input
@@ -146,15 +146,15 @@ export default function JoinTalentPool() {
                                                 value={formData.location}
                                                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                                                 placeholder="New York, USA"
-                                                className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-zinc-950 focus:ring-4 focus:ring-cyan-500/5 transition-all"
+                                                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white focus:ring-4 focus:ring-french-blue/5 transition-all"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Role */}
                                     <div>
-                                        <label className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                                            <Briefcase className="w-4 h-4 text-cyan-400" />
+                                        <label className="flex items-center gap-2 text-sm font-bold text-deep-twilight mb-2">
+                                            <Briefcase className="w-4 h-4 text-french-blue" />
                                             Role / Expertise *
                                         </label>
                                         <input
@@ -163,30 +163,30 @@ export default function JoinTalentPool() {
                                             value={formData.role}
                                             onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                                             placeholder="e.g. Senior Full Stack Developer"
-                                            className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-zinc-950 focus:ring-4 focus:ring-cyan-500/5 transition-all"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white focus:ring-4 focus:ring-french-blue/5 transition-all"
                                         />
                                     </div>
 
                                     {/* LinkedIn */}
                                     <div>
-                                        <label className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                                            <Linkedin className="w-4 h-4 text-cyan-400" />
+                                        <label className="flex items-center gap-2 text-sm font-bold text-deep-twilight mb-2">
+                                            <Linkedin className="w-4 h-4 text-french-blue" />
                                             LinkedIn Profile
-                                            <span className="text-xs text-zinc-500 font-normal">(Optional)</span>
+                                            <span className="text-xs text-gray-400 font-normal">(Optional)</span>
                                         </label>
                                         <input
                                             type="url"
                                             value={formData.linkedin}
                                             onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
                                             placeholder="https://linkedin.com/in/johndoe"
-                                            className="w-full px-4 py-3 rounded-xl bg-zinc-950/50 border border-zinc-800 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:bg-zinc-950 focus:ring-4 focus:ring-cyan-500/5 transition-all"
+                                            className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-100 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white focus:ring-4 focus:ring-french-blue/5 transition-all"
                                         />
                                     </div>
 
                                     {/* CV Upload */}
                                     <div>
-                                        <label className="flex items-center gap-2 text-sm font-bold text-white mb-2">
-                                            <FileText className="w-4 h-4 text-cyan-400" />
+                                        <label className="flex items-center gap-2 text-sm font-bold text-deep-twilight mb-2">
+                                            <FileText className="w-4 h-4 text-french-blue" />
                                             Upload CV *
                                         </label>
                                         <div className="relative">
@@ -201,8 +201,8 @@ export default function JoinTalentPool() {
                                             <label
                                                 htmlFor="cv-upload"
                                                 className={`flex items-center justify-center gap-3 w-full px-8 py-8 rounded-2xl border-2 border-dashed cursor-pointer transition-all group ${cvFile
-                                                    ? 'bg-cyan-900/10 border-cyan-500/50 text-cyan-400'
-                                                    : 'bg-zinc-950/30 border-zinc-700 hover:border-cyan-500/30 hover:bg-cyan-900/5 text-zinc-500 hover:text-cyan-400'
+                                                        ? 'bg-french-blue/5 border-french-blue text-french-blue'
+                                                        : 'bg-gray-50 border-gray-200 hover:border-french-blue/30 hover:bg-french-blue/5 text-gray-500 hover:text-french-blue'
                                                     }`}
                                             >
                                                 <div className="flex flex-col items-center gap-2 text-center">
@@ -210,7 +210,7 @@ export default function JoinTalentPool() {
                                                     <span className="text-sm font-medium">
                                                         {cvFile ? cvFile.name : 'Click to upload CV (PDF, DOC, DOCX)'}
                                                     </span>
-                                                    {!cvFile && <span className="text-xs text-zinc-600">Max file size 5MB</span>}
+                                                    {!cvFile && <span className="text-xs text-gray-400">Max file size 5MB</span>}
                                                 </div>
                                             </label>
                                         </div>
@@ -221,11 +221,11 @@ export default function JoinTalentPool() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full py-4 rounded-xl bg-cyan-400 text-zinc-950 font-bold text-lg hover:bg-cyan-300 transition-all transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2 mt-8"
+                                    className="w-full py-4 rounded-xl bg-deep-twilight text-white font-bold text-lg hover:bg-french-blue transition-all transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-xl shadow-deep-twilight/10 flex items-center justify-center gap-2 mt-8"
                                 >
                                     {isSubmitting ? (
                                         <>
-                                            <div className="w-5 h-5 border-2 border-zinc-950/30 border-t-zinc-950 rounded-full animate-spin" />
+                                            <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                             Submitting...
                                         </>
                                     ) : (
@@ -236,7 +236,7 @@ export default function JoinTalentPool() {
                                     )}
                                 </button>
 
-                                <p className="text-xs text-center text-zinc-500">
+                                <p className="text-xs text-center text-gray-400">
                                     By submitting, you agree to our terms and privacy policy.
                                 </p>
                             </form>
@@ -251,12 +251,12 @@ export default function JoinTalentPool() {
                                     initial={{ scale: 0 }}
                                     animate={{ scale: 1 }}
                                     transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                                    className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-500/10 text-green-400 mb-8 border border-green-500/20"
+                                    className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-green-50 text-green-500 mb-8"
                                 >
                                     <CheckCircle className="w-12 h-12" />
                                 </m.div>
-                                <h3 className="text-3xl font-serif font-bold text-white mb-4">Application Submitted!</h3>
-                                <p className="text-zinc-400 text-lg mb-8 max-w-md mx-auto">
+                                <h3 className="text-3xl font-serif font-bold text-deep-twilight mb-4">Application Submitted!</h3>
+                                <p className="text-gray-600 text-lg mb-8 max-w-md mx-auto">
                                     Use this time to relax. We&apos;ll review your profile and get back to you within 48 hours.
                                 </p>
                                 <button
@@ -264,7 +264,7 @@ export default function JoinTalentPool() {
                                         setIsSuccess(false);
                                         setFormData({ name: '', location: '', role: '', linkedin: '' });
                                     }}
-                                    className="text-cyan-400 font-bold hover:underline"
+                                    className="text-french-blue font-bold hover:underline"
                                 >
                                     Submit another application
                                 </button>
