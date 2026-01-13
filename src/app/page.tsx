@@ -7,10 +7,12 @@ import TalentCategories from '@/components/TalentCategories';
 import TalentShowcase from '@/components/TalentShowcase';
 import Testimonials from '@/components/Testimonials';
 import Footer from '@/components/Footer';
+import CreativeBackground from '@/components/CreativeBackground';
 
 export default function Home() {
   return (
-    <main className="min-h-screen relative bg-background text-foreground selection:bg-frosted-blue/30">
+    <main className="min-h-screen bg-zinc-950 text-white selection:bg-blue-500/30 relative">
+      <CreativeBackground />
       <div className="relative z-10">
         <Navbar />
         <Hero />

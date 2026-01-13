@@ -96,7 +96,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                     onWheel={handleWheel}
                 >
                     {/* Backdrop */}
-                    <div className="absolute inset-0 bg-gray-900/40 backdrop-blur-md" />
+                    <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
 
                     {/* Centered container */}
                     <div
@@ -110,152 +110,152 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                             exit={{ scale: 0.95, opacity: 0, y: 20 }}
                             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="relative w-full max-w-2xl bg-white rounded-3xl border border-gray-100 shadow-2xl overflow-hidden my-8"
+                            className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden my-8"
                         >
-                            {/* Animated gradient border effect (Subtle in light mode) */}
-                            <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-                                <m.div
-                                    className="absolute inset-0 opacity-10"
-                                    style={{
-                                        background: 'linear-gradient(90deg, transparent, rgba(2,62,138,0.3), transparent)',
-                                    }}
-                                    animate={{
-                                        x: ['-200%', '200%'],
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        ease: 'linear',
-                                    }}
-                                />
-                            </div>
+                        {/* Animated gradient border effect */}
+                        <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
+                            <m.div
+                                className="absolute inset-0 opacity-30"
+                                style={{
+                                    background: 'linear-gradient(90deg, transparent, rgba(6,182,212,0.5), transparent)',
+                                }}
+                                animate={{
+                                    x: ['-200%', '200%'],
+                                }}
+                                transition={{
+                                    duration: 3,
+                                    repeat: Infinity,
+                                    ease: 'linear',
+                                }}
+                            />
+                        </div>
 
-                            {/* Close button */}
-                            <button
-                                onClick={onClose}
-                                className="absolute top-6 right-6 z-10 p-2 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-500 hover:text-deep-twilight transition-colors"
-                            >
-                                <X className="w-5 h-5" />
-                            </button>
+                        {/* Close button */}
+                        <button
+                            onClick={onClose}
+                            className="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                        >
+                            <X className="w-5 h-5 text-zinc-400" />
+                        </button>
 
-                            {/* Header */}
-                            <div className="relative p-8 pb-6 border-b border-gray-100">
-                                <div className="flex items-center gap-4 mb-3">
-                                    <div className="p-3 rounded-xl bg-light-cyan/30 border border-french-blue/10">
-                                        <MessageSquare className="w-6 h-6 text-french-blue" />
-                                    </div>
-                                    <div>
-                                        <h2 className="text-3xl font-serif font-bold text-deep-twilight tracking-tight">
-                                            Get in <span className="text-french-blue">Touch</span>
-                                        </h2>
-                                        <p className="text-sm text-gray-500 mt-1 font-sans font-light">
-                                            Send us a message and we&apos;ll reply via email
-                                        </p>
-                                    </div>
+                        {/* Header */}
+                        <div className="relative p-8 pb-6 border-b border-white/10">
+                            <div className="flex items-center gap-4 mb-3">
+                                <div className="p-3 rounded-xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15">
+                                    <MessageSquare className="w-6 h-6 text-cyan-400" />
+                                </div>
+                                <div>
+                                    <h2 className="text-3xl font-black text-white tracking-tight font-[var(--font-space-grotesk)]">
+                                        Get in <span className="text-cyan-400">Touch</span>
+                                    </h2>
+                                    <p className="text-sm text-zinc-400 mt-1">
+                                        Send us a message and we&apos;ll reply via email
+                                    </p>
                                 </div>
                             </div>
+                        </div>
 
-                            {/* Form */}
-                            <form onSubmit={handleSubmit} className="relative p-8">
-                                {!isSuccess ? (
-                                    <div className="space-y-6">
-                                        {/* Name */}
-                                        <div>
-                                            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                                                <User className="w-4 h-4 text-french-blue" />
-                                                Your Name *
-                                            </label>
-                                            <input
-                                                type="text"
-                                                required
-                                                value={formData.name}
-                                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                                placeholder="John Doe"
-                                                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white transition-all font-light"
-                                            />
-                                        </div>
-
-                                        {/* Email */}
-                                        <div>
-                                            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                                                <Mail className="w-4 h-4 text-french-blue" />
-                                                Email Address *
-                                            </label>
-                                            <input
-                                                type="email"
-                                                required
-                                                value={formData.email}
-                                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                                placeholder="john@example.com"
-                                                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white transition-all font-light"
-                                            />
-                                        </div>
-
-                                        {/* Message */}
-                                        <div>
-                                            <label className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                                                <MessageSquare className="w-4 h-4 text-french-blue" />
-                                                Your Message *
-                                            </label>
-                                            <textarea
-                                                required
-                                                value={formData.message}
-                                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                                placeholder="Tell us about your project or inquiry..."
-                                                rows={6}
-                                                className="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 focus:bg-white transition-all resize-none font-light"
-                                            />
-                                        </div>
-
-                                        {/* Submit Button */}
-                                        <button
-                                            type="submit"
-                                            disabled={isSubmitting}
-                                            className="w-full py-4 rounded-xl bg-french-blue hover:bg-bright-teal-blue text-white font-bold text-lg transition-all transform hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-french-blue/20 flex items-center justify-center gap-2"
-                                        >
-                                            {isSubmitting ? (
-                                                <span className="flex items-center justify-center gap-2">
-                                                    <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
-                                                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                                                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                                                    </svg>
-                                                    Sending...
-                                                </span>
-                                            ) : (
-                                                <>
-                                                    <Send className="w-5 h-5" />
-                                                    Send Message
-                                                </>
-                                            )}
-                                        </button>
-
-                                        <p className="text-xs text-center text-gray-400 font-light">
-                                            We typically respond within 24 hours
-                                        </p>
+                        {/* Form */}
+                        <form onSubmit={handleSubmit} className="relative p-8">
+                            {!isSuccess ? (
+                                <div className="space-y-6">
+                                    {/* Name */}
+                                    <div>
+                                        <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
+                                            <User className="w-4 h-4 text-cyan-400" />
+                                            Your Name *
+                                        </label>
+                                        <input
+                                            type="text"
+                                            required
+                                            value={formData.name}
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                            placeholder="John Doe"
+                                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all"
+                                        />
                                     </div>
-                                ) : (
-                                    // Success State
-                                    <m.div
-                                        initial={{ scale: 0.8, opacity: 0 }}
-                                        animate={{ scale: 1, opacity: 1 }}
-                                        className="text-center py-12"
+
+                                    {/* Email */}
+                                    <div>
+                                        <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
+                                            <Mail className="w-4 h-4 text-cyan-400" />
+                                            Email Address *
+                                        </label>
+                                        <input
+                                            type="email"
+                                            required
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            placeholder="john@example.com"
+                                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all"
+                                        />
+                                    </div>
+
+                                    {/* Message */}
+                                    <div>
+                                        <label className="flex items-center gap-2 text-sm font-medium text-zinc-300 mb-2">
+                                            <MessageSquare className="w-4 h-4 text-cyan-400" />
+                                            Your Message *
+                                        </label>
+                                        <textarea
+                                            required
+                                            value={formData.message}
+                                            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                            placeholder="Tell us about your project or inquiry..."
+                                            rows={6}
+                                            className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-cyan-400/50 focus:bg-white/10 transition-all resize-none"
+                                        />
+                                    </div>
+
+                                    {/* Submit Button */}
+                                    <button
+                                        type="submit"
+                                        disabled={isSubmitting}
+                                        className="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-zinc-950 font-bold text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-cyan-400/20 flex items-center justify-center gap-2"
                                     >
-                                        <m.div
-                                            initial={{ scale: 0 }}
-                                            animate={{ scale: 1 }}
-                                            transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                                            className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-green-50 border border-green-100 mb-6"
-                                        >
-                                            <svg className="w-10 h-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                            </svg>
-                                        </m.div>
-                                        <h3 className="text-2xl font-bold text-deep-twilight mb-2">Message Sent!</h3>
-                                        <p className="text-gray-600 font-light">We&apos;ve received your message and will get back to you via email soon.</p>
+                                        {isSubmitting ? (
+                                            <span className="flex items-center justify-center gap-2">
+                                                <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                                                </svg>
+                                                Sending...
+                                            </span>
+                                        ) : (
+                                            <>
+                                                <Send className="w-5 h-5" />
+                                                Send Message
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <p className="text-xs text-center text-zinc-500">
+                                        We typically respond within 24 hours
+                                    </p>
+                                </div>
+                            ) : (
+                                // Success State
+                                <m.div
+                                    initial={{ scale: 0.8, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    className="text-center py-12"
+                                >
+                                    <m.div
+                                        initial={{ scale: 0 }}
+                                        animate={{ scale: 1 }}
+                                        transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+                                        className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15 mb-6"
+                                    >
+                                        <svg className="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                        </svg>
                                     </m.div>
-                                )}
-                            </form>
-                        </m.div>
+                                    <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+                                    <p className="text-zinc-400">We&apos;ve received your message and will get back to you via email soon.</p>
+                                </m.div>
+                            )}
+                        </form>
+                    </m.div>
                     </div>
                 </m.div>
             )}

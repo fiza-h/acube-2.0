@@ -35,31 +35,31 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                     onClick={onClose}
                 >
                     {/* Blurred Marketplace Background */}
-                    <div className="absolute inset-0 bg-white">
+                    <div className="absolute inset-0 bg-zinc-950">
                         {/* Simulated marketplace grid in background */}
-                        <div className="absolute inset-0 opacity-10 blur-sm">
+                        <div className="absolute inset-0 opacity-30 blur-sm">
                             <div className="grid grid-cols-4 gap-4 p-8">
                                 {[...Array(12)].map((_, i) => (
                                     <div
                                         key={i}
-                                        className="aspect-square rounded-2xl bg-gradient-to-br from-french-blue/10 to-bright-teal-blue/10 border border-french-blue/5"
+                                        className="aspect-square rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15"
                                     />
                                 ))}
                             </div>
                         </div>
 
                         {/* Animated particles */}
-                        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div className="absolute inset-0">
                             {particles.map((particle) => (
                                 <m.div
                                     key={particle.id}
-                                    className="absolute w-1 h-1 bg-french-blue/30 rounded-full"
+                                    className="absolute w-1 h-1 bg-cyan-400 rounded-full"
                                     style={{
                                         left: `${particle.left}%`,
                                         top: `${particle.top}%`,
                                     }}
                                     animate={{
-                                        opacity: [0.2, 0.6, 0.2],
+                                        opacity: [0.2, 0.8, 0.2],
                                         scale: [1, 1.5, 1],
                                     }}
                                     transition={{
@@ -72,7 +72,7 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                         </div>
 
                         {/* Backdrop blur overlay */}
-                        <div className="absolute inset-0 bg-white/70 backdrop-blur-xl" />
+                        <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
                     </div>
 
                     {/* Modal Content */}
@@ -82,14 +82,14 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="relative w-full max-w-2xl bg-white rounded-3xl border border-french-blue/10 shadow-2xl shadow-french-blue/5 overflow-hidden"
+                        className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden"
                     >
                         {/* Animated gradient border */}
                         <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
                             <m.div
-                                className="absolute inset-0 opacity-20"
+                                className="absolute inset-0 opacity-50"
                                 style={{
-                                    background: 'linear-gradient(90deg, transparent, rgba(2,62,138,0.3), transparent)',
+                                    background: 'linear-gradient(90deg, transparent, rgba(6,182,212,0.3), transparent)',
                                 }}
                                 animate={{
                                     x: ['-200%', '200%'],
@@ -105,9 +105,9 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                         {/* Close button */}
                         <button
                             onClick={onClose}
-                            className="absolute top-6 right-6 z-10 p-2 rounded-full bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-500 hover:text-deep-twilight transition-colors"
+                            className="absolute top-6 right-6 z-10 p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
                         >
-                            <X className="w-5 h-5" />
+                            <X className="w-5 h-5 text-zinc-400" />
                         </button>
 
                         {/* Content */}
@@ -117,9 +117,9 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-french-blue/10 to-bright-teal-blue/10 border border-french-blue/15 mb-8"
+                                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15 mb-8"
                             >
-                                <Sparkles className="w-10 h-10 text-french-blue" />
+                                <Sparkles className="w-10 h-10 text-cyan-400" />
                             </m.div>
 
                             {/* Title */}
@@ -127,9 +127,9 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="text-5xl font-serif font-black text-deep-twilight mb-4 tracking-tight"
+                                className="text-5xl font-black text-white mb-4 tracking-tight font-[var(--font-space-grotesk)]"
                             >
-                                Coming <span className="text-transparent bg-clip-text bg-gradient-to-r from-french-blue to-bright-teal-blue">Soon</span>
+                                Coming <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Soon</span>
                             </m.h2>
 
                             {/* Description */}
@@ -137,7 +137,7 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="text-lg text-gray-600 mb-8 max-w-md mx-auto leading-relaxed font-sans font-light"
+                                className="text-lg text-zinc-400 mb-8 max-w-md mx-auto leading-relaxed"
                             >
                                 We&apos;re building something incredible. Our talent marketplace will launch soon with revolutionary features.
                             </m.p>
@@ -149,15 +149,15 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 transition={{ delay: 0.5 }}
                                 className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
                             >
-                                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
-                                    <Users className="w-6 h-6 text-french-blue mb-2 mx-auto" />
-                                    <h3 className="text-sm font-bold text-deep-twilight mb-1">1000+ Talent</h3>
-                                    <p className="text-xs text-gray-500 font-light">Vetted professionals</p>
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <Users className="w-6 h-6 text-cyan-400 mb-2 mx-auto" />
+                                    <h3 className="text-sm font-bold text-white mb-1">1000+ Talent</h3>
+                                    <p className="text-xs text-zinc-500">Vetted professionals</p>
                                 </div>
-                                <div className="p-4 rounded-xl bg-gray-50 border border-gray-100">
-                                    <Zap className="w-6 h-6 text-french-blue mb-2 mx-auto" />
-                                    <h3 className="text-sm font-bold text-deep-twilight mb-1">Smart Matching</h3>
-                                    <p className="text-xs text-gray-500 font-light">AI-powered recommendations</p>
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <Zap className="w-6 h-6 text-cyan-400 mb-2 mx-auto" />
+                                    <h3 className="text-sm font-bold text-white mb-1">Smart Matching</h3>
+                                    <p className="text-xs text-zinc-500">AI-powered recommendations</p>
                                 </div>
                             </m.div>
 
@@ -171,9 +171,9 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 <input
                                     type="email"
                                     placeholder="Enter your email for updates"
-                                    className="flex-1 px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 text-deep-twilight placeholder:text-gray-400 focus:outline-none focus:border-french-blue/50 transition-colors font-light"
+                                    className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-cyan-400/50 transition-colors"
                                 />
-                                <button className="px-6 py-3 rounded-xl bg-french-blue hover:bg-bright-teal-blue text-white font-bold transition-colors whitespace-nowrap shadow-md">
+                                <button className="px-6 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-500 text-zinc-950 font-bold transition-colors whitespace-nowrap">
                                     Notify Me
                                 </button>
                             </m.div>
