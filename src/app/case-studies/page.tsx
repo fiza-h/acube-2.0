@@ -126,8 +126,8 @@ export default function CaseStudies() {
               <span className="text-cyan-400 text-sm font-bold tracking-wide">SUCCESS STORIES</span>
             </m.div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-6 tracking-tight px-4">
-              Real Impact, <span className="text-cyan-400">Real Results</span>
+            <h1 className="text-5xl md:text-7xl font-serif mb-6 tracking-tight px-4 leading-tight">
+              Real Impact, <span className="text-cyan-400 italic">Real Results</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed px-4">
