@@ -153,20 +153,14 @@ const Navbar = () => {
                     >
                         <Link href="/" className="relative group flex items-center gap-3">
                             {/* Logo Image */}
-                            <div className="relative w-10 h-10 md:w-12 md:h-12">
+                            <div className="relative w-48 h-12 md:w-56 md:h-14">
                                 <Image
-                                    src="/acubelogo.png"
+                                    src="/acube-full-logo.png"
                                     alt="ACube Tech"
                                     fill
                                     className="object-contain"
                                     priority
                                 />
-                            </div>
-                            {/* Logo Text */}
-                            <div className="flex flex-col">
-                                <span className="text-xl md:text-2xl font-bold text-white font-[var(--font-space-grotesk)]">
-                                    ACube <span className="text-cyan-400">Tech</span>
-                                </span>
                             </div>
                         </Link>
                     </m.div>
