@@ -10,7 +10,7 @@ export const metadata = {
 
 export default function DimensionLabs() {
     return (
-        <main className="min-h-screen bg-zinc-950 text-white selection:bg-cyan-500/30">
+        <main className="min-h-screen bg-zinc-950 text-white selection:bg-cyan-500/30 overflow-x-hidden">
             <Navbar />
 
             <div className="container mx-auto px-6 py-32 max-w-6xl">
@@ -34,7 +34,7 @@ export default function DimensionLabs() {
 
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Link
-                            href="https://calendar.app.google/your-link-here"
+                            href="https://forms.gle/EFeSYqkdej6ofXaC8"
                             target="_blank"
                             className="px-8 py-4 bg-cyan-400 text-zinc-950 font-bold text-lg rounded-full hover:bg-cyan-300 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.3)] flex items-center"
                         >
@@ -42,7 +42,7 @@ export default function DimensionLabs() {
                             <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                         <Link
-                            href="#"
+                            href="https://www.dimensionlabs.org/"
                             className="px-8 py-4 bg-transparent border border-zinc-700 text-white font-bold text-lg rounded-full hover:bg-zinc-800 transition-all flex items-center"
                         >
                             Visit Dimension Labs
@@ -162,7 +162,7 @@ export default function DimensionLabs() {
                                 We are looking for builders, curious minds, and those who want to understand how companies are built from the ground up.
                             </p>
                             <Link
-                                href="https://calendar.app.google/your-link-here"
+                                href="https://forms.gle/EFeSYqkdej6ofXaC8"
                                 target="_blank"
                                 className="inline-flex px-8 py-4 bg-white text-zinc-950 font-bold text-lg rounded-full hover:bg-zinc-200 transition-all transform hover:scale-105"
                             >
