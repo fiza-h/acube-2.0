@@ -10,26 +10,6 @@ import Image from 'next/image';
 export default function CaseStudies() {
   const caseStudies = [
     {
-      id: 1,
-      company: 'MG Bhutan (Daksho Motors)',
-      industry: 'Automotive',
-      location: 'Bhutan',
-      website: 'https://www.dakshomgmotors.com/',
-      logo: '/daksho-motors-logo.svg',
-      challenge: 'Needed a modern, professional website to showcase MG vehicles and provide booking options for their authorized dealership in Bhutan',
-      solution: 'Built a complete official website with vehicle showcase, booking system, and dealership information',
-      results: [
-        { metric: '100%', label: 'On-Time Delivery', icon: Clock },
-        { metric: 'Full', label: 'Website Built', icon: Zap },
-        { metric: '5/5', label: 'Client Rating', icon: Star },
-      ],
-      testimonial: "We are really happy with the website that ACube Tech's created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
-      author: 'Saroj Rai',
-      role: 'Manager, Daksho MG Motors Pvt. Ltd.',
-      gradient: 'from-cyan-500/20 to-cyan-400/20',
-      accentColor: 'cyan',
-    },
-    {
       id: 2,
       company: 'Jeneeus',
       industry: 'Social Networking',
@@ -87,6 +67,26 @@ export default function CaseStudies() {
       author: 'Adila Sayyed',
       role: 'Founder, 3D Heroes',
       gradient: 'from-cyan-600/20 to-cyan-400/20',
+      accentColor: 'cyan',
+    },
+    {
+      id: 1,
+      company: 'MG Bhutan (Daksho Motors)',
+      industry: 'Automotive',
+      location: 'Bhutan',
+      website: 'https://www.dakshomgmotors.com/',
+      logo: '/daksho-motors-logo.svg',
+      challenge: 'Needed a modern, professional website to showcase MG vehicles and provide booking options for their authorized dealership in Bhutan',
+      solution: 'Built a complete official website with vehicle showcase, booking system, and dealership information',
+      results: [
+        { metric: '100%', label: 'On-Time Delivery', icon: Clock },
+        { metric: 'Full', label: 'Website Built', icon: Zap },
+        { metric: '5/5', label: 'Client Rating', icon: Star },
+      ],
+      testimonial: "We are really happy with the website that ACube Tech's created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
+      author: 'Saroj Rai',
+      role: 'Manager, Daksho MG Motors Pvt. Ltd.',
+      gradient: 'from-cyan-500/20 to-cyan-400/20',
       accentColor: 'cyan',
     },
   ];
