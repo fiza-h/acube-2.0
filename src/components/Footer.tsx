@@ -41,7 +41,7 @@ const Footer = () => {
                             <h4 className="text-white font-bold mb-6">Company</h4>
                             <ul className="space-y-4">
                                 <li><Link href="/about" className="text-zinc-400 hover:text-cyan-400 transition-colors">About Us</Link></li>
-                                <li><Link href="/case-studies" className="text-zinc-400 hover:text-cyan-400 transition-colors">Case Studies</Link></li>
+
                                 <li>
                                     <button
                                         onClick={() => setShowTalentForm(true)}

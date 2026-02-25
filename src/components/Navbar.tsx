@@ -89,7 +89,6 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Case Studies', href: '/case-studies' },
         { name: 'About Us', href: '/about' },
         { name: 'Dimension Labs', href: '/dimension-labs' },
     ];
