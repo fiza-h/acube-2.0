@@ -20,8 +20,8 @@ const Footer = () => {
                             <Link href="/" className="inline-block mb-6 group">
                                 <div className="relative w-48 h-12">
                                     <Image
-                                        src="/acube-full-logo.png"
-                                        alt="ACube Tech"
+                                        src="/talspace-brand-logo.png"
+                                        alt="Talspace"
                                         fill
                                         className="object-contain object-left"
                                     />
@@ -31,7 +31,7 @@ const Footer = () => {
                                 Connecting startups with world-class remote talent. Build faster, spend smarter, and scale without limits.
                             </p>
                             <div className="flex space-x-4">
-                                <a href="https://linkedin.com/company/acube-tech" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-cyan-400 transition-colors">
+                                <a href="https://linkedin.com/company/talspace" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-cyan-400 transition-colors">
                                     <Linkedin className="w-5 h-5" />
                                 </a>
                             </div>
@@ -58,7 +58,7 @@ const Footer = () => {
                             <ul className="space-y-4">
                                 <li className="flex items-center text-zinc-400">
                                     <Mail className="w-4 h-4 mr-2 text-cyan-400" />
-                                    team@acube-tech.com
+                                    team@talspace.com
                                 </li>
                                 <li>
                                     <button
@@ -93,7 +93,7 @@ const Footer = () => {
 
                     <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
                         <p className="text-gray-500 text-sm mb-4 md:mb-0">
-                            © {new Date().getFullYear()} ACube Tech. All rights reserved.
+                            © {new Date().getFullYear()} Talspace. All rights reserved.
                         </p>
                         <div className="flex space-x-6 text-sm text-gray-500">
                             <Link href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>

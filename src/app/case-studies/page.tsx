@@ -43,7 +43,7 @@ export default function CaseStudies() {
         { metric: 'Complete', label: 'UI/UX + Frontend', icon: Zap },
         { metric: '70%', label: 'Cost Savings', icon: DollarSign },
       ],
-      testimonial: "Working with ACube allowed us to bring our vision to life faster than we imagined. Their designer understood our cultural nuances, and the developer delivered top-notch code.",
+      testimonial: "Working with Talspace allowed us to bring our vision to life faster than we imagined. Their designer understood our cultural nuances, and the developer delivered top-notch code.",
       author: 'Sanjay',
       role: 'Co-Founder, EduVille',
       gradient: 'from-cyan-500/20 to-cyan-300/20',
@@ -63,7 +63,7 @@ export default function CaseStudies() {
         { metric: 'Fast', label: 'Search System', icon: TrendingUp },
         { metric: '100%', label: 'From Scratch', icon: Star },
       ],
-      testimonial: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care. ACube felt less like an outsourced team and more like a true tech partner.",
+      testimonial: "Talspace delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care. Talspace felt less like an outsourced team and more like a true tech partner.",
       author: 'Adila Sayyed',
       role: 'Founder, 3D Heroes',
       gradient: 'from-cyan-600/20 to-cyan-400/20',
@@ -83,7 +83,7 @@ export default function CaseStudies() {
         { metric: 'Full', label: 'Website Built', icon: Zap },
         { metric: '5/5', label: 'Client Rating', icon: Star },
       ],
-      testimonial: "We are really happy with the website that ACube Tech's created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
+      testimonial: "We are really happy with the website that Talspace created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
       author: 'Saroj Rai',
       role: 'Manager, Daksho MG Motors Pvt. Ltd.',
       gradient: 'from-cyan-500/20 to-cyan-400/20',
@@ -131,7 +131,7 @@ export default function CaseStudies() {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed px-4">
-              See how startups across the globe are building world-class products with ACube&apos;s top 5% offshore talent
+              See how startups across the globe are building world-class products with Talspace&apos;s top 5% offshore talent
             </p>
           </m.div>
 
@@ -312,7 +312,7 @@ export default function CaseStudies() {
               Ready to Write Your <span className="text-cyan-400">Success Story?</span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-zinc-400 mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
-              Join the growing number of startups building exceptional products with ACube&apos;s top-tier talent
+              Join the growing number of startups building exceptional products with Talspace&apos;s top-tier talent
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

@@ -138,65 +138,65 @@ const TalentCategories = () => {
 
     return (
         <>
-        <section className="py-16 bg-zinc-950 relative">
-            <div className="container mx-auto px-6">
-                <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="text-center mb-16"
-                >
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                        Curated <span className="text-cyan-400">Categories</span>
-                    </h2>
-                    <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                        We&apos;ve organized our talent pool into specialized categories to help you find exactly who you need.
-                    </p>
-                </m.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {categories.map((category, index) => (
-                        <Card key={index} category={category} index={index} onClick={() => setShowComingSoon(true)} />
-                    ))}
-
-                    {/* Call to Action Card - Centered */}
+            <section className="py-16 bg-zinc-950 relative">
+                <div className="container mx-auto px-6">
                     <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-                        transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                        className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/10 hover:border-cyan-400/40 transition-all"
+                        viewport={{ once: true, margin: "0px 0px -50px 0px" }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        className="text-center mb-16"
                     >
-                        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold text-white mb-2">Don&apos;t see what you need?</h3>
-                            <p className="text-zinc-400 mb-6 text-sm">
-                                We have a vast network of professionals. Let us find them for you.
-                            </p>
-                            <button
-                                onClick={() => setShowContactModal(true)}
-                                className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20"
-                            >
-                                Contact Us
-                            </button>
-                        </div>
+                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+                            Curated <span className="text-cyan-400">Categories</span>
+                        </h2>
+                        <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
+                            Hire world-class talent with Talspace. Expertly vetted, specialized, and ready to scale.
+                        </p>
                     </m.div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {categories.map((category, index) => (
+                            <Card key={index} category={category} index={index} onClick={() => setShowComingSoon(true)} />
+                        ))}
+
+                        {/* Call to Action Card - Centered */}
+                        <m.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                            transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
+                            className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/10 hover:border-cyan-400/40 transition-all"
+                        >
+                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+                            <div className="relative z-10">
+                                <h3 className="text-2xl font-bold text-white mb-2">Don&apos;t see what you need?</h3>
+                                <p className="text-zinc-400 mb-6 text-sm">
+                                    We have a vast network of professionals. Let us find them for you.
+                                </p>
+                                <button
+                                    onClick={() => setShowContactModal(true)}
+                                    className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20"
+                                >
+                                    Contact Us
+                                </button>
+                            </div>
+                        </m.div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        {/* Contact Form Modal */}
-        <ContactFormModal
-            isOpen={showContactModal}
-            onClose={() => setShowContactModal(false)}
-        />
+            {/* Contact Form Modal */}
+            <ContactFormModal
+                isOpen={showContactModal}
+                onClose={() => setShowContactModal(false)}
+            />
 
-        {/* Coming Soon Modal */}
-        <ComingSoonModal
-            isOpen={showComingSoon}
-            onClose={() => setShowComingSoon(false)}
-        />
+            {/* Coming Soon Modal */}
+            <ComingSoonModal
+                isOpen={showComingSoon}
+                onClose={() => setShowComingSoon(false)}
+            />
         </>
     );
 };

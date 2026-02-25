@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { ArrowRight, Sparkles, Check, Database, Search, Rocket, Users, Target, Zap } from 'lucide-react';
 
 export const metadata = {
-    title: 'Dimension Labs - ACube 2.0',
+    title: 'Dimension Labs - Talspace',
     description: 'Dimension Labs Venture Growth Fellowship - Spring 2026',
 };
 

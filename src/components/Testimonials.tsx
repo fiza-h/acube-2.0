@@ -7,25 +7,25 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const testimonials = [
   {
     id: 1,
-    quote: "ACube Tech delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care. ACube felt less like an outsourced team and more like a true tech partner.",
+    quote: "Talspace delivered a fast, clean, and scalable product that exceeded our expectations. Communication was smooth, timelines were met, and every feature was crafted with care. Talspace felt less like an outsourced team and more like a true tech partner.",
     author: "Adila Sayyed",
     role: "Founder, 3D Heroes",
   },
   {
     id: 2,
-    quote: "We are really happy with the website that ACube Tech's created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
+    quote: "We are really happy with the website that Talspace created for Daksho MG Motors Pvt. Ltd. The website is well-designed, easy to use, and accurately captures the essence of our company. The team was responsive, effective, and enjoyable to work with from beginning to end. We are grateful for their outstanding work and have already heard nothing but positive things!",
     author: "Saroj Rai",
     role: "Manager, Daksho MG Motors Pvt. Ltd.",
   },
   {
     id: 3,
-    quote: "Working with ACube allowed us to bring our vision to life faster than we imagined. Their designer understood our cultural nuances, and the developer delivered top-notch code.",
+    quote: "Working with Talspace allowed us to bring our vision to life faster than we imagined. Their designer understood our cultural nuances, and the developer delivered top-notch code.",
     author: "Sanjay",
     role: "Co-Founder, EduVille",
   },
   {
     id: 4,
-    quote: "We've been partnering with Acube since the start of the year, and it's been an exceptional experience. The founders provided some of the best customer service I've ever received. They don't just match you with talent - they keep open communication to ensure you get the highest quality work from the people they source. Connecting with them has made talent sourcing significantly easier for our early-stage startup.",
+    quote: "We've been partnering with Talspace since the start of the year, and it's been an exceptional experience. The founders provided some of the best customer service I've ever received. They don't just match you with talent - they keep open communication to ensure you get the highest quality work from the people they source. Connecting with them has made talent sourcing significantly easier for our early-stage startup.",
     author: "Glahens Paul",
     role: "Co-founder and CTO, JeneeUS",
   },
@@ -83,7 +83,7 @@ const Testimonials = () => {
             Trusted by <span className="text-cyan-400">Innovators</span>
           </h2>
           <p className="text-zinc-400 max-w-2xl mx-auto text-base sm:text-lg px-4">
-            Join hundreds of companies that have transformed their hiring with ACube
+            Join hundreds of companies that have transformed their hiring with Talspace
           </p>
         </m.div>
 

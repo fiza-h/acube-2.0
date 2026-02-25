@@ -20,7 +20,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "ACube Tech - Hire World-Class Remote Talent",
+  title: "Talspace - Hire World-Class Remote Talent",
   description: "Connect with vetted global professionals in tech and beyond. Build faster, spend smarter, and scale without limits.",
 };
 

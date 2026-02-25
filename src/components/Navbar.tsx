@@ -155,8 +155,8 @@ const Navbar = () => {
                             {/* Logo Image */}
                             <div className="relative w-48 h-12 md:w-56 md:h-14">
                                 <Image
-                                    src="/acube-full-logo.png"
-                                    alt="ACube Tech"
+                                    src="/talspace-brand-logo.png"
+                                    alt="Talspace"
                                     fill
                                     className="object-contain"
                                     priority

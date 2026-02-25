@@ -4,8 +4,8 @@ import Footer from '@/components/Footer';
 import { Quote, Globe, Sparkles, Heart, ShieldCheck } from 'lucide-react';
 
 export const metadata = {
-  title: 'About Us - ACube 2.0',
-  description: 'Learn about ACube Technologies - Bridging talent across borders',
+  title: 'About Us - Talspace',
+  description: 'Learn about Talspace - Bridging talent across borders',
 };
 
 export default function AboutUs() {
@@ -24,7 +24,7 @@ export default function AboutUs() {
             About <span className="italic text-cyan-400">Us</span>
           </h1>
           <p className="text-xl md:text-2xl text-zinc-400 leading-relaxed font-light max-w-3xl">
-            ACube Tech was born from a simple, personal truth: <span className="text-white font-normal">talent is universal, but opportunity is not.</span>
+            Talspace was born from a simple, personal truth: <span className="text-white font-normal">talent is universal, but opportunity is not.</span>
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export default function AboutUs() {
 
             <div className="space-y-8 text-lg relative z-10">
               <p>
-                ACube began as a small experiment, a bridge between exceptional talent in emerging markets and the startups who needed them. We saw early-stage founders in places like the United States and Singapore struggling to hire because salaries were simply too high. And we saw world-class talent in Pakistan struggling to find global opportunities despite being equally skilled.
+                Talspace began as a small experiment, a bridge between exceptional talent in emerging markets and the startups who needed them. We saw early-stage founders in places like the United States and Singapore struggling to hire because salaries were simply too high. And we saw world-class talent in Pakistan struggling to find global opportunities despite being equally skilled.
               </p>
 
               <div className="p-8 bg-zinc-950/50 rounded-2xl border border-zinc-800/50">
@@ -82,7 +82,7 @@ export default function AboutUs() {
               </p>
 
               <p className="text-xl font-medium text-white pt-4">
-                Today, ACube connects top 5 percent offshore talent with global startups, creating life-changing opportunities for talent and game-changing advantages for founders.
+                Today, Talspace connects top 5 percent offshore talent with global startups, creating life-changing opportunities for talent and game-changing advantages for founders.
               </p>
             </div>
           </section>
@@ -162,7 +162,7 @@ export default function AboutUs() {
 
               <div className="mt-16 pt-10 border-t border-zinc-800/50 text-center">
                 <p className="text-2xl md:text-3xl font-bold text-white mb-6">
-                  At ACube, we are here to be that bridge.
+                  At Talspace, we are here to be that bridge.
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-lg">
                   <span className="text-cyan-400 font-medium px-4 py-2 bg-cyan-950/30 rounded-full border border-cyan-900/50">For founders</span>
