@@ -9,26 +9,7 @@ import Image from 'next/image';
 
 export default function CaseStudies() {
   const caseStudies = [
-    {
-      id: 2,
-      company: 'Jeneeus',
-      industry: 'Social Networking',
-      location: 'United States',
-      website: null,
-      logo: '/Jeeneus.png',
-      challenge: 'Required expert UI/UX design and offshore development support for a meaningful social networking platform',
-      solution: 'Provided comprehensive UI/UX design and offshore development support to build the social networking app',
-      results: [
-        { metric: 'Full', label: 'UI/UX Design', icon: Star },
-        { metric: 'Complete', label: 'Development', icon: Zap },
-        { metric: '70%', label: 'Cost Savings', icon: DollarSign },
-      ],
-      testimonial: "Great work & very high quality. Absolute pleasure thank you for your professionalism and such a fast turn around. Appreciate your work and will definitely be in contact in the future.",
-      author: 'Glahens',
-      role: 'Co-founder and CTO, Jeneeus',
-      gradient: 'from-cyan-500/20 to-cyan-300/20',
-      accentColor: 'cyan',
-    },
+
     {
       id: 3,
       company: 'EduVille',

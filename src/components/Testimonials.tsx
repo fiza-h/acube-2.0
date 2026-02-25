@@ -23,12 +23,7 @@ const testimonials = [
     author: "Sanjay",
     role: "Co-Founder, EduVille",
   },
-  {
-    id: 4,
-    quote: "We've been partnering with Talspace since the start of the year, and it's been an exceptional experience. The founders provided some of the best customer service I've ever received. They don't just match you with talent - they keep open communication to ensure you get the highest quality work from the people they source. Connecting with them has made talent sourcing significantly easier for our early-stage startup.",
-    author: "Glahens Paul",
-    role: "Co-founder and CTO, JeneeUS",
-  },
+
 ];
 
 const Testimonials = () => {
