@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { m, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
@@ -23,6 +24,10 @@ const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [showTalentForm, setShowTalentForm] = useState(false);
+    const pathname = usePathname();
+
+    const isHomePage = pathname === '/';
+    const shouldHideLogo = isHomePage && !isScrolled;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -55,9 +60,9 @@ const Navbar = () => {
                             <m.div
                                 initial={false}
                                 animate={{
-                                    width: isScrolled ? '128px' : '0px',
-                                    opacity: isScrolled ? 0.9 : 0,
-                                    marginRight: isScrolled ? '24px' : '0px'
+                                    width: !shouldHideLogo ? '128px' : '0px',
+                                    opacity: !shouldHideLogo ? 0.9 : 0,
+                                    marginRight: !shouldHideLogo ? '24px' : '0px'
                                 }}
                                 transition={{ duration: 0.3, ease: 'easeOut' }}
                                 className="relative h-8 group-hover:opacity-100 transition-opacity"

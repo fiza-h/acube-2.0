@@ -170,11 +170,11 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="h-full w-full max-w-lg bg-zinc-900/95 backdrop-blur-xl border-l border-cyan-400/10 overflow-y-scroll overscroll-contain"
+                className="h-full w-full max-w-lg bg-zinc-950 backdrop-blur-xl border-l border-white/10 overflow-y-scroll overscroll-contain"
                 style={{ WebkitOverflowScrolling: 'touch' }}
             >
                 {/* Header */}
-                <div className="sticky top-0 bg-zinc-900/90 backdrop-blur-xl border-b border-white/10 p-6 flex items-center justify-between z-10">
+                <div className="sticky top-0 bg-zinc-950/90 backdrop-blur-xl border-b border-white/10 p-6 flex items-center justify-between z-10">
                     <div className="flex items-center gap-3">
                         <h3 className="text-xl font-bold text-white">Talent Profile</h3>
                         <div className="flex items-center gap-1">
@@ -225,10 +225,10 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                             <div className="flex items-center gap-2 mb-1">
                                 <h4 className="text-2xl font-bold text-white">{talent.name}</h4>
                                 {talent.verified && (
-                                    <CheckCircle className="w-5 h-5 text-cyan-400" />
+                                    <CheckCircle className="w-5 h-5 text-zinc-400" />
                                 )}
                             </div>
-                            <p className="text-cyan-400 font-medium mb-2">{talent.role}</p>
+                            <p className="text-zinc-400 font-medium mb-2">{talent.role}</p>
                             <div className="flex items-center gap-2 text-sm text-zinc-400">
                                 <MapPin className="w-4 h-4" />
                                 <span>{talent.location}</span>
@@ -245,9 +245,9 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-1 gap-4">
-                        <div className="p-4 bg-gradient-to-br from-cyan-400/10 to-cyan-400/5 rounded-xl border border-cyan-400/10">
+                        <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                             <div className="flex items-center gap-2 mb-2">
-                                <Briefcase className="w-4 h-4 text-cyan-400" />
+                                <Briefcase className="w-4 h-4 text-zinc-400" />
                                 <span className="text-xs text-zinc-400">Experience</span>
                             </div>
                             <p className="text-xl font-bold text-white">{talent.experience}</p>
@@ -257,7 +257,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                     {/* Education */}
                     <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                         <div className="flex items-center gap-2 mb-2">
-                            <GraduationCap className="w-5 h-5 text-cyan-400" />
+                            <GraduationCap className="w-5 h-5 text-zinc-400" />
                             <span className="text-sm font-medium text-zinc-400">Education</span>
                         </div>
                         <p className="text-white">{talent.education}</p>
@@ -266,14 +266,14 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                     {/* Skills */}
                     <div>
                         <div className="flex items-center gap-2 mb-3">
-                            <Code className="w-5 h-5 text-cyan-400" />
+                            <Code className="w-5 h-5 text-zinc-400" />
                             <span className="text-sm font-medium text-zinc-400">Tech Stack</span>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {talent.skills.map((skill) => (
                                 <span
                                     key={skill}
-                                    className="px-3 py-1.5 bg-cyan-400/10 text-cyan-400 text-xs font-medium rounded-lg border border-cyan-400/10"
+                                    className="px-3 py-1.5 bg-white/5 text-zinc-300 text-xs font-medium rounded-lg border border-white/10"
                                 >
                                     {skill}
                                 </span>
@@ -287,7 +287,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                             href="https://calendly.com/absaarmalik15/30min"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex-1 bg-cyan-400 hover:bg-cyan-500 text-zinc-950 py-3 rounded-xl font-bold transition-colors text-center"
+                            className="flex-1 bg-white hover:bg-zinc-200 text-black py-3 rounded-lg font-semibold transition-colors text-center text-sm"
                         >
                             Hire Now
                         </a>
@@ -296,7 +296,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                                 e.stopPropagation();
                                 onMessage();
                             }}
-                            className="px-6 py-3 bg-white/5 hover:bg-white/10 text-white rounded-xl font-medium border border-white/10 transition-colors"
+                            className="px-6 py-3 bg-zinc-900/50 hover:bg-white/10 text-white rounded-lg font-semibold border border-white/10 transition-colors text-sm"
                         >
                             Message
                         </button>

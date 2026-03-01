@@ -75,14 +75,16 @@ function Card({ category, index, onClick }: { category: typeof categories[0], in
             onClick={onClick}
         >
             <div className="relative z-10">
-                <div className="flex justify-between items-start mb-8">
+                <div className="flex justify-between items-start mb-8 relative">
                     <category.icon className="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors" />
-                    <span className="text-2xl font-sans tracking-tight text-white collapse group-hover:visible transition-all">
-                        {category.count}
-                    </span>
-                    <span className="text-2xl font-sans tracking-tight text-zinc-500 visible group-hover:collapse absolute right-8 transition-all">
-                        {category.count}
-                    </span>
+                    <div className="relative h-8 w-16 text-right">
+                        <span className="text-2xl font-sans tracking-tight text-white absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            {category.count}
+                        </span>
+                        <span className="text-2xl font-sans tracking-tight text-zinc-500 absolute inset-0 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                            {category.count}
+                        </span>
+                    </div>
                 </div>
 
                 <h3 className="text-xl font-medium text-white mb-3">
@@ -169,7 +171,7 @@ const TalentCategories = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                             transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                            className="group relative rounded-3xl bg-zinc-900/50 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 border border-white/5 hover:border-cyan-400/20 transition-all"
+                            className="group relative rounded-2xl bg-zinc-800/60 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-span-3 border border-white/20 hover:bg-zinc-800 hover:border-white/40 transition-all shadow-xl"
                         >
                             <div className="relative z-10">
                                 <h3 className="text-xl font-medium text-white mb-2">Signal Your Interest</h3>

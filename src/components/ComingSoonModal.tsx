@@ -82,25 +82,8 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                         onClick={(e) => e.stopPropagation()}
-                        className="relative w-full max-w-2xl bg-gradient-to-br from-zinc-900 to-zinc-950 rounded-3xl border border-cyan-400/10 shadow-2xl shadow-cyan-400/10 overflow-hidden"
+                        className="relative w-full max-w-2xl bg-zinc-950 rounded-2xl border border-white/10 shadow-2xl overflow-hidden"
                     >
-                        {/* Animated gradient border */}
-                        <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none">
-                            <m.div
-                                className="absolute inset-0 opacity-50"
-                                style={{
-                                    background: 'linear-gradient(90deg, transparent, rgba(6,182,212,0.3), transparent)',
-                                }}
-                                animate={{
-                                    x: ['-200%', '200%'],
-                                }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: 'linear',
-                                }}
-                            />
-                        </div>
 
                         {/* Close button */}
                         <button
@@ -117,9 +100,9 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 initial={{ scale: 0 }}
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
-                                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-cyan-400/20 to-blue-500/20 border border-cyan-400/15 mb-8"
+                                className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white/5 border border-white/10 mb-8"
                             >
-                                <Sparkles className="w-10 h-10 text-cyan-400" />
+                                <Sparkles className="w-10 h-10 text-white" />
                             </m.div>
 
                             {/* Title */}
@@ -127,9 +110,9 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3 }}
-                                className="text-5xl font-black text-white mb-4 tracking-tight font-[var(--font-space-grotesk)]"
+                                className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight"
                             >
-                                Coming <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Soon</span>
+                                Coming <span className="text-zinc-500">Soon</span>
                             </m.h2>
 
                             {/* Description */}
@@ -149,13 +132,13 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                                 transition={{ delay: 0.5 }}
                                 className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
                             >
-                                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <Users className="w-6 h-6 text-cyan-400 mb-2 mx-auto" />
+                                <div className="p-4 rounded-xl bg-zinc-900/50 border border-white/10">
+                                    <Users className="w-6 h-6 text-white mb-2 mx-auto" />
                                     <h3 className="text-sm font-bold text-white mb-1">1000+ Talent</h3>
                                     <p className="text-xs text-zinc-500">Vetted professionals</p>
                                 </div>
-                                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                                    <Zap className="w-6 h-6 text-cyan-400 mb-2 mx-auto" />
+                                <div className="p-4 rounded-xl bg-zinc-900/50 border border-white/10">
+                                    <Zap className="w-6 h-6 text-white mb-2 mx-auto" />
                                     <h3 className="text-sm font-bold text-white mb-1">Smart Matching</h3>
                                     <p className="text-xs text-zinc-500">AI-powered recommendations</p>
                                 </div>
@@ -170,10 +153,10 @@ const ComingSoonModal = ({ isOpen, onClose }: ComingSoonModalProps) => {
                             >
                                 <input
                                     type="email"
-                                    placeholder="Enter your email for updates"
-                                    className="flex-1 px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-zinc-500 focus:outline-none focus:border-cyan-400/50 transition-colors"
+                                    placeholder="e.g. hello@example.com"
+                                    className="flex-1 px-4 py-2.5 rounded-lg bg-zinc-900/50 border border-white/10 text-white placeholder:text-zinc-600 focus:outline-none focus:border-white/30 focus:bg-white/5 transition-colors text-sm"
                                 />
-                                <button className="px-6 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-500 text-zinc-950 font-bold transition-colors whitespace-nowrap">
+                                <button className="px-6 py-2.5 rounded-lg bg-white hover:bg-zinc-200 text-black font-semibold transition-colors whitespace-nowrap text-sm">
                                     Notify Me
                                 </button>
                             </m.div>
