@@ -1,73 +1,76 @@
 'use client';
 
 import { m } from 'motion/react';
-import { ArrowRight, Check, Star } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-32 pb-20 bg-zinc-950">
-            {/* Background Gradients */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] z-0">
-                <div className="absolute inset-0 bg-cyan-500/10 blur-[120px] rounded-full" />
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20 bg-black">
+            {/* Minimalist Deep Space Glows */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] z-0 opacity-40">
+                <div className="absolute inset-x-0 top-[-200px] h-[400px] bg-cyan-900/40 blur-[140px] rounded-[100%]" />
             </div>
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] z-0">
-                <div className="absolute inset-0 bg-blue-600/10 blur-[120px] rounded-full" />
+            <div className="absolute bottom-0 right-[-20%] w-[600px] h-[600px] z-0 opacity-20">
+                <div className="absolute inset-0 bg-blue-900/30 blur-[150px] rounded-full" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
-                {/* Badge */}
+                {/* Logo */}
                 <m.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center space-x-2 bg-cyan-900/20 border border-cyan-500/20 rounded-full px-4 py-1.5 mb-8"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative w-48 h-12 md:w-56 md:h-14 mx-auto mb-8"
                 >
-                    <Star className="w-4 h-4 text-cyan-400 fill-cyan-400" />
-                    <span className="text-sm font-medium text-cyan-200">Vetted Top 1% Talent</span>
+                    <img
+                        src="/talspace-brand-logo.png"
+                        alt="Talspace"
+                        className="object-contain w-full h-full"
+                    />
                 </m.div>
 
                 {/* Main Heading */}
                 <m.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-white mb-8 max-w-5xl mx-auto leading-[1.1]"
+                    transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.05]"
                 >
-                    Hire world-class remote talent —{' '}
-                    <span className="italic text-cyan-400">build faster</span>, spend smarter.
+                    Above the Noise,<br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Without Borders.</span>
                 </m.h1>
 
                 {/* Description */}
                 <m.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-xl text-zinc-400 mb-12 max-w-3xl mx-auto leading-relaxed"
+                    transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light"
                 >
-                    We connect startups with vetted global professionals in tech and beyond, helping you scale at up to 70% lower cost.
+                    Talspace is where the rarest engineering talent operates globally. A curated universe built in response to a broken talent market.
                 </m.p>
 
                 {/* CTA Buttons */}
                 <m.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.3 }}
+                    transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
                 >
                     <a
                         href="#talent-showcase"
-                        className="group bg-cyan-400 text-zinc-950 px-10 py-4 rounded-full font-bold text-lg hover:bg-cyan-300 transition-all shadow-lg hover:shadow-cyan-400/25 flex items-center"
+                        className="group bg-white text-black px-8 py-3.5 rounded-full font-medium text-sm hover:bg-zinc-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center"
                     >
-                        Start Hiring
-                        <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        Explore Missions
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                     <a
                         href="https://calendly.com/absaarmalik15/30min"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-zinc-900 text-white border border-zinc-800 px-10 py-4 rounded-full font-bold text-lg hover:bg-zinc-800 transition-all"
+                        className="bg-transparent text-white border border-zinc-800 px-8 py-3.5 rounded-full font-medium text-sm hover:bg-zinc-900 transition-all backdrop-blur-sm"
                     >
-                        Book a Call
+                        Apply as Talnaut
                     </a>
                 </m.div>
 
@@ -75,20 +78,20 @@ const Hero = () => {
                 <m.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.4 }}
-                    className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-zinc-400 text-sm font-medium"
+                    transition={{ duration: 1, delay: 0.6 }}
+                    className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-zinc-500 text-sm font-mono tracking-wide uppercase"
                 >
                     <div className="flex items-center">
-                        <Check className="w-5 h-5 text-cyan-400 mr-2" />
-                        Pre-vetted experts
+                        <Check className="w-4 h-4 text-cyan-500 mr-2 opacity-70" />
+                        Signal over noise
                     </div>
                     <div className="flex items-center">
-                        <Check className="w-5 h-5 text-cyan-400 mr-2" />
-                        Risk-free trial
+                        <Check className="w-4 h-4 text-cyan-500 mr-2 opacity-70" />
+                        Trust over speed
                     </div>
                     <div className="flex items-center">
-                        <Check className="w-5 h-5 text-cyan-400 mr-2" />
-                        Avg. 48hr hire
+                        <Check className="w-4 h-4 text-cyan-500 mr-2 opacity-70" />
+                        Scarcity over volume
                     </div>
                 </m.div>
             </div>

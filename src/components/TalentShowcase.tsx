@@ -378,7 +378,7 @@ const TalentShowcase = () => {
     };
 
     return (
-        <section id="talent-showcase" ref={containerRef} className="relative py-16 bg-zinc-950 overflow-hidden">
+        <section id="talent-showcase" ref={containerRef} className="relative py-24 bg-black overflow-hidden border-t border-white/5">
             {/* Minimal Background */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />
@@ -396,11 +396,11 @@ const TalentShowcase = () => {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                        World-Class <span className="text-cyan-400">Talent</span>
+                    <h2 className="text-4xl md:text-6xl font-sans tracking-tight text-white mb-6">
+                        The Talspace <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Passport</span>
                     </h2>
-                    <p className="text-zinc-400 max-w-2xl mx-auto text-lg">
-                        Click on cards to explore detailed profiles of our top 1% global professionals.
+                    <p className="text-zinc-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                        It is not a certificate — it is a status. Proven technical capability, professional maturity, and remote collaboration excellence.
                     </p>
                 </m.div>
 
@@ -410,7 +410,7 @@ const TalentShowcase = () => {
                     <button
                         onClick={() => scrollCarousel('left')}
                         disabled={!canScrollLeft}
-                        className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 text-cyan-400 hover:bg-zinc-800 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+                        className="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-black/90 backdrop-blur-sm border border-white/10 hover:border-cyan-400/50 text-white hover:bg-zinc-900 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                         aria-label="Previous talents"
                     >
                         <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
@@ -419,7 +419,7 @@ const TalentShowcase = () => {
                     <button
                         onClick={() => scrollCarousel('right')}
                         disabled={!canScrollRight}
-                        className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-zinc-900/90 backdrop-blur-sm border border-cyan-400/20 hover:border-cyan-400/50 text-cyan-400 hover:bg-zinc-800 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-lg"
+                        className="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-black/90 backdrop-blur-sm border border-white/10 hover:border-cyan-400/50 text-white hover:bg-zinc-900 transition-all disabled:opacity-0 disabled:pointer-events-none shadow-[0_0_15px_rgba(0,0,0,0.5)]"
                         aria-label="Next talents"
                     >
                         <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
@@ -505,14 +505,14 @@ const TalentShowcase = () => {
                 >
                     <button
                         onClick={() => setShowComingSoon(true)}
-                        className="group relative px-8 py-4 bg-gradient-to-r from-cyan-400/10 to-cyan-500/10 hover:from-cyan-400/20 hover:to-cyan-500/20 border border-cyan-400/30 hover:border-cyan-400/50 text-cyan-400 hover:text-cyan-300 font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-cyan-400/20"
+                        className="group relative px-8 py-3.5 bg-white text-black hover:bg-zinc-200 font-medium text-sm rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(255,255,255,0.2)]"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             View All Talent
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </span>
                     </button>
-                    <p className="text-zinc-500 text-sm mt-4">Explore our complete pool of 200+ vetted professionals</p>
+                    <p className="text-zinc-500 text-sm mt-4 font-light">Explore our complete universe of vetted Talnauts</p>
                 </m.div>
             </m.div>
 

@@ -1,7 +1,7 @@
 'use client';
 
-import { m, useMotionTemplate, useMotionValue } from 'motion/react';
-import { Brain, Code, Palette, Briefcase, ArrowUpRight, Sparkles, Cloud } from 'lucide-react';
+import { m, useMotionValue } from 'motion/react';
+import { Brain, Code, Palette, Briefcase, ArrowUpRight, Cloud } from 'lucide-react';
 import { MouseEvent, useState } from 'react';
 import ContactFormModal from './ContactFormModal';
 import ComingSoonModal from './ComingSoonModal';
@@ -70,62 +70,43 @@ function Card({ category, index, onClick }: { category: typeof categories[0], in
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
             transition={{ delay: index * 0.1, duration: 0.5, ease: "easeOut" }}
-            className={`group relative rounded-3xl bg-zinc-900 border border-white/5 hover:border-cyan-400/15 overflow-hidden ${category.colSpan} transition-all duration-300 cursor-pointer`}
+            className={`group relative rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-white/10 overflow-hidden ${category.colSpan} transition-all duration-300 cursor-pointer p-8 flex flex-col justify-between`}
             onMouseMove={handleMouseMove}
             onClick={onClick}
         >
-            {/* Spotlight Effect */}
-            <m.div
-                className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition duration-300 group-hover:opacity-100"
-                style={{
-                    background: useMotionTemplate`
-            radial-gradient(
-              650px circle at ${mouseX}px ${mouseY}px,
-              rgba(34, 211, 238, 0.15),
-              transparent 80%
-            )
-          `,
-                }}
-            />
-
-            {/* Gradient Background on Hover */}
-            <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-            <div className="relative p-8 h-full flex flex-col justify-between">
-                <div>
-                    <div className="flex justify-between items-start mb-6">
-                        <div className="p-3 bg-cyan-400/10 rounded-2xl group-hover:scale-110 transition-transform duration-300 border border-cyan-400/10 group-hover:border-cyan-400/40">
-                            <category.icon className="w-8 h-8 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-                        </div>
-                        <span className="flex items-center text-xs font-bold text-white/60 bg-cyan-400/10 px-3 py-1 rounded-full border border-cyan-400/10">
-                            <Sparkles className="w-3 h-3 mr-1 text-cyan-400" />
-                            {category.count}
-                        </span>
-                    </div>
-
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:translate-x-1 group-hover:text-cyan-50 transition-all">
-                        {category.name}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-6 group-hover:text-gray-300 transition-colors">
-                        {category.description}
-                    </p>
+            <div className="relative z-10">
+                <div className="flex justify-between items-start mb-8">
+                    <category.icon className="w-6 h-6 text-zinc-400 group-hover:text-white transition-colors" />
+                    <span className="text-2xl font-sans tracking-tight text-white collapse group-hover:visible transition-all">
+                        {category.count}
+                    </span>
+                    <span className="text-2xl font-sans tracking-tight text-zinc-500 visible group-hover:collapse absolute right-8 transition-all">
+                        {category.count}
+                    </span>
                 </div>
 
-                <div>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                        {category.skills.map((skill) => (
-                            <span
-                                key={skill}
-                                className="text-xs font-medium text-zinc-300 bg-zinc-800/50 px-2 py-1 rounded-md border border-cyan-400/10 group-hover:border-cyan-400/40 group-hover:bg-cyan-400/10 transition-all"
-                            >
-                                {skill}
-                            </span>
-                        ))}
-                    </div>
+                <h3 className="text-xl font-medium text-white mb-3">
+                    {category.name}
+                </h3>
+                <p className="text-zinc-400 font-light text-sm mb-8 leading-relaxed max-w-[90%]">
+                    {category.description}
+                </p>
+            </div>
 
-                    <div className="flex items-center text-cyan-400 text-sm font-bold group-hover:text-cyan-300 transition-colors">
-                        Explore Talent <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    </div>
+            <div className="relative z-10 border-t border-white/5 pt-6 mt-auto">
+                <div className="flex flex-wrap gap-2 mb-6">
+                    {category.skills.map((skill) => (
+                        <span
+                            key={skill}
+                            className="text-[11px] uppercase tracking-wider font-mono text-zinc-500 bg-black/50 px-2.5 py-1 rounded border border-white/5"
+                        >
+                            {skill}
+                        </span>
+                    ))}
+                </div>
+
+                <div className="flex items-center text-sm font-medium text-zinc-400 group-hover:text-white transition-colors">
+                    Explore Talent <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </div>
             </div>
         </m.div>
@@ -138,21 +119,43 @@ const TalentCategories = () => {
 
     return (
         <>
-            <section className="py-16 bg-zinc-950 relative">
+            <section className="py-24 bg-black relative border-t border-white/5">
                 <div className="container mx-auto px-6">
                     <m.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
-                        className="text-center mb-16"
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        className="text-center mb-20"
                     >
-                        <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">
-                            Curated <span className="text-cyan-400">Categories</span>
+                        <h2 className="text-4xl md:text-6xl font-sans tracking-tight text-white mb-6">
+                            Talnauts: Our Talent <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Philosophy</span>
                         </h2>
-                        <p className="text-zinc-400 text-lg max-w-2xl mx-auto">
-                            Hire world-class talent with Talspace. Expertly vetted, specialized, and ready to scale.
+                        <p className="text-zinc-400 text-lg max-w-2xl mx-auto font-light leading-relaxed mb-12">
+                            Talspace is talent-first by design. Elite engineers deserve global opportunities, meaningful work, and long-term growth. They are mission-ready professionals operating with autonomy.
                         </p>
+
+                        {/* The Residency Timeline */}
+                        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4 mb-16 relative">
+                            {/* Connector Line */}
+                            <div className="hidden md:block absolute top-1/2 left-10 right-10 h-px bg-white/10 -translate-y-1/2 z-0" />
+
+                            {[
+                                { title: "Open Signal", desc: "Express Interest" },
+                                { title: "Clearance", desc: "Rigorous Eval" },
+                                { title: "Residency", desc: "Talspace Entry" },
+                                { title: "Calibration", desc: "Passport Readiness" },
+                                { title: "Talnaut Status", desc: "Global Clearance" }
+                            ].map((step, i) => (
+                                <div key={i} className="relative z-10 flex flex-col items-center text-center p-4 bg-zinc-950/80 backdrop-blur-sm border border-white/5 rounded-xl">
+                                    <div className="w-8 h-8 rounded-full bg-cyan-950 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-sm font-mono mb-3 shadow-[0_0_10px_rgba(34,211,238,0.2)]">
+                                        {i + 1}
+                                    </div>
+                                    <h4 className="text-white font-medium text-sm mb-1">{step.title}</h4>
+                                    <p className="text-zinc-500 text-xs">{step.desc}</p>
+                                </div>
+                            ))}
+                        </div>
                     </m.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -166,19 +169,18 @@ const TalentCategories = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
                             transition={{ delay: 0.5, duration: 0.5, ease: "easeOut" }}
-                            className="group relative rounded-3xl bg-gradient-to-br from-cyan-400/10 to-cyan-400/10 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 overflow-hidden border border-cyan-400/10 hover:border-cyan-400/40 transition-all"
+                            className="group relative rounded-3xl bg-zinc-900/50 p-8 flex flex-col justify-center items-center text-center md:col-span-2 lg:col-start-2 lg:col-span-1 border border-white/5 hover:border-cyan-400/20 transition-all"
                         >
-                            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
                             <div className="relative z-10">
-                                <h3 className="text-2xl font-bold text-white mb-2">Don&apos;t see what you need?</h3>
-                                <p className="text-zinc-400 mb-6 text-sm">
-                                    We have a vast network of professionals. Let us find them for you.
+                                <h3 className="text-xl font-medium text-white mb-2">Signal Your Interest</h3>
+                                <p className="text-zinc-400 mb-6 text-sm font-light">
+                                    Only a fraction succeed. Enter the Talspace Residency.
                                 </p>
                                 <button
                                     onClick={() => setShowContactModal(true)}
-                                    className="bg-cyan-400 hover:bg-cyan-500 text-zinc-950 px-6 py-2 rounded-full font-bold text-sm transition-colors shadow-lg shadow-cyan-400/20"
+                                    className="bg-white text-black px-6 py-2.5 rounded-full font-medium text-sm hover:bg-zinc-200 transition-all shadow-[0_0_15px_rgba(255,255,255,0.1)]"
                                 >
-                                    Contact Us
+                                    Apply Now
                                 </button>
                             </div>
                         </m.div>

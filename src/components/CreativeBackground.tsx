@@ -26,7 +26,7 @@ const CreativeBackground = () => {
             // Randomly select a "tech" type
             const type = random(0, 4); // 0: Square, 1: Hexagon, 2: Cross, 3: Binary, 4: Bracket
             const size = random(10, 30);
-            const color = Math.random() > 0.5 ? 'rgba(59, 130, 246, 0.4)' : 'rgba(6, 182, 212, 0.4)'; // Blue or Cyan
+            const color = Math.random() > 0.5 ? 'rgba(255, 255, 255, 0.2)' : 'rgba(34, 211, 238, 0.2)'; // White or Cyan
 
             el.style.width = `${size}px`;
             el.style.height = `${size}px`;

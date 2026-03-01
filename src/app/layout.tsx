@@ -20,8 +20,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Talspace - Hire World-Class Remote Talent",
-  description: "Connect with vetted global professionals in tech and beyond. Build faster, spend smarter, and scale without limits.",
+  title: "Talspace — Above the Noise, Without Borders",
+  description: "Talspace is where the rarest engineering talent operates globally. A curated universe built in response to a broken talent market.",
 };
 
 export default function RootLayout({
@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} antialiased bg-black text-white`}
       >
         <MotionProvider>
           <SmoothScroll>

@@ -13,10 +13,10 @@ const Mission = () => {
     });
 
     const phrases = [
-        "Democratizing access",
-        "to global talent.",
-        "Breaking borders,",
-        "building futures."
+        "Exceptional engineers exist everywhere.",
+        "But markets are noisy.",
+        "Talspace is the universe",
+        "where elite talent resides."
     ];
 
     // Compute transforms for each phrase (4 phrases)
@@ -56,7 +56,7 @@ const Mission = () => {
     ];
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-zinc-950">
+        <section ref={containerRef} className="relative h-[300vh] bg-black">
             <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                 {/* Dynamic Background */}
                 <div className="absolute inset-0 z-0">
@@ -96,7 +96,7 @@ const Mission = () => {
                                 >
                                     <h2 className="text-5xl md:text-8xl font-bold tracking-tighter text-white">
                                         {phrase.split(" ").map((word, i) => (
-                                            <span key={i} className={word === "talent." || word === "futures." ? "text-cyan-400" : "text-white"}>
+                                            <span key={i} className={word.includes("noisy.") || word.includes("Talspace") || word.includes("resides.") ? "text-cyan-400 font-serif italic" : "text-white"}>
                                                 {word}{" "}
                                             </span>
                                         ))}

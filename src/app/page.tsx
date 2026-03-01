@@ -11,7 +11,7 @@ import CreativeBackground from '@/components/CreativeBackground';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-white selection:bg-blue-500/30 relative">
+    <main className="min-h-screen bg-black text-white selection:bg-cyan-500/30 relative">
       <CreativeBackground />
       <div className="relative z-10">
         <Navbar />

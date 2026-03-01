@@ -1,125 +1,87 @@
 'use client';
 
 import { m } from 'motion/react';
-import { useEffect, useState, useRef } from 'react';
+import { Check, X as XIcon } from 'lucide-react';
 
-interface Stat {
-    value: string;
-    label: string;
-    suffix?: string;
-}
-
-const stats: Stat[] = [
-    { value: '20', label: 'Clients Across Globe', suffix: '+' },
-    { value: '500', label: 'Developers in Talent Pool', suffix: '+' },
-    { value: '97', label: 'Client Satisfaction Rate', suffix: '%' },
+const isList = [
+    "A curated talent universe",
+    "A long-term ecosystem",
+    "A trust-driven platform"
 ];
 
-const AnimatedCounter = ({ value, suffix = '' }: { value: string; suffix?: string }) => {
-    const [count, setCount] = useState(0);
-    const [isVisible, setIsVisible] = useState(false);
-    const ref = useRef<HTMLDivElement>(null);
-    const targetValue = parseInt(value);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.3 }
-        );
-
-        const currentRef = ref.current;
-        if (currentRef) {
-            observer.observe(currentRef);
-        }
-
-        return () => {
-            if (currentRef) {
-                observer.unobserve(currentRef);
-            }
-        };
-    }, []);
-
-    useEffect(() => {
-        if (!isVisible) return;
-
-        const duration = 2000; // 2 seconds
-        const steps = 60;
-        const increment = targetValue / steps;
-        let current = 0;
-        const stepDuration = duration / steps;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= targetValue) {
-                setCount(targetValue);
-                clearInterval(timer);
-            } else {
-                setCount(Math.floor(current));
-            }
-        }, stepDuration);
-
-        return () => clearInterval(timer);
-    }, [isVisible, targetValue]);
-
-    return (
-        <div ref={ref} className="text-4xl md:text-5xl font-black text-white">
-            {count}{suffix}
-        </div>
-    );
-};
+const isNotList = [
+    "A freelancer marketplace",
+    "A body shop",
+    "A volume-driven staffing firm"
+];
 
 const Stats = () => {
     return (
-        <section className="py-16 relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden bg-black border-t border-white/5">
             <div className="container mx-auto px-6">
-                {/* Subtle background effects */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-500/[0.03] blur-[100px] rounded-full" />
-                    <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-cyan-400/[0.03] blur-[100px] rounded-full" />
-                </div>
 
-                <div className="relative">
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-                        {stats.map((stat, index) => (
-                            <m.div
-                                key={stat.label}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: '-100px' }}
-                                transition={{ delay: index * 0.15, duration: 0.6 }}
-                                className="relative text-center group"
-                            >
-                                {/* Subtle border effect */}
-                                <div className="absolute inset-0 bg-gradient-to-b from-cyan-400/5 to-transparent rounded-2xl border border-cyan-400/10 group-hover:border-cyan-400/10 transition-colors" />
+                <m.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-100px' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-3xl md:text-5xl font-sans tracking-tight text-white mb-4">
+                        What Talspace <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 italic font-serif">Is</span>
+                    </h2>
+                    <p className="text-zinc-500 font-mono text-sm uppercase tracking-widest">
+                        (And what it is not)
+                    </p>
+                </m.div>
 
-                                {/* Content */}
-                                <div className="relative p-8">
-                                    {/* Animated Number */}
-                                    <div className="mb-3">
-                                        <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                                    </div>
+                <div className="relative max-w-5xl mx-auto">
+                    {/* Grid */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
 
-                                    {/* Label */}
-                                    <div className="text-zinc-400 text-sm md:text-base font-medium tracking-wide">
-                                        {stat.label}
-                                    </div>
+                        {/* IS */}
+                        <m.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: '-100px' }}
+                            transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-zinc-900/40 border border-cyan-500/20 rounded-2xl p-8 md:p-12 relative overflow-hidden"
+                        >
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 blur-[50px] rounded-full" />
+                            <h3 className="text-2xl text-white mb-8 border-b border-white/10 pb-4">Talspace Is</h3>
+                            <ul className="space-y-6">
+                                {isList.map((item, i) => (
+                                    <li key={i} className="flex items-center text-zinc-300 font-light text-lg">
+                                        <div className="w-6 h-6 rounded-full bg-cyan-950 flex items-center justify-center mr-4 border border-cyan-500/30 flex-shrink-0">
+                                            <Check className="w-3.5 h-3.5 text-cyan-400" />
+                                        </div>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </m.div>
 
-                                    {/* Subtle accent line */}
-                                    <m.div
-                                        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[2px] bg-gradient-to-r from-transparent via-cyan-400/30 to-transparent"
-                                        initial={{ width: '0%' }}
-                                        whileInView={{ width: '60%' }}
-                                        viewport={{ once: true }}
-                                        transition={{ delay: index * 0.15 + 0.3, duration: 0.8 }}
-                                    />
-                                </div>
-                            </m.div>
-                        ))}
+                        {/* IS NOT */}
+                        <m.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: '-100px' }}
+                            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-black border border-white/5 rounded-2xl p-8 md:p-12"
+                        >
+                            <h3 className="text-2xl text-zinc-500 mb-8 border-b border-white/10 pb-4">Talspace Is Not</h3>
+                            <ul className="space-y-6">
+                                {isNotList.map((item, i) => (
+                                    <li key={i} className="flex items-center text-zinc-500 font-light text-lg">
+                                        <div className="w-6 h-6 rounded-full bg-zinc-900 flex items-center justify-center mr-4 border border-zinc-800 flex-shrink-0">
+                                            <XIcon className="w-3.5 h-3.5 text-zinc-600" />
+                                        </div>
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
+                        </m.div>
+
                     </div>
                 </div>
             </div>

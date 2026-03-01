@@ -27,8 +27,11 @@ const Footer = () => {
                                     />
                                 </div>
                             </Link>
-                            <p className="text-zinc-400 max-w-sm mb-8">
-                                Connecting startups with world-class remote talent. Build faster, spend smarter, and scale without limits.
+                            <p className="text-zinc-500 max-w-sm mb-4 font-light leading-relaxed">
+                                Talspace is where the rarest engineering talent operates globally — above the noise, without borders.
+                            </p>
+                            <p className="text-zinc-600 text-sm max-w-sm mb-8 font-mono">
+                                A curated universe. Not a body shop.
                             </p>
                             <div className="flex space-x-4">
                                 <a href="https://linkedin.com/company/talspace" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-cyan-400 transition-colors">
@@ -38,23 +41,33 @@ const Footer = () => {
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-6">Company</h4>
+                            <h4 className="text-zinc-300 font-medium mb-6 uppercase tracking-widest text-xs">Talspace Operations (Ministries)</h4>
                             <ul className="space-y-4">
-                                <li><Link href="/about" className="text-zinc-400 hover:text-cyan-400 transition-colors">About Us</Link></li>
-
                                 <li>
-                                    <button
-                                        onClick={() => setShowTalentForm(true)}
-                                        className="text-zinc-400 hover:text-cyan-400 transition-colors"
-                                    >
-                                        Careers
-                                    </button>
+                                    <span className="text-zinc-500 text-sm block">Ministry of Entry & Residency</span>
+                                    <span className="text-zinc-600 text-xs">Talent acquisition and selection</span>
+                                </li>
+                                <li>
+                                    <span className="text-zinc-500 text-sm block">Ministry of Standards</span>
+                                    <span className="text-zinc-600 text-xs">Training, quality, and continuous improvement</span>
+                                </li>
+                                <li>
+                                    <span className="text-zinc-500 text-sm block">Mission Ambassadors</span>
+                                    <span className="text-zinc-600 text-xs">Delivery support, QA, and partner success</span>
+                                </li>
+                                <li>
+                                    <span className="text-zinc-500 text-sm block">Central Office of Finance</span>
+                                    <span className="text-zinc-600 text-xs">Compensation, pricing, and stability</span>
+                                </li>
+                                <li>
+                                    <span className="text-zinc-500 text-sm block">Mission Control</span>
+                                    <span className="text-zinc-600 text-xs">Strategy and long-term direction</span>
                                 </li>
                             </ul>
                         </div>
 
                         <div>
-                            <h4 className="text-white font-bold mb-6">Contact</h4>
+                            <h4 className="text-zinc-300 font-medium mb-6 uppercase tracking-widest text-xs">Connect</h4>
                             <ul className="space-y-4">
                                 <li className="flex items-center text-zinc-400">
                                     <Mail className="w-4 h-4 mr-2 text-cyan-400" />
