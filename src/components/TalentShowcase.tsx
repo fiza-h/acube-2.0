@@ -378,7 +378,7 @@ const TalentShowcase = () => {
     };
 
     return (
-        <section id="talent-showcase" ref={containerRef} className="relative py-24 bg-black overflow-hidden border-t border-white/5">
+        <section id="talent-showcase" ref={containerRef} className="relative py-24 overflow-hidden border-t border-white/5">
             {/* Minimal Background */}
             <div className="absolute inset-0">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.02)_1px,transparent_1px)] bg-[size:80px_80px]" />

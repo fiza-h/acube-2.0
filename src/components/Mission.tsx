@@ -56,7 +56,7 @@ const Mission = () => {
     ];
 
     return (
-        <section ref={containerRef} className="relative h-[300vh] bg-black">
+        <section ref={containerRef} className="relative h-[300vh]">
             <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
                 {/* Dynamic Background */}
                 <div className="absolute inset-0 z-0">

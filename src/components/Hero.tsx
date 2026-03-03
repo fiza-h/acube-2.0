@@ -1,17 +1,57 @@
 'use client';
 
-import { m } from 'motion/react';
+import { useState, useEffect } from 'react';
+import { m, useMotionValue, useMotionTemplate } from 'motion/react';
 import { ArrowRight, Check } from 'lucide-react';
 
 const Hero = () => {
+    // Mouse tracking for hover glow
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            mouseX.set(e.pageX);
+            mouseY.set(e.pageY);
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [mouseX, mouseY]);
+
+    // Typing effect for heading
+    const fullText = "Without Borders.";
+    const [typedText, setTypedText] = useState("");
+
+    useEffect(() => {
+        let i = 0;
+        const interval = setInterval(() => {
+            setTypedText(fullText.slice(0, i + 1));
+            i++;
+            if (i >= fullText.length) {
+                clearInterval(interval);
+            }
+        }, 100);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20 bg-black">
+        <section
+            className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20"
+        >
+            {/* Interactive Mouse Glow */}
+            <m.div
+                className="pointer-events-none absolute inset-0 z-0 opacity-100 transition-opacity duration-300"
+                style={{
+                    background: useMotionTemplate`radial-gradient(800px circle at ${mouseX}px ${mouseY}px, rgba(56, 189, 248, 0.18), transparent 70%)`
+                }}
+            />
+
             {/* Minimalist Deep Space Glows */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] z-0 opacity-40">
-                <div className="absolute inset-x-0 top-[-200px] h-[400px] bg-cyan-900/40 blur-[140px] rounded-[100%]" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] z-0 opacity-30">
+                <div className="absolute inset-x-0 top-[-200px] h-[400px] bg-indigo-900/40 blur-[140px] rounded-[100%]" />
             </div>
-            <div className="absolute bottom-0 right-[-20%] w-[600px] h-[600px] z-0 opacity-20">
-                <div className="absolute inset-0 bg-blue-900/30 blur-[150px] rounded-full" />
+            <div className="absolute bottom-0 right-[-20%] w-[600px] h-[600px] z-0 opacity-30">
+                <div className="absolute inset-0 bg-purple-900/30 blur-[150px] rounded-full" />
             </div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
@@ -37,7 +77,10 @@ const Hero = () => {
                     className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.05]"
                 >
                     Above the Noise,<br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Without Borders.</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-500">
+                        {typedText}
+                        <span className="animate-pulse opacity-70">_</span>
+                    </span>
                 </m.h1>
 
                 {/* Description */}
@@ -82,15 +125,15 @@ const Hero = () => {
                     className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-zinc-500 text-sm font-mono tracking-wide uppercase"
                 >
                     <div className="flex items-center">
-                        <Check className="w-4 h-4 text-cyan-500 mr-2 opacity-70" />
+                        <Check className="w-4 h-4 text-purple-500 mr-2 opacity-70" />
                         Signal over noise
                     </div>
                     <div className="flex items-center">
-                        <Check className="w-4 h-4 text-cyan-500 mr-2 opacity-70" />
+                        <Check className="w-4 h-4 text-purple-500 mr-2 opacity-70" />
                         Trust over speed
                     </div>
                     <div className="flex items-center">
-                        <Check className="w-4 h-4 text-cyan-500 mr-2 opacity-70" />
+                        <Check className="w-4 h-4 text-purple-500 mr-2 opacity-70" />
                         Scarcity over volume
                     </div>
                 </m.div>

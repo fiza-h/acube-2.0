@@ -17,7 +17,7 @@ const isNotList = [
 
 const Stats = () => {
     return (
-        <section className="py-24 relative overflow-hidden bg-black border-t border-white/5">
+        <section className="py-24 relative overflow-hidden border-t border-white/5">
             <div className="container mx-auto px-6">
 
                 <m.div

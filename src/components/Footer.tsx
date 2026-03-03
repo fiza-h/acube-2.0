@@ -71,7 +71,7 @@ const Footer = () => {
                             <ul className="space-y-4">
                                 <li className="flex items-center text-zinc-400">
                                     <Mail className="w-4 h-4 mr-2 text-cyan-400" />
-                                    team@talspace.com
+                                    team@talspace.org
                                 </li>
                                 <li>
                                     <button
