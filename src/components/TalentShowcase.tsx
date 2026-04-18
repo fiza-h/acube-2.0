@@ -159,6 +159,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            data-lenis-prevent
             className="fixed inset-0 z-50 flex items-center justify-end bg-black/60 backdrop-blur-sm"
             onClick={onClose}
             onWheel={handleWheel}
@@ -170,6 +171,7 @@ const DetailPanel = ({ talent, onClose, onNext, onPrev, hasNext, hasPrev, onMess
                 exit={{ x: '100%' }}
                 transition={{ type: 'spring', damping: 30, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
+                data-lenis-prevent
                 className="h-full w-full max-w-lg bg-zinc-950 backdrop-blur-xl border-l border-white/10 overflow-y-scroll overscroll-contain"
                 style={{ WebkitOverflowScrolling: 'touch' }}
             >
@@ -427,6 +429,7 @@ const TalentShowcase = () => {
 
                     <div
                         ref={carouselRef}
+                        data-lenis-prevent
                         className="overflow-x-auto overflow-y-hidden scrollbar-hide scroll-smooth snap-x snap-mandatory"
                         style={{
                             scrollbarWidth: 'none',

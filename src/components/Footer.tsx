@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Linkedin, Mail, MessageCircle } from 'lucide-react';
+import { Linkedin, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import TalentRegistrationModal from './TalentRegistrationModal';
 import ContactFormModal from './ContactFormModal';
@@ -72,6 +72,10 @@ const Footer = () => {
                                 <li className="flex items-center text-zinc-400">
                                     <Mail className="w-4 h-4 mr-2 text-cyan-400" />
                                     team@talspace.org
+                                </li>
+                                <li className="flex items-start text-zinc-400">
+                                    <MapPin className="w-4 h-4 mr-2 mt-0.5 text-cyan-400 shrink-0" />
+                                    <span>68 Circular Road, #02-01, 049422, Singapore</span>
                                 </li>
                                 <li>
                                     <button

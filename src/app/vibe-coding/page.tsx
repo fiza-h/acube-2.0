@@ -89,27 +89,27 @@ export default function VibeCodingPage() {
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-white">
       <Navbar />
 
-      <section id="terminal" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-32 lg:px-24">
+      <section id="terminal" className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pb-16 pt-28 lg:px-16 lg:py-20 lg:pt-24 xl:px-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(8,145,178,0.12),transparent_42%)]" />
         <div className="absolute bottom-[-10rem] left-[-8rem] h-80 w-80 rounded-full bg-cyan-400/5 blur-3xl" />
-        <div className="mx-auto grid w-full max-w-[1440px] gap-12 lg:grid-cols-12">
-          <div className="relative z-10 flex flex-col justify-center space-y-8 lg:col-span-7">
-            <h1 className="font-sans text-5xl leading-[0.95] tracking-tight text-zinc-100 md:text-7xl lg:text-8xl">
+        <div className="mx-auto grid w-full max-w-[1440px] items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
+          <div className="relative z-10 flex flex-col justify-center space-y-6 lg:col-span-7">
+            <h1 className="max-w-3xl font-sans text-5xl leading-[0.94] tracking-tight text-zinc-100 md:text-7xl lg:text-[clamp(4.25rem,6.35vw,6.75rem)] 2xl:text-8xl">
               Build fast
               <br />
-              <span className="bg-gradient-to-br from-cyan-100 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-br from-cyan-100 to-cyan-400 bg-clip-text text-transparent lg:whitespace-nowrap">
                 with vibe coding
               </span>
               <br />
               Ship like a pro.
             </h1>
 
-            <p className="max-w-xl text-lg font-light leading-relaxed text-zinc-400 md:text-xl">
+            <p className="max-w-xl text-base font-light leading-relaxed text-zinc-400 md:text-lg xl:text-xl">
               Pair with experienced engineers in real time. Turn quick builds into stable,
               production-ready products.
             </p>
 
-            <div className="flex flex-col gap-4 pt-2 sm:flex-row">
+            <div className="flex flex-col gap-4 sm:flex-row">
               <a
                 href="https://calendly.com/absaarmalik15/30min"
                 target="_blank"
@@ -129,7 +129,7 @@ export default function VibeCodingPage() {
 
           <div className="relative lg:col-span-5">
             <div className="absolute inset-0 rounded-full bg-cyan-400/10 blur-[120px]" />
-            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-zinc-950/75 backdrop-blur-xl lg:h-[600px]">
+            <div className="relative min-h-[420px] overflow-hidden rounded-lg border border-white/10 bg-zinc-950/75 backdrop-blur-xl lg:h-[520px] lg:max-h-[calc(100svh-9rem)]">
               <div className="flex h-8 items-center gap-2 border-b border-white/10 bg-black/60 px-4">
                 <span className="h-2 w-2 rounded-full bg-red-500/60" />
                 <span className="h-2 w-2 rounded-full bg-yellow-500/60" />

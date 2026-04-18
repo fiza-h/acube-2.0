@@ -91,6 +91,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
+                    data-lenis-prevent
                     className="fixed inset-0 z-50"
                     onClick={onClose}
                     onWheel={handleWheel}
@@ -101,6 +102,7 @@ const ContactFormModal = ({ isOpen, onClose }: ContactFormModalProps) => {
                     {/* Centered container */}
                     <div
                         ref={modalContentRef}
+                        data-lenis-prevent
                         className="relative h-full overflow-y-auto flex items-center justify-center p-4"
                     >
                         {/* Modal Content */}
