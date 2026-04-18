@@ -89,27 +89,26 @@ export default function VibeCodingPage() {
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-white">
       <Navbar />
 
-      <section id="terminal" className="relative flex min-h-[100svh] items-center overflow-hidden px-6 pb-16 pt-28 lg:px-16 lg:py-20 lg:pt-24 xl:px-24">
+      <section id="terminal" className="relative flex min-h-[calc(100svh-3.5rem)] items-center overflow-hidden px-6 pb-16 pt-28 lg:px-16 lg:pb-20 lg:pt-24 xl:px-24">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(8,145,178,0.12),transparent_42%)]" />
+        <div className="absolute left-0 right-0 top-[30%] h-px bg-gradient-to-r from-transparent via-cyan-400/20 to-transparent" />
         <div className="absolute bottom-[-10rem] left-[-8rem] h-80 w-80 rounded-full bg-cyan-400/5 blur-3xl" />
-        <div className="mx-auto grid w-full max-w-[1440px] items-center gap-10 lg:grid-cols-12 lg:gap-8 xl:gap-12">
-          <div className="relative z-10 flex flex-col justify-center space-y-6 lg:col-span-7">
-            <h1 className="max-w-3xl font-sans text-5xl leading-[0.94] tracking-tight text-zinc-100 md:text-7xl lg:text-[clamp(4.25rem,6.35vw,6.75rem)] 2xl:text-8xl">
-              Build fast
-              <br />
-              <span className="bg-gradient-to-br from-cyan-100 to-cyan-400 bg-clip-text text-transparent lg:whitespace-nowrap">
+        <div className="mx-auto w-full max-w-[1440px]">
+          <div className="mx-auto max-w-5xl text-center">
+            <h1 className="font-sans text-[clamp(3.25rem,9vw,7.25rem)] leading-[0.94] tracking-tight text-zinc-100">
+              <span className="block">Build fast</span>
+              <span className="block bg-gradient-to-br from-cyan-100 to-cyan-400 bg-clip-text text-transparent">
                 with vibe coding
               </span>
-              <br />
-              Ship like a pro.
+              <span className="block">Ship like a pro.</span>
             </h1>
 
-            <p className="max-w-xl text-base font-light leading-relaxed text-zinc-400 md:text-lg xl:text-xl">
+            <p className="mx-auto mt-7 max-w-2xl text-base font-light leading-relaxed text-zinc-400 md:text-lg xl:text-xl">
               Pair with experienced engineers in real time. Turn quick builds into stable,
               production-ready products.
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <a
                 href="https://calendly.com/absaarmalik15/30min"
                 target="_blank"
@@ -127,47 +126,41 @@ export default function VibeCodingPage() {
             </div>
           </div>
 
-          <div className="relative lg:col-span-5">
-            <div className="absolute inset-0 rounded-full bg-cyan-400/10 blur-[120px]" />
-            <div className="relative min-h-[420px] overflow-hidden rounded-lg border border-white/10 bg-zinc-950/75 backdrop-blur-xl lg:h-[520px] lg:max-h-[calc(100svh-9rem)]">
-              <div className="flex h-8 items-center gap-2 border-b border-white/10 bg-black/60 px-4">
-                <span className="h-2 w-2 rounded-full bg-red-500/60" />
-                <span className="h-2 w-2 rounded-full bg-yellow-500/60" />
-                <span className="h-2 w-2 rounded-full bg-green-500/60" />
-                <span className="ml-4 font-mono text-[10px] tracking-widest text-zinc-500">
-                  LIVE_PAIRING_SESSION.sh
-                </span>
-              </div>
+          <div className="relative mx-auto mt-12 max-w-6xl overflow-hidden rounded-lg border border-white/10 bg-zinc-950/75 backdrop-blur-xl lg:mt-14">
+            <div className="flex h-8 items-center gap-2 border-b border-white/10 bg-black/60 px-4">
+              <span className="h-2 w-2 rounded-full bg-red-500/60" />
+              <span className="h-2 w-2 rounded-full bg-yellow-500/60" />
+              <span className="h-2 w-2 rounded-full bg-green-500/60" />
+              <span className="ml-4 font-mono text-[10px] tracking-widest text-zinc-500">
+                LIVE_PAIRING_SESSION.sh
+              </span>
+            </div>
 
-              <div className="space-y-3 overflow-hidden p-5 font-mono text-sm md:p-6">
-                <p className="text-zinc-400">
-                  <span className="text-cyan-400">builder@talspace:</span>
-                  <span className="text-cyan-100">~</span>$ npx create-vibe-app
-                </p>
-                <p className="text-cyan-200">Vibe coding gets you moving fast...</p>
-                <p className="text-zinc-500">But things break.</p>
-                <p className="text-zinc-500">Pairing experienced engineer...</p>
-
-                <div className="mt-8 flex items-start gap-4">
-                  <div className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-blue-500 text-xs font-medium text-black">
-                    EN
-                  </div>
-                  <div className="max-w-[82%] rounded-lg rounded-tl-none border border-cyan-400/20 bg-white/5 p-4">
-                    <p className="mb-1 text-xs font-medium text-cyan-100">ENGINEER_01</p>
-                    <p className="text-xs italic leading-normal text-zinc-300">
-                      &quot;Let&apos;s fix the issue instantly and get the architecture right from
-                      day one.&quot;
-                    </p>
-                  </div>
+            <div className="relative p-5 md:p-6 lg:p-8">
+              <div className="absolute inset-y-1/2 left-0 right-0 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-cyan-400/10 to-transparent md:block" />
+              <div className="relative grid gap-4 md:grid-cols-12 md:items-center">
+                <div className="space-y-3 font-mono text-sm text-zinc-400 md:col-span-4">
+                  <p>
+                    <span className="text-cyan-400">builder@talspace:</span>
+                    <span className="text-cyan-100">~</span>$ npx create-vibe-app
+                  </p>
+                  <p className="text-cyan-200">Vibe coding gets you moving fast...</p>
+                  <p className="text-zinc-500">But things break.</p>
                 </div>
 
-                <div className="mt-4 flex justify-end">
-                  <div className="max-w-[82%] rounded-lg rounded-tr-none border border-cyan-300/40 bg-cyan-300/10 p-4">
-                    <p className="mb-1 text-right text-xs font-medium text-cyan-300">YOU</p>
-                    <p className="text-xs leading-normal text-zinc-200">
-                      &quot;No hiring. No delays. Just progress.&quot;
-                    </p>
-                  </div>
+                <div className="rounded-lg border border-cyan-400/20 bg-white/5 p-4 md:col-span-5">
+                  <p className="mb-1 text-xs font-medium text-cyan-100">ENGINEER_01</p>
+                  <p className="text-xs italic leading-normal text-zinc-300">
+                    &quot;Let&apos;s fix the issue instantly and get the architecture right from
+                    day one.&quot;
+                  </p>
+                </div>
+
+                <div className="rounded-lg border border-cyan-300/40 bg-cyan-300/10 p-4 md:col-span-3 md:justify-self-end">
+                  <p className="mb-1 text-right text-xs font-medium text-cyan-300">YOU</p>
+                  <p className="text-xs leading-normal text-zinc-200">
+                    &quot;No hiring. No delays. Just progress.&quot;
+                  </p>
                 </div>
               </div>
             </div>
