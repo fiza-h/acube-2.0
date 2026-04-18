@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { m, useMotionValue, useMotionTemplate } from 'motion/react';
 import { ArrowRight, Check } from 'lucide-react';
+import Image from 'next/image';
 
 const Hero = () => {
     // Mouse tracking for hover glow
@@ -62,10 +63,13 @@ const Hero = () => {
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     className="relative w-48 h-12 md:w-56 md:h-14 mx-auto mb-8"
                 >
-                    <img
+                    <Image
                         src="/talspace-brand-logo.png"
                         alt="Talspace"
-                        className="object-contain w-full h-full"
+                        fill
+                        priority
+                        sizes="(min-width: 768px) 224px, 192px"
+                        className="object-contain"
                     />
                 </m.div>
 

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TALSPACE // KINETIC SYNTAX</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ffb4ab",
+                    "secondary-container": "#0267b8",
+                    "secondary-fixed-dim": "#a4c9ff",
+                    "on-tertiary": "#2f3131",
+                    "primary-fixed": "#a2eeff",
+                    "surface-variant": "#353535",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "on-secondary-container": "#d6e5ff",
+                    "on-background": "#e2e2e2",
+                    "on-primary-fixed-variant": "#004e5a",
+                    "error-container": "#93000a",
+                    "on-error": "#690005",
+                    "on-secondary": "#00315d",
+                    "inverse-on-surface": "#303030",
+                    "surface-container-highest": "#353535",
+                    "on-tertiary-container": "#4d4f4f",
+                    "surface-container": "#1f1f1f",
+                    "outline": "#859397",
+                    "surface-tint": "#2fd9f4",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-container": "#c0c1c1",
+                    "on-surface": "#e2e2e2",
+                    "surface-container-lowest": "#0e0e0e",
+                    "inverse-primary": "#006877",
+                    "primary-fixed-dim": "#2fd9f4",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary-container": "#005763",
+                    "on-secondary-fixed-variant": "#004883",
+                    "surface-bright": "#393939",
+                    "secondary-fixed": "#d4e3ff",
+                    "tertiary": "#dcdddd",
+                    "surface-dim": "#131313",
+                    "on-secondary-fixed": "#001c39",
+                    "tertiary-fixed-dim": "#c6c6c7",
+                    "primary-container": "#22d3ee",
+                    "secondary": "#a4c9ff",
+                    "inverse-surface": "#e2e2e2",
+                    "on-primary": "#00363e",
+                    "surface-container-high": "#2a2a2a",
+                    "primary": "#8aebff",
+                    "background": "#131313",
+                    "on-primary-fixed": "#001f25",
+                    "outline-variant": "#3c494c",
+                    "surface-container-low": "#1b1b1b",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "surface": "#131313",
+                    "on-surface-variant": "#bbc9cd"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Space Grotesk"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .vibe-glow {
+            box-shadow: 0 20px 40px rgba(34,211,238,0.04);
+        }
+        .ghost-border {
+            outline: 1px solid rgba(60, 73, 76, 0.15);
+        }
+        .glass-panel {
+            background: rgba(31, 31, 31, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #8aebff 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface-dim text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-[1440px] mx-auto px-6 py-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-cyan-400" style="font-variation-settings: 'FILL' 1;">terminal</span>
+<span class="text-2xl font-bold tracking-tighter text-cyan-400 font-headline uppercase">TALSPACE</span>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1 font-label text-sm tracking-widest uppercase" href="#">TERMINAL</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors font-label text-sm tracking-widest uppercase" href="#">MISSION</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors font-label text-sm tracking-widest uppercase" href="#">NODES</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors font-label text-sm tracking-widest uppercase" href="#">PRICING</a>
+</nav>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2 rounded-lg font-label text-xs font-bold tracking-widest uppercase hover:scale-105 active:scale-95 transition-all">
+                LAUNCH_TERMINAL
+            </button>
+</div>
+<div class="bg-gradient-to-r from-cyan-500/20 via-cyan-500/50 to-cyan-500/20 h-px w-full"></div>
+</header>
+<main class="relative pt-24 overflow-hidden">
+<!-- Hero Section: Vibe Coding -->
+<section class="relative min-h-[795px] flex items-center px-6 lg:px-24">
+<div class="grid lg:grid-cols-12 gap-12 w-full max-w-[1440px] mx-auto">
+<div class="lg:col-span-7 flex flex-col justify-center space-y-8 z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-highest rounded-full w-fit">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#8aebff]"></span>
+<span class="text-[10px] font-label text-primary-fixed uppercase tracking-widest">System Status: Optimal</span>
+</div>
+<h1 class="font-headline text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-on-background">
+                        BUILD FAST <br/> <span class="text-gradient">WITH VIBE</span> <br/> CODING.
+                    </h1>
+<p class="max-w-xl text-on-surface-variant text-lg md:text-xl font-light leading-relaxed">
+                        Ship like a pro. Talspace pairs you with senior architectural engineers in real-time to turn your prototype vibes into production-ready reality.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-label font-bold px-10 py-4 rounded-lg tracking-widest uppercase hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all active:scale-95">
+                            START_SESSION
+                        </button>
+<button class="ghost-border bg-surface-container-low text-primary font-label font-bold px-10 py-4 rounded-lg tracking-widest uppercase hover:bg-surface-container-high transition-all">
+                            VIEW_DOCS
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative group">
+<div class="absolute inset-0 bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="relative glass-panel rounded-xl overflow-hidden ghost-border aspect-square lg:aspect-auto lg:h-[600px]">
+<div class="h-8 bg-surface-container-high flex items-center px-4 gap-2 border-b border-outline-variant/20">
+<div class="w-2 h-2 rounded-full bg-red-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+<div class="w-2 h-2 rounded-full bg-green-500/50"></div>
+<span class="ml-4 text-[10px] font-label text-on-surface-variant/50 tracking-widest">LIVE_PAIRING_SESSION.sh</span>
+</div>
+<div class="p-6 font-mono text-sm space-y-2 overflow-hidden">
+<p class="text-on-surface-variant"><span class="text-cyan-400">user@talspace:</span><span class="text-primary-fixed">~</span>$ npx create-vibe-app</p>
+<p class="text-primary-fixed-dim">Initializing architectural audit...</p>
+<p class="text-on-surface-variant opacity-50">Checking state management patterns...</p>
+<p class="text-on-surface-variant opacity-50">Optimizing render cycles...</p>
+<div class="mt-8 flex items-start gap-4">
+<div class="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex-shrink-0 flex items-center justify-center font-bold text-xs">EN</div>
+<div class="bg-surface-container-highest p-4 rounded-lg rounded-tl-none border border-primary/20 max-w-[80%]">
+<p class="text-xs text-primary-fixed font-bold mb-1">ENGINEER_01</p>
+<p class="text-xs text-on-surface leading-normal italic">"I see a potential race condition in your checkout hook. Let's refactor the useReducer logic to ensure ACID compliance."</p>
+</div>
+</div>
+<div class="mt-4 flex flex-col items-end gap-4">
+<div class="bg-primary/10 p-4 rounded-lg rounded-tr-none border border-primary/40 max-w-[80%]">
+<p class="text-xs text-cyan-400 font-bold mb-1 text-right">YOU</p>
+<p class="text-xs text-on-surface leading-normal">"Wait, I didn't even catch that. Applying fix now."</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Background Decorative Elements -->
+<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+</section>
+<!-- Problem/Solution: Hardware Diagnostic Style -->
+<section class="py-32 px-6 bg-surface-container-low/30">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row gap-12 items-stretch">
+<!-- The Problem -->
+<div class="flex-1 space-y-6 relative group">
+<div class="bg-surface-container-highest/40 p-8 rounded-xl border-l-4 border-error/50">
+<span class="font-label text-error text-xs tracking-widest uppercase mb-4 block">DIAGNOSTIC: CRITICAL</span>
+<h3 class="font-headline text-3xl font-bold mb-4">Fast Builds. Fragile Systems.</h3>
+<p class="text-on-surface-variant font-light mb-8">Speed is useless if the engine explodes under load. Prototype code often lacks the resilience needed for scale.</p>
+<ul class="space-y-4 font-mono text-sm">
+<li class="flex items-center gap-3 text-error/80">
+<span class="material-symbols-outlined text-sm">close</span> Spagetti state logic
+                                </li>
+<li class="flex items-center gap-3 text-error/80">
+<span class="material-symbols-outlined text-sm">close</span> Memory leaks in production
+                                </li>
+<li class="flex items-center gap-3 text-error/80">
+<span class="material-symbols-outlined text-sm">close</span> Non-existent error boundaries
+                                </li>
+</ul>
+</div>
+</div>
+<!-- Visual Divider -->
+<div class="hidden lg:flex flex-col items-center justify-center gap-4 py-8">
+<div class="w-px flex-1 bg-gradient-to-b from-transparent via-outline-variant to-transparent opacity-20"></div>
+<span class="material-symbols-outlined text-primary-fixed rotate-90">sync_alt</span>
+<div class="w-px flex-1 bg-gradient-to-b from-transparent via-outline-variant to-transparent opacity-20"></div>
+</div>
+<!-- The Solution -->
+<div class="flex-1 space-y-6">
+<div class="bg-surface-container-highest/40 p-8 rounded-xl border-l-4 border-primary/50 relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-8xl">verified_user</span>
+</div>
+<span class="font-label text-primary text-xs tracking-widest uppercase mb-4 block">PATCH: DEPLOYED</span>
+<h3 class="font-headline text-3xl font-bold mb-4">Real Engineers. Real-Time Help.</h3>
+<p class="text-on-surface-variant font-light mb-8">We inject senior-level architectural thinking into your workflow, ensuring every line of code is production-ready.</p>
+<ul class="space-y-4 font-mono text-sm">
+<li class="flex items-center gap-3 text-primary/80">
+<span class="material-symbols-outlined text-sm">check_circle</span> Optimized data structures
+                                </li>
+<li class="flex items-center gap-3 text-primary/80">
+<span class="material-symbols-outlined text-sm">check_circle</span> Automated edge-case handling
+                                </li>
+<li class="flex items-center gap-3 text-primary/80">
+<span class="material-symbols-outlined text-sm">check_circle</span> Scalable cloud-native patterns
+                                </li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works: Kinetic Nodes -->
+<section class="py-32 px-6 relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto text-center mb-24">
+<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tighter mb-4">THE WORKFLOW</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">A seamless transition from logic to delivery.</p>
+</div>
+<div class="max-w-4xl mx-auto relative">
+<!-- Vertical Line -->
+<div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/20 to-transparent"></div>
+<!-- Steps -->
+<div class="space-y-24 relative">
+<!-- Step 1 -->
+<div class="flex flex-col md:flex-row items-center gap-8 relative">
+<div class="md:w-1/2 text-right hidden md:block pr-12">
+<h4 class="font-headline text-2xl font-bold text-on-surface">BUILD FAST</h4>
+<p class="text-on-surface-variant text-sm mt-2">Write your initial logic at light speed.</p>
+</div>
+<div class="w-16 h-16 rounded-full bg-surface-dim border-2 border-primary flex items-center justify-center z-10 shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+<span class="material-symbols-outlined text-primary">bolt</span>
+</div>
+<div class="md:w-1/2 pl-8 md:pl-12">
+<div class="md:hidden">
+<h4 class="font-headline text-2xl font-bold text-on-surface">BUILD FAST</h4>
+<p class="text-on-surface-variant text-sm mt-2">Write your initial logic at light speed.</p>
+</div>
+<div class="text-xs font-mono text-primary/60 tracking-widest mt-4">STEP_01 // INITIATE</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-8 relative">
+<div class="md:w-1/2 text-left hidden md:block pl-12">
+<h4 class="font-headline text-2xl font-bold text-on-surface">GET PAIRED</h4>
+<p class="text-on-surface-variant text-sm mt-2">Summon an expert into your IDE instantly.</p>
+</div>
+<div class="w-16 h-16 rounded-full bg-surface-dim border-2 border-primary-fixed flex items-center justify-center z-10 shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+<span class="material-symbols-outlined text-primary-fixed">group_add</span>
+</div>
+<div class="md:w-1/2 pr-8 md:pr-12 text-right">
+<div class="md:hidden">
+<h4 class="font-headline text-2xl font-bold text-on-surface">GET PAIRED</h4>
+<p class="text-on-surface-variant text-sm mt-2">Summon an expert into your IDE instantly.</p>
+</div>
+<div class="text-xs font-mono text-primary/60 tracking-widest mt-4">STEP_02 // SYNCING</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col md:flex-row items-center gap-8 relative">
+<div class="md:w-1/2 text-right hidden md:block pr-12">
+<h4 class="font-headline text-2xl font-bold text-on-surface">SHIP LIKE A PRO</h4>
+<p class="text-on-surface-variant text-sm mt-2">Deploy with the confidence of a veteran.</p>
+</div>
+<div class="w-16 h-16 rounded-full bg-surface-dim border-2 border-primary-container flex items-center justify-center z-10 shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+<span class="material-symbols-outlined text-primary-container">rocket_launch</span>
+</div>
+<div class="md:w-1/2 pl-8 md:pl-12">
+<div class="md:hidden">
+<h4 class="font-headline text-2xl font-bold text-on-surface">SHIP LIKE A PRO</h4>
+<p class="text-on-surface-variant text-sm mt-2">Deploy with the confidence of a veteran.</p>
+</div>
+<div class="text-xs font-mono text-primary/60 tracking-widest mt-4">STEP_03 // RELEASE</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Who It's For: High-Density Bento Grid -->
+<section class="py-32 px-6 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid md:grid-cols-12 gap-6 auto-rows-[250px]">
+<!-- Large Card -->
+<div class="md:col-span-8 md:row-span-2 bg-surface-dim rounded-xl p-8 relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-20 transition-transform duration-700 group-hover:scale-110" data-alt="abstract digital network representation with neon blue circuit lines and data pulses on black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKbbSvg6Qtubp4ggIHwykcN3QQqK-xyIzuEL5BkwteyW_MZYNjeMTcjvUKFV6kSh0ZmbCIQvhe3gSTxgMqp-pnjBE5XzOfxDjX7ARcLjTVCCkWADfr4yUiQaCLntMXLOp0qbZgoDZgtk9r7N7ZHBju8duJvQYNvchkcpc1H795f1irnY5r53cK_laz4f2KAlBW35KGf5UiH7xkGahoRPsaSLDTZK81atIPPAKuTD6LmUTJXLTGK5UNjp-kffGUhvVoqCingVaW7Dw"/>
+<div class="relative z-10 h-full flex flex-col justify-end">
+<span class="font-label text-primary-fixed text-xs tracking-[0.3em] uppercase mb-4">TARGET_USER // 01</span>
+<h3 class="font-headline text-4xl font-bold mb-4">Founders &amp; Solo Devs</h3>
+<p class="text-on-surface-variant max-w-md">The fast-moving innovator who needs a second pair of expert eyes to ensure their 'vibe' matches production standards.</p>
+</div>
+</div>
+<!-- Medium Card -->
+<div class="md:col-span-4 md:row-span-1 bg-surface-container-highest rounded-xl p-8 border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">terminal</span>
+<h4 class="font-headline text-xl font-bold mb-2">Vibe Status</h4>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary animate-pulse"></div>
+<p class="text-on-surface-variant text-sm">Real-time collaboration active in 14 countries.</p>
+</div>
+</div>
+<!-- Medium Card 2 -->
+<div class="md:col-span-4 md:row-span-1 bg-gradient-to-br from-primary/10 to-transparent rounded-xl p-8 ghost-border">
+<span class="material-symbols-outlined text-primary mb-4 text-3xl">psychology</span>
+<h4 class="font-headline text-xl font-bold mb-2">Expert Logic</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Our engineers have collective experience at FAANG, YC startups, and open-source core teams.</p>
+</div>
+<!-- Small Card 1 -->
+<div class="md:col-span-4 md:row-span-1 bg-surface-container-high rounded-xl p-8 flex flex-col justify-between">
+<p class="font-mono text-3xl text-primary font-bold">150ms</p>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant">AVERAGE_SYNC_LATENCY</p>
+</div>
+<!-- Small Card 2 -->
+<div class="md:col-span-4 md:row-span-1 bg-primary text-on-primary-container rounded-xl p-8 flex flex-col justify-between">
+<p class="font-mono text-3xl font-bold">98.4%</p>
+<p class="text-xs font-label uppercase tracking-widest">DEPLOY_SUCCESS_RATE</p>
+</div>
+<!-- Medium Card Bottom -->
+<div class="md:col-span-4 md:row-span-1 bg-surface-dim rounded-xl p-8 border border-outline-variant/10">
+<h4 class="font-headline text-xl font-bold mb-2">Security First</h4>
+<p class="text-on-surface-variant text-sm">Full SOC2 compliance and encrypted terminal sessions for your intellectual property.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing & Final CTA -->
+<section class="py-32 px-6">
+<div class="max-w-[1440px] mx-auto">
+<div class="grid lg:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-8 uppercase leading-[0.9]">
+                            STOP <br/> DEBUGGING <br/> <span class="text-primary-fixed">ALONE.</span>
+</h2>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg ghost-border">
+<span class="material-symbols-outlined text-primary">credit_card</span>
+<div class="flex-1">
+<p class="font-label text-sm font-bold uppercase tracking-widest">PAY_PER_VIBE</p>
+<p class="text-xs text-on-surface-variant">$45 / session</p>
+</div>
+<span class="text-[10px] text-primary/40 font-mono">ON_DEMAND</span>
+</div>
+<div class="flex items-center gap-4 p-4 bg-primary text-on-primary-container rounded-lg">
+<span class="material-symbols-outlined">star</span>
+<div class="flex-1">
+<p class="font-label text-sm font-bold uppercase tracking-widest">UNLIMITED_NODES</p>
+<p class="text-xs opacity-70">$499 / month</p>
+</div>
+<span class="text-[10px] font-mono">BEST_VALUE</span>
+</div>
+</div>
+</div>
+<div class="relative group p-1">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-primary-container/20 to-transparent blur-3xl rounded-full"></div>
+<div class="relative bg-surface-container-highest p-12 rounded-xl text-center flex flex-col items-center gap-8">
+<div class="w-24 h-24 rounded-full bg-surface-dim flex items-center justify-center border border-primary/20">
+<span class="material-symbols-outlined text-primary text-5xl animate-pulse">keyboard_command_key</span>
+</div>
+<h3 class="font-headline text-3xl font-bold tracking-tight">READY TO SYNC?</h3>
+<p class="text-on-surface-variant max-w-sm">Join the 2,400+ developers shipping production-grade applications with Vibe Coding.</p>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-label font-bold py-6 rounded-lg tracking-[0.2em] uppercase hover:scale-[1.02] active:scale-95 transition-all">
+                                GET_PAIRED_NOW
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#131313] w-full border-t border-cyan-900/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 gap-6 max-w-[1440px] mx-auto">
+<div class="flex items-center gap-2">
+<span class="text-cyan-400 font-bold font-headline tracking-widest text-lg uppercase">TALSPACE_SYSTEMS</span>
+<span class="text-slate-500 font-mono text-[10px] ml-2">// KINETIC_SYNTAX</span>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-slate-500 hover:text-cyan-300 transition-all duration-500 font-label text-[10px] uppercase tracking-[0.2em]" href="#">DOCUMENTATION</a>
+<a class="text-slate-500 hover:text-cyan-300 transition-all duration-500 font-label text-[10px] uppercase tracking-[0.2em]" href="#">SECURITY</a>
+<a class="text-slate-500 hover:text-cyan-300 transition-all duration-500 font-label text-[10px] uppercase tracking-[0.2em]" href="#">VIBE_CHECK</a>
+<a class="text-slate-500 hover:text-cyan-300 transition-all duration-500 font-label text-[10px] uppercase tracking-[0.2em]" href="#">API</a>
+</div>
+<p class="text-slate-500 font-label text-[10px] uppercase tracking-[0.2em]">©2024 TALSPACE_SYSTEMS</p>
+</div>
+</footer>
+</body></html>

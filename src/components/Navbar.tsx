@@ -38,6 +38,7 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
+        { name: 'Vibe Coding', href: '/vibe-coding' },
         { name: 'About Us', href: '/about' },
         { name: 'Dimension Labs', href: '/dimension-labs' },
     ];
