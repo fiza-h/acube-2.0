@@ -1,10 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Lenis from 'lenis';
 
 const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState<boolean | null>(null);
+    const pathname = usePathname();
+    const useNativeScroll = pathname === '/vibe-coding';
 
     useEffect(() => {
         // Detect if device is mobile or has touch
@@ -22,7 +25,7 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
     useEffect(() => {
         // Only enable Lenis on desktop devices
-        if (isMobile) return;
+        if (isMobile !== false || useNativeScroll) return;
 
         const lenis = new Lenis({
             duration: 0.4,
@@ -34,17 +37,20 @@ const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
             touchMultiplier: 2,
         });
 
+        let rafId = 0;
+
         function raf(time: number) {
             lenis.raf(time);
-            requestAnimationFrame(raf);
+            rafId = requestAnimationFrame(raf);
         }
 
-        requestAnimationFrame(raf);
+        rafId = requestAnimationFrame(raf);
 
         return () => {
+            cancelAnimationFrame(rafId);
             lenis.destroy();
         };
-    }, [isMobile]);
+    }, [isMobile, useNativeScroll]);
 
     return <>{children}</>;
 };

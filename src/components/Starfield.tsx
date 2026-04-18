@@ -42,6 +42,7 @@ export default function Starfield() {
             targetY = (e.clientY - window.innerHeight / 2) * 0.0005;
         };
         window.addEventListener('mousemove', handleMouseMove);
+        let animationFrameId = 0;
 
         const initStars = (width: number, height: number) => {
             stars.length = 0;
@@ -133,7 +134,7 @@ export default function Starfield() {
                 }
             });
 
-            requestAnimationFrame(animate);
+            animationFrameId = requestAnimationFrame(animate);
         };
 
         window.addEventListener('resize', resize);
@@ -141,6 +142,7 @@ export default function Starfield() {
         animate();
 
         return () => {
+            cancelAnimationFrame(animationFrameId);
             window.removeEventListener('resize', resize);
             window.removeEventListener('mousemove', handleMouseMove);
         };
