@@ -86,10 +86,11 @@ const proofQuotes = [
 
 export default function VibeCodingPage() {
   return (
-    <main className="min-h-screen bg-[#131313] text-[#e2e2e2] selection:bg-cyan-400 selection:text-black">
+    <main className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-white">
       <Navbar />
 
       <section id="terminal" className="relative flex min-h-screen items-center overflow-hidden px-6 pt-32 lg:px-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(8,145,178,0.12),transparent_42%)]" />
         <div className="absolute bottom-[-10rem] left-[-8rem] h-80 w-80 rounded-full bg-cyan-400/5 blur-3xl" />
         <div className="mx-auto grid w-full max-w-[1440px] gap-12 lg:grid-cols-12">
           <div className="relative z-10 flex flex-col justify-center space-y-8 lg:col-span-7">
@@ -119,7 +120,7 @@ export default function VibeCodingPage() {
               </a>
               <a
                 href="#mission"
-                className="inline-flex items-center justify-center rounded-lg border border-cyan-400/10 bg-zinc-900 px-8 py-4 text-sm font-medium text-cyan-300 transition-colors hover:bg-zinc-800"
+                className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-black/40 px-8 py-4 text-sm font-medium text-cyan-300 backdrop-blur-sm transition-colors hover:bg-white/5"
               >
                 See How It Works
               </a>
@@ -128,8 +129,8 @@ export default function VibeCodingPage() {
 
           <div className="relative lg:col-span-5">
             <div className="absolute inset-0 rounded-full bg-cyan-400/10 blur-[120px]" />
-            <div className="relative overflow-hidden rounded-lg border border-cyan-400/10 bg-zinc-900/70 backdrop-blur-xl lg:h-[600px]">
-              <div className="flex h-8 items-center gap-2 border-b border-cyan-400/10 bg-zinc-800 px-4">
+            <div className="relative overflow-hidden rounded-lg border border-white/10 bg-zinc-950/75 backdrop-blur-xl lg:h-[600px]">
+              <div className="flex h-8 items-center gap-2 border-b border-white/10 bg-black/60 px-4">
                 <span className="h-2 w-2 rounded-full bg-red-500/60" />
                 <span className="h-2 w-2 rounded-full bg-yellow-500/60" />
                 <span className="h-2 w-2 rounded-full bg-green-500/60" />
@@ -151,7 +152,7 @@ export default function VibeCodingPage() {
                   <div className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-gradient-to-br from-cyan-300 to-blue-500 text-xs font-medium text-black">
                     EN
                   </div>
-                  <div className="max-w-[82%] rounded-lg rounded-tl-none border border-cyan-400/20 bg-zinc-800 p-4">
+                  <div className="max-w-[82%] rounded-lg rounded-tl-none border border-cyan-400/20 bg-white/5 p-4">
                     <p className="mb-1 text-xs font-medium text-cyan-100">ENGINEER_01</p>
                     <p className="text-xs italic leading-normal text-zinc-300">
                       &quot;Let&apos;s fix the issue instantly and get the architecture right from
@@ -174,7 +175,7 @@ export default function VibeCodingPage() {
         </div>
       </section>
 
-      <section id="mission" className="bg-zinc-900/50 px-6 py-24 md:py-32">
+      <section id="mission" className="border-y border-white/5 bg-black px-6 py-24 md:py-32">
         <div className="mx-auto flex max-w-[1440px] flex-col gap-10 md:flex-row md:gap-12">
           <DiagnosticPanel
             tone="error"
@@ -220,7 +221,7 @@ export default function VibeCodingPage() {
         </div>
       </section>
 
-      <section className="bg-zinc-900 px-6 py-24 md:py-32">
+      <section className="border-b border-white/5 bg-black px-6 py-24 md:py-32">
         <div className="mx-auto max-w-[1440px]">
           <div className="grid gap-6 md:grid-cols-12 md:auto-rows-[250px]">
             <div className="relative min-h-[360px] overflow-hidden rounded-lg bg-zinc-950 p-8 md:col-span-8 md:row-span-2">
@@ -289,7 +290,7 @@ export default function VibeCodingPage() {
                 <div
                   key={plan.name}
                   className={`flex items-center gap-4 rounded-lg p-4 ${
-                    plan.highlighted ? 'bg-cyan-300 text-cyan-950' : 'border border-white/10 bg-zinc-900'
+                    plan.highlighted ? 'bg-cyan-300 text-cyan-950' : 'border border-white/10 bg-black/40'
                   }`}
                 >
                   {plan.highlighted ? <Star className="h-5 w-5" /> : <CreditCard className="h-5 w-5 text-cyan-300" />}
@@ -307,7 +308,7 @@ export default function VibeCodingPage() {
 
           <div className="relative p-1">
             <div className="absolute inset-0 rounded-full bg-cyan-400/20 blur-3xl" />
-            <div className="relative flex flex-col items-center gap-8 rounded-lg bg-zinc-800 p-8 text-center md:p-12">
+            <div className="relative flex flex-col items-center gap-8 rounded-lg border border-white/10 bg-zinc-950/70 p-8 text-center backdrop-blur-sm md:p-12">
               <div className="flex h-24 w-24 items-center justify-center rounded-full border border-cyan-300/20 bg-zinc-950">
                 <Keyboard className="h-12 w-12 text-cyan-300" />
               </div>
@@ -351,7 +352,7 @@ function DiagnosticPanel({
 
   return (
     <div
-      className={`flex-1 rounded-lg border-l-4 bg-zinc-800/50 p-8 ${
+      className={`flex-1 rounded-lg border border-white/10 border-l-4 bg-zinc-950/70 p-8 backdrop-blur-sm ${
         isPatch ? 'border-cyan-300/60' : 'border-red-300/60'
       }`}
     >
@@ -386,7 +387,7 @@ function WorkflowStep({
         <p className="mt-2 text-sm text-zinc-500">{step.copy}</p>
       </div>
 
-      <div className="z-10 ml-0 flex h-16 w-16 items-center justify-center rounded-full border-2 border-cyan-300 bg-[#131313] shadow-[0_0_20px_rgba(34,211,238,0.35)] md:ml-0">
+      <div className="z-10 ml-0 flex h-16 w-16 items-center justify-center rounded-full border-2 border-cyan-300 bg-black shadow-[0_0_20px_rgba(34,211,238,0.35)] md:ml-0">
         <step.icon className="h-6 w-6 text-cyan-300" />
       </div>
 
@@ -411,7 +412,7 @@ function MetricTile({
   copy: string;
 }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-zinc-800 p-8 md:col-span-4">
+    <div className="rounded-lg border border-white/10 bg-zinc-950/70 p-8 md:col-span-4">
       <Icon className="mb-4 h-7 w-7 text-cyan-300" />
       <h4 className="mb-2 font-sans text-xl font-medium text-white">{title}</h4>
       <p className="text-sm leading-relaxed text-zinc-500">{copy}</p>
@@ -431,7 +432,7 @@ function StatTile({
   return (
     <div
       className={`flex flex-col justify-between rounded-lg p-8 md:col-span-4 ${
-        highlight ? 'bg-cyan-300 text-cyan-950' : 'bg-zinc-800 text-cyan-300'
+        highlight ? 'bg-cyan-300 text-cyan-950' : 'border border-white/10 bg-zinc-950/70 text-cyan-300'
       }`}
     >
       <p className="font-mono text-3xl font-medium">{value}</p>
