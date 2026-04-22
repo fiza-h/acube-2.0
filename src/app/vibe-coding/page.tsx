@@ -141,9 +141,9 @@ const accessPlans: Array<{
 }> = [
   {
     name: 'One-off session',
-    price: '$149',
+    price: '$70',
     label: 'Fastest start',
-    summary: 'One live session for one urgent blocker.',
+    summary: 'A low-risk first session for one urgent blocker.',
     bullets: [
       '1 live 60-minute session',
       'Repo or screen-share review',
@@ -155,13 +155,13 @@ const accessPlans: Array<{
   },
   {
     name: 'Monthly support',
-    price: '$199/mo',
+    price: '$200',
     label: 'Recommended',
-    summary: 'Ongoing help for founders who need support, not a full-time developer.',
+    summary: 'A simple support block for founders who need help without hiring full-time.',
     bullets: [
-      '2 live 45-minute sessions per month',
-      'Async support between sessions',
-      'Priority booking for new issues',
+      '4 hours of support',
+      'Use the time across live sessions as needed',
+      'Best for recurring blockers and small feature pushes',
     ],
     highlighted: true,
     icon: Keyboard,
@@ -169,13 +169,13 @@ const accessPlans: Array<{
   },
   {
     name: 'Team / custom plan',
-    price: 'From $799/mo',
+    price: '$800',
     label: 'Scale path',
-    summary: 'Best for bigger teams or heavier usage.',
+    summary: 'For teams that need deeper ongoing support each month.',
     bullets: [
-      'Weekly support rhythm',
-      'Higher response priority',
-      'Custom scope for small startup teams',
+      '25 to 30 hours of support',
+      'Better fit for active startup teams',
+      'Use it for bugs, cleanup, and ongoing delivery',
     ],
     highlighted: false,
     icon: Layers3,
@@ -292,7 +292,7 @@ export default function VibeCodingPage() {
           <SectionIntro
             eyebrow="Pricing"
             title="Start with the support you need."
-            copy="Clear pricing for founders who need help, not a full-time hire."
+            copy="Simple pricing for builders who need help without a full-time hire."
           />
 
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
@@ -308,10 +308,10 @@ export default function VibeCodingPage() {
                   Why this structure
                 </p>
                 <h3 className="mt-4 font-sans text-2xl tracking-tight text-white">
-                  Get real engineering help without jumping to a $2k developer hire.
+                  Start small, then scale up only when you need more hours.
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-300">
-                  Start with one blocker, move to monthly support if it helps, and upgrade only if your team needs more.
+                  Good for student builders, early founders, and small teams that need real help at a lower starting cost.
                 </p>
               </div>
             </div>
@@ -688,7 +688,7 @@ function PricingCard({
 
       {featured ? (
         <p className="mt-4 max-w-xl text-sm leading-relaxed text-cyan-100/85">
-          Best for startups that want real engineering help without paying for a full-time developer.
+          Best for builders who want steady support without committing to a full-time developer.
         </p>
       ) : null}
 
