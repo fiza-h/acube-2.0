@@ -3,136 +3,210 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Linkedin, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import TalentRegistrationModal from './TalentRegistrationModal';
 import ContactFormModal from './ContactFormModal';
 
 const Footer = () => {
-    const [showTalentForm, setShowTalentForm] = useState(false);
-    const [showContactModal, setShowContactModal] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const pathname = usePathname();
+  const isVibeSupportPage = pathname === '/vibe-coding';
 
-    return (
-        <>
-            <footer className="bg-zinc-950 border-t border-white/10 pt-20 pb-10">
-                <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                        <div className="col-span-1 md:col-span-2">
-                            <Link href="/" className="inline-block mb-6 group">
-                                <div className="relative w-48 h-12">
-                                    <Image
-                                        src="/talspace-brand-logo.png"
-                                        alt="Talspace"
-                                        fill
-                                        className="object-contain object-left"
-                                    />
-                                </div>
-                            </Link>
-                            <p className="text-zinc-500 max-w-sm mb-4 font-light leading-relaxed">
-                                Talspace is where the rarest engineering talent operates globally — above the noise, without borders.
-                            </p>
-                            <p className="text-zinc-600 text-sm max-w-sm mb-8 font-mono">
-                                A curated universe. Not a body shop.
-                            </p>
-                            <div className="flex space-x-4">
-                                <a href="https://linkedin.com/company/talspace" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-cyan-400 transition-colors">
-                                    <Linkedin className="w-5 h-5" />
-                                </a>
-                            </div>
-                        </div>
-
-                        <div>
-                            <h4 className="text-zinc-300 font-medium mb-6 uppercase tracking-widest text-xs">Talspace Operations (Ministries)</h4>
-                            <ul className="space-y-4">
-                                <li>
-                                    <span className="text-zinc-500 text-sm block">Ministry of Entry & Residency</span>
-                                    <span className="text-zinc-600 text-xs">Talent acquisition and selection</span>
-                                </li>
-                                <li>
-                                    <span className="text-zinc-500 text-sm block">Ministry of Standards</span>
-                                    <span className="text-zinc-600 text-xs">Training, quality, and continuous improvement</span>
-                                </li>
-                                <li>
-                                    <span className="text-zinc-500 text-sm block">Mission Ambassadors</span>
-                                    <span className="text-zinc-600 text-xs">Delivery support, QA, and partner success</span>
-                                </li>
-                                <li>
-                                    <span className="text-zinc-500 text-sm block">Central Office of Finance</span>
-                                    <span className="text-zinc-600 text-xs">Compensation, pricing, and stability</span>
-                                </li>
-                                <li>
-                                    <span className="text-zinc-500 text-sm block">Mission Control</span>
-                                    <span className="text-zinc-600 text-xs">Strategy and long-term direction</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h4 className="text-zinc-300 font-medium mb-6 uppercase tracking-widest text-xs">Connect</h4>
-                            <ul className="space-y-4">
-                                <li className="flex items-center text-zinc-400">
-                                    <Mail className="w-4 h-4 mr-2 text-cyan-400" />
-                                    team@talspace.org
-                                </li>
-                                <li className="flex items-start text-zinc-400">
-                                    <MapPin className="w-4 h-4 mr-2 mt-0.5 text-cyan-400 shrink-0" />
-                                    <span>68 Circular Road, #02-01, 049422, Singapore</span>
-                                </li>
-                                <li>
-                                    <button
-                                        onClick={() => setShowContactModal(true)}
-                                        className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/50 underline-offset-4"
-                                    >
-                                        Send us a Message
-                                    </button>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="https://calendly.com/absaarmalik15/30min"
-                                        className="text-cyan-400 hover:text-cyan-300 transition-colors underline decoration-cyan-400/50 underline-offset-4"
-                                    >
-                                        Schedule a Call
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link
-                                        href="https://chat.whatsapp.com/KxJfsyfvcdh3BklH9pWW1z"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
-                                    >
-                                        <MessageCircle className="w-4 h-4 mr-2" />
-                                        Join Community
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center">
-                        <p className="text-gray-500 text-sm mb-4 md:mb-0">
-                            © {new Date().getFullYear()} Talspace. All rights reserved.
-                        </p>
-                        <div className="flex space-x-6 text-sm text-gray-500">
-                            <Link href="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
-                            <Link href="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
-                        </div>
-                    </div>
+  return (
+    <>
+      <footer
+        id={isVibeSupportPage ? 'fallback-contact' : undefined}
+        className="border-t border-white/10 bg-zinc-950 pt-20 pb-10"
+      >
+        <div className="container mx-auto px-6">
+          <div className="mb-16 grid grid-cols-1 gap-12 md:grid-cols-4">
+            <div className="md:col-span-2">
+              <Link href="/" className="group mb-6 inline-block">
+                <div className="relative h-12 w-48">
+                  <Image
+                    src="/talspace-brand-logo.png"
+                    alt="Talspace"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
-            </footer>
+              </Link>
+              <p className="mb-4 max-w-md font-light leading-relaxed text-zinc-400">
+                {isVibeSupportPage
+                  ? 'Real-time engineering help for AI-built products. Book a session, ask a question by email, or use the community path if you prefer a warmer introduction.'
+                  : 'Talspace helps startups move faster with flexible engineering support, founder-friendly communication, and a path from urgent help to deeper long-term collaboration.'}
+              </p>
+              <p className="mb-8 max-w-md text-sm text-zinc-500">
+                {isVibeSupportPage
+                  ? 'This footer is the fallback contact route for the Vibe Support campaign.'
+                  : 'Built for teams that want speed, reliability, and practical technical support.'}
+              </p>
+              <div className="flex space-x-4">
+                <a
+                  href="https://linkedin.com/company/talspace"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-zinc-400 transition-colors hover:text-cyan-400"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
 
-            {/* Talent Registration Modal */}
-            <TalentRegistrationModal
-                isOpen={showTalentForm}
-                onClose={() => setShowTalentForm(false)}
-            />
+            <div>
+              <h4 className="mb-6 text-xs font-medium uppercase tracking-widest text-zinc-300">
+                {isVibeSupportPage ? 'Vibe Support' : 'Explore'}
+              </h4>
+              <ul className="space-y-4">
+                {isVibeSupportPage ? (
+                  <>
+                    <li>
+                      <Link
+                        href="/vibe-coding#how-it-works"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        How it works
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/vibe-coding#pricing"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        Pricing
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/vibe-coding#faq"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        FAQ
+                      </Link>
+                    </li>
+                    <li>
+                      <a
+                        href="https://calendly.com/absaarmalik15/30min"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        Book call
+                      </a>
+                    </li>
+                  </>
+                ) : (
+                  <>
+                    <li>
+                      <Link
+                        href="/vibe-coding"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        Vibe Support
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/about"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        About us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/dimension-labs"
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        Dimension Labs
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        onClick={() => setShowContactModal(true)}
+                        className="text-sm text-zinc-400 transition-colors hover:text-cyan-300"
+                      >
+                        Contact us
+                      </button>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </div>
 
-            {/* Contact Form Modal */}
-            <ContactFormModal
-                isOpen={showContactModal}
-                onClose={() => setShowContactModal(false)}
-            />
-        </>
-    );
+            <div>
+              <h4 className="mb-6 text-xs font-medium uppercase tracking-widest text-zinc-300">
+                Contact
+              </h4>
+              <ul className="space-y-4">
+                <li className="flex items-center text-zinc-400">
+                  <Mail className="mr-2 h-4 w-4 text-cyan-400" />
+                  <a
+                    href="mailto:team@talspace.org"
+                    className="transition-colors hover:text-cyan-300"
+                  >
+                    team@talspace.org
+                  </a>
+                </li>
+                <li className="flex items-start text-zinc-400">
+                  <MapPin className="mr-2 mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                  <span>68 Circular Road, #02-01, 049422, Singapore</span>
+                </li>
+                <li>
+                  <button
+                    onClick={() => setShowContactModal(true)}
+                    className="underline-offset-4 transition-colors hover:text-cyan-300 text-cyan-400 underline decoration-cyan-400/50"
+                  >
+                    Send us a Message
+                  </button>
+                </li>
+                <li>
+                  <a
+                    href="https://calendly.com/absaarmalik15/30min"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline-offset-4 text-cyan-400 transition-colors hover:text-cyan-300 underline decoration-cyan-400/50"
+                  >
+                    Schedule a Call
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://chat.whatsapp.com/KxJfsyfvcdh3BklH9pWW1z"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Join Community
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex flex-col items-center justify-between border-t border-white/5 pt-8 md:flex-row">
+            <p className="mb-4 text-sm text-gray-500 md:mb-0">
+              © {new Date().getFullYear()} Talspace. All rights reserved.
+            </p>
+            <div className="flex space-x-6 text-sm text-gray-500">
+              <Link href="/privacy" className="transition-colors hover:text-cyan-400">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="transition-colors hover:text-cyan-400">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <ContactFormModal
+        isOpen={showContactModal}
+        onClose={() => setShowContactModal(false)}
+      />
+    </>
+  );
 };
 
 export default Footer;
