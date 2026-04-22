@@ -1,11 +1,15 @@
 'use client';
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Linkedin, Mail, MapPin, MessageCircle } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import ContactFormModal from './ContactFormModal';
+
+const ContactFormModal = dynamic(() => import('./ContactFormModal'), {
+  loading: () => null,
+});
 
 const Footer = () => {
   const [showContactModal, setShowContactModal] = useState(false);

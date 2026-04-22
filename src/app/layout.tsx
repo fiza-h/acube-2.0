@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import Starfield from "@/components/Starfield";
 import { MotionProvider } from "@/components/MotionProvider";
 
 const spaceGrotesk = Space_Grotesk({
@@ -31,12 +29,7 @@ export default function RootLayout({
       <body
         className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-black text-white`}
       >
-        <Starfield />
-        <MotionProvider>
-          <SmoothScroll>
-            {children}
-          </SmoothScroll>
-        </MotionProvider>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

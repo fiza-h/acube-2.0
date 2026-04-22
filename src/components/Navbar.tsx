@@ -1,12 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { m, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-import TalentRegistrationModal from './TalentRegistrationModal';
+
+const TalentRegistrationModal = dynamic(() => import('./TalentRegistrationModal'), {
+  loading: () => null,
+});
 
 const NavLink = ({
   children,
