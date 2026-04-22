@@ -2,15 +2,15 @@ import dynamic from 'next/dynamic';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
-import CreativeBackground from '@/components/CreativeBackground';
 import SmoothScroll from '@/components/SmoothScroll';
-import Starfield from '@/components/Starfield';
 
-const Mission = dynamic(() => import('@/components/Mission'));
-const Stats = dynamic(() => import('@/components/Stats'));
-const HowItWorks = dynamic(() => import('@/components/HowItWorks'));
-const TalentCategories = dynamic(() => import('@/components/TalentCategories'));
-const TalentShowcase = dynamic(() => import('@/components/TalentShowcase'));
+const Starfield = dynamic(() => import('@/components/Starfield'), { loading: () => null });
+const CreativeBackground = dynamic(() => import('@/components/CreativeBackground'), { loading: () => null });
+const Mission = dynamic(() => import('@/components/Mission'), { loading: () => null });
+const Stats = dynamic(() => import('@/components/Stats'), { loading: () => null });
+const HowItWorks = dynamic(() => import('@/components/HowItWorks'), { loading: () => null });
+const TalentCategories = dynamic(() => import('@/components/TalentCategories'), { loading: () => null });
+const TalentShowcase = dynamic(() => import('@/components/TalentShowcase'), { loading: () => null });
 
 export default function Home() {
   return (

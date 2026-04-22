@@ -4,17 +4,19 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { Linkedin, Mail, MapPin, MessageCircle } from 'lucide-react';
-import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const ContactFormModal = dynamic(() => import('./ContactFormModal'), {
   loading: () => null,
 });
 
-const Footer = () => {
+type FooterProps = {
+  variant?: 'default' | 'vibe-support';
+};
+
+const Footer = ({ variant = 'default' }: FooterProps) => {
   const [showContactModal, setShowContactModal] = useState(false);
-  const pathname = usePathname();
-  const isVibeSupportPage = pathname === '/vibe-coding';
+  const isVibeSupportPage = variant === 'vibe-support';
 
   return (
     <>
@@ -159,7 +161,7 @@ const Footer = () => {
                 <li>
                   <button
                     onClick={() => setShowContactModal(true)}
-                    className="underline-offset-4 transition-colors hover:text-cyan-300 text-cyan-400 underline decoration-cyan-400/50"
+                    className="text-cyan-400 underline decoration-cyan-400/50 underline-offset-4 transition-colors hover:text-cyan-300"
                   >
                     Send us a Message
                   </button>
@@ -169,7 +171,7 @@ const Footer = () => {
                     href="https://calendly.com/absaarmalik15/30min"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline-offset-4 text-cyan-400 transition-colors hover:text-cyan-300 underline decoration-cyan-400/50"
+                    className="text-cyan-400 underline decoration-cyan-400/50 underline-offset-4 transition-colors hover:text-cyan-300"
                   >
                     Schedule a Call
                   </a>
@@ -191,7 +193,7 @@ const Footer = () => {
 
           <div className="flex flex-col items-center justify-between border-t border-white/5 pt-8 md:flex-row">
             <p className="mb-4 text-sm text-gray-500 md:mb-0">
-              © {new Date().getFullYear()} Talspace. All rights reserved.
+              Copyright {new Date().getFullYear()} Talspace. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm text-gray-500">
               <Link href="/privacy" className="transition-colors hover:text-cyan-400">

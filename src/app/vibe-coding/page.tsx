@@ -17,6 +17,7 @@ import {
 import Footer from '@/components/Footer';
 import LampDemo, { HeroSignalGrid } from '@/components/lamp-demo';
 import Navbar from '@/components/Navbar';
+import { LiftCard, Reveal } from '@/components/ui/reveal';
 
 type SupportVisualVariant = 'pulse' | 'grid' | 'code' | 'shield' | 'aurora' | 'orbit';
 type PricingVisualVariant = 'session' | 'monthly' | 'team';
@@ -217,7 +218,7 @@ export default function VibeCodingPage() {
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-cyan-500/30 selection:text-white">
-      <Navbar />
+      <Navbar variant="vibe-support" />
 
       <section
         id="vibe-hero"
@@ -245,23 +246,29 @@ export default function VibeCodingPage() {
         <div className="pointer-events-none absolute inset-0 -z-10 opacity-35 bg-[linear-gradient(rgba(255,255,255,0.018)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:32px_32px]" />
 
         <div className="mx-auto max-w-[1440px]">
-          <SectionIntro
-            eyebrow="From Chaos To Momentum"
-            title="From messy builds to steady shipping."
-            copy="Less guesswork. More progress."
-          />
+          <Reveal>
+            <SectionIntro
+              eyebrow="From Chaos To Momentum"
+              title="From messy builds to steady shipping."
+              copy="Less guesswork. More progress."
+            />
+          </Reveal>
 
-          <TransformationBoard />
+          <Reveal delay={0.08}>
+            <TransformationBoard />
+          </Reveal>
         </div>
       </section>
 
       <section id="how-it-works" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <SectionIntro
-            eyebrow="How It Works"
-            title="How it works"
-            copy="Book, share context, and fix the blocker."
-          />
+          <Reveal>
+            <SectionIntro
+              eyebrow="How It Works"
+              title="How it works"
+              copy="Book, share context, and fix the blocker."
+            />
+          </Reveal>
 
           <div className="grid gap-5 md:grid-cols-3">
             {workflowSteps.map((step, index) => (
@@ -273,11 +280,13 @@ export default function VibeCodingPage() {
 
       <section className="border-y border-white/5 bg-zinc-950/60 px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <SectionIntro
-            eyebrow="What We Help With"
-            title="What we help with"
-            copy="The main places AI-built products get stuck."
-          />
+          <Reveal>
+            <SectionIntro
+              eyebrow="What We Help With"
+              title="What we help with"
+              copy="The main places AI-built products get stuck."
+            />
+          </Reveal>
 
           <div className="grid auto-rows-[minmax(220px,1fr)] gap-5 md:grid-cols-6">
             {supportAreas.map((area) => (
@@ -289,11 +298,13 @@ export default function VibeCodingPage() {
 
       <section id="pricing" className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <SectionIntro
-            eyebrow="Pricing"
-            title="Start with the support you need."
-            copy="Simple pricing for builders who need help without a full-time hire."
-          />
+          <Reveal>
+            <SectionIntro
+              eyebrow="Pricing"
+              title="Start with the support you need."
+              copy="Simple pricing for builders who need help without a full-time hire."
+            />
+          </Reveal>
 
           <div className="grid gap-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
             <PricingCard plan={featuredPlan} featured />
@@ -303,7 +314,8 @@ export default function VibeCodingPage() {
                 <PricingCard key={plan.name} plan={plan} />
               ))}
 
-              <div className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,145,178,0.12),rgba(2,6,23,0.7))] p-6">
+              <Reveal delay={0.18}>
+                <div className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(8,145,178,0.12),rgba(2,6,23,0.7))] p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">
                   Why this structure
                 </p>
@@ -313,7 +325,8 @@ export default function VibeCodingPage() {
                 <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   Good for student builders, early founders, and small teams that need real help at a lower starting cost.
                 </p>
-              </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -321,11 +334,13 @@ export default function VibeCodingPage() {
 
       <section id="faq" className="border-y border-white/5 bg-zinc-950/60 px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <SectionIntro
-            eyebrow="FAQ"
-            title="FAQ"
-            copy="Short answers to the main questions."
-          />
+          <Reveal>
+            <SectionIntro
+              eyebrow="FAQ"
+              title="FAQ"
+              copy="Short answers to the main questions."
+            />
+          </Reveal>
 
           <div className="grid gap-4 md:grid-cols-2">
             {faqItems.map((item) => (
@@ -337,7 +352,8 @@ export default function VibeCodingPage() {
 
       <section className="px-6 py-20 md:py-24">
         <div className="mx-auto max-w-[1440px]">
-          <div className="rounded-[2rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,145,178,0.18),rgba(2,6,23,0.95))] p-8 shadow-[0_0_60px_rgba(6,182,212,0.08)] md:p-12">
+          <Reveal>
+            <div className="rounded-[2rem] border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,145,178,0.18),rgba(2,6,23,0.95))] p-8 shadow-[0_0_60px_rgba(6,182,212,0.08)] md:p-12">
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.35em] text-cyan-200/80">
               Final CTA
             </p>
@@ -368,11 +384,12 @@ export default function VibeCodingPage() {
             <p className="mt-4 text-sm text-cyan-100/80">
               Prefer email first? Use the contact options below.
             </p>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
-      <Footer />
+      <Footer variant="vibe-support" />
     </main>
   );
 }
@@ -576,7 +593,8 @@ function ProcessCard({
   index: number;
 }) {
   return (
-    <div className="rounded-[1.75rem] border border-white/10 bg-zinc-950/70 p-6 backdrop-blur-sm">
+    <LiftCard delay={index * 0.08}>
+      <div className="rounded-[1.75rem] border border-white/10 bg-zinc-950/70 p-6 backdrop-blur-sm">
       <div className="flex items-center justify-between gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10">
           <step.icon className="h-5 w-5 text-cyan-200" />
@@ -587,7 +605,8 @@ function ProcessCard({
       </div>
       <h3 className="mt-6 font-sans text-2xl tracking-tight text-white">{step.title}</h3>
       <p className="mt-3 text-sm leading-relaxed text-zinc-400">{step.copy}</p>
-    </div>
+      </div>
+    </LiftCard>
   );
 }
 
@@ -606,21 +625,23 @@ function SupportCard({
   const Icon = area.icon;
 
   return (
-    <div
-      className={`group rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(2,6,23,0.72))] p-6 transition-transform hover:-translate-y-1 ${area.className}`}
-    >
-      <SupportVisual variant={area.visual} />
-      <div className="mt-6 flex items-center gap-3">
-        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10">
-          <Icon className="h-5 w-5 text-cyan-300" />
+    <LiftCard className={area.className}>
+      <div
+        className="group rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.04),rgba(2,6,23,0.72))] p-6"
+      >
+        <SupportVisual variant={area.visual} />
+        <div className="mt-6 flex items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-cyan-300/20 bg-cyan-300/10">
+            <Icon className="h-5 w-5 text-cyan-300" />
+          </div>
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">
+            {area.eyebrow}
+          </p>
         </div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-300/70">
-          {area.eyebrow}
-        </p>
+        <h3 className="mt-5 font-sans text-2xl tracking-tight text-white">{area.title}</h3>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-zinc-400">{area.copy}</p>
       </div>
-      <h3 className="mt-5 font-sans text-2xl tracking-tight text-white">{area.title}</h3>
-      <p className="mt-3 max-w-md text-sm leading-relaxed text-zinc-400">{area.copy}</p>
-    </div>
+    </LiftCard>
   );
 }
 
@@ -634,15 +655,16 @@ function PricingCard({
   const Icon = plan.icon;
 
   return (
-    <div
-      className={`rounded-[1.75rem] border p-6 ${
-        featured
-          ? 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(34,211,238,0.16),rgba(2,6,23,0.85))] shadow-[0_0_36px_rgba(34,211,238,0.08)]'
-          : plan.highlighted
-            ? 'border-cyan-300/35 bg-cyan-300/10 shadow-[0_0_36px_rgba(34,211,238,0.08)]'
-          : 'border-white/10 bg-zinc-950/70'
-      }`}
-    >
+    <LiftCard delay={featured ? 0.06 : 0.12}>
+      <div
+        className={`rounded-[1.75rem] border p-6 ${
+          featured
+            ? 'border-cyan-300/35 bg-[linear-gradient(180deg,rgba(34,211,238,0.16),rgba(2,6,23,0.85))] shadow-[0_0_36px_rgba(34,211,238,0.08)]'
+            : plan.highlighted
+              ? 'border-cyan-300/35 bg-cyan-300/10 shadow-[0_0_36px_rgba(34,211,238,0.08)]'
+              : 'border-white/10 bg-zinc-950/70'
+        }`}
+      >
       <div className="flex items-center justify-between gap-4">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-black/30">
           <Icon
@@ -719,7 +741,8 @@ function PricingCard({
           </a>
         </div>
       ) : null}
-    </div>
+      </div>
+    </LiftCard>
   );
 }
 
@@ -839,10 +862,12 @@ function FaqCard({
   item: (typeof faqItems)[number];
 }) {
   return (
-    <div className="rounded-[1.5rem] border border-white/10 bg-black/30 p-6">
-      <h3 className="font-sans text-2xl tracking-tight text-white">{item.question}</h3>
-      <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.answer}</p>
-    </div>
+    <LiftCard>
+      <div className="rounded-[1.5rem] border border-white/10 bg-black/30 p-6">
+        <h3 className="font-sans text-2xl tracking-tight text-white">{item.question}</h3>
+        <p className="mt-3 text-sm leading-relaxed text-zinc-400">{item.answer}</p>
+      </div>
+    </LiftCard>
   );
 }
 

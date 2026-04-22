@@ -6,13 +6,18 @@ export default function Starfield() {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
     useEffect(() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion || window.innerWidth < 1024) {
+            return;
+        }
+
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
         // Configuration
-        const numStars = 1000;
+        const numStars = Math.min(360, Math.floor(window.innerWidth * 0.28));
         const stars: {
             x: number;
             y: number;
@@ -77,8 +82,8 @@ export default function Starfield() {
             mouseX += (targetX - mouseX) * 0.05;
             mouseY += (targetY - mouseY) * 0.05;
 
-            // Give a slight trailing effect to simulate speed/moving through space
-            ctx.fillStyle = 'rgba(5, 5, 15, 0.4)'; // Deeper galaxy background match
+            // Slight trail keeps the field alive without a full redraw harshness.
+            ctx.fillStyle = 'rgba(5, 5, 15, 0.6)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             stars.forEach(star => {
@@ -103,13 +108,12 @@ export default function Starfield() {
 
                 // Move star upwards based on its depth (parallax)
                 // Closer stars (lower z) move faster
-                star.y -= (20 / star.z) * 0.15;
-                // Very slow drift to the left
-                star.x -= (10 / star.z) * 0.05;
+                star.y -= (20 / star.z) * 0.1;
+                star.x -= (10 / star.z) * 0.03;
 
                 // Interactive parallax from mouse
-                star.x -= mouseX * (100 / star.z);
-                star.y -= mouseY * (100 / star.z);
+                star.x -= mouseX * (70 / star.z);
+                star.y -= mouseY * (70 / star.z);
 
                 // Reset position when off-screen
                 if (star.y < 0) {
@@ -151,7 +155,7 @@ export default function Starfield() {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 z-[-1] pointer-events-none opacity-80"
+            className="fixed inset-0 z-[-1] hidden pointer-events-none opacity-70 lg:block"
         />
     );
 }

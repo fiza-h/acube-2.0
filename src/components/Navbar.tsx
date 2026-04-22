@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
 import { m, AnimatePresence } from 'motion/react';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
@@ -32,14 +31,17 @@ const NavLink = ({
   );
 };
 
-const Navbar = () => {
+type NavbarProps = {
+  variant?: 'default' | 'vibe-support';
+};
+
+const Navbar = ({ variant = 'default' }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showTalentForm, setShowTalentForm] = useState(false);
-  const pathname = usePathname();
 
-  const isHomePage = pathname === '/';
-  const isVibeSupportPage = pathname === '/vibe-coding';
+  const isHomePage = variant === 'default';
+  const isVibeSupportPage = variant === 'vibe-support';
   const shouldHideLogo = isHomePage && !isScrolled;
 
   useEffect(() => {

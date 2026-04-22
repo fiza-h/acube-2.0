@@ -7,10 +7,13 @@ const CreativeBackground = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReducedMotion || window.innerWidth < 1024) return;
+
         if (!containerRef.current) return;
 
         const container = containerRef.current;
-        const numberOfEls = 50;
+        const numberOfEls = 18;
         const duration = 6000;
         const delay = duration / numberOfEls;
 
@@ -79,7 +82,7 @@ const CreativeBackground = () => {
     return (
         <div
             ref={containerRef}
-            className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
+            className="fixed inset-0 z-0 hidden pointer-events-none overflow-hidden lg:block"
         />
     );
 };
