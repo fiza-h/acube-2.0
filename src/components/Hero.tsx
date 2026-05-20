@@ -1,39 +1,37 @@
 'use client';
 
 import { m } from 'motion/react';
-import { ArrowRight, Check } from 'lucide-react';
-import Image from 'next/image';
+import { ArrowRight } from 'lucide-react';
+import { HeroSignalGrid } from './lamp-demo';
 
 const Hero = () => {
     return (
-        <section
-            className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-32 pb-20"
-        >
-            {/* Minimalist Deep Space Glows */}
-            <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.14),transparent_38%),radial-gradient(circle_at_75%_25%,rgba(59,130,246,0.12),transparent_28%)]" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] z-0 opacity-30">
-                <div className="absolute inset-x-0 top-[-200px] h-[400px] bg-indigo-900/40 blur-[140px] rounded-[100%]" />
-            </div>
-            <div className="absolute bottom-0 right-[-20%] w-[600px] h-[600px] z-0 opacity-30">
-                <div className="absolute inset-0 bg-purple-900/30 blur-[150px] rounded-full" />
-            </div>
+        <section className="relative isolate overflow-hidden px-6 pb-20 pt-28 lg:px-16 lg:pb-24 xl:px-24">
+            {/* Background gradients - matching Vibe Coding page */}
+            <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_50%_0%,rgba(30,58,138,0.15)_0%,transparent_50%),radial-gradient(circle_at_80%_80%,rgba(12,74,110,0.15)_0%,transparent_40%)]" />
 
-            <div className="container mx-auto px-6 relative z-10 text-center">
-                {/* Logo */}
+            {/* Grid background */}
+            <HeroSignalGrid />
+
+            {/* Horizontal gradient line */}
+            <div className="pointer-events-none absolute inset-x-6 top-24 -z-10 h-px bg-gradient-to-r from-transparent via-cyan-300/20 to-transparent md:inset-x-16 xl:inset-x-24" />
+
+            {/* Blur circles */}
+            <div className="pointer-events-none absolute -left-24 top-20 -z-10 h-80 w-80 rounded-full bg-cyan-400/7 blur-3xl" />
+            <div className="pointer-events-none absolute -right-16 bottom-10 -z-10 h-96 w-96 rounded-full bg-sky-400/7 blur-3xl" />
+
+            <div className="relative z-10 max-w-[860px]">
+                {/* Eyebrow */}
                 <m.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative w-48 h-12 md:w-56 md:h-14 mx-auto mb-8"
+                    className="flex items-center gap-2.5 mb-8"
                 >
-                    <Image
-                        src="/talspace-brand-logo.png"
-                        alt="Talspace"
-                        fill
-                        priority
-                        sizes="(min-width: 768px) 224px, 192px"
-                        className="object-contain"
-                    />
+                    <div className="w-5 h-[1px] bg-cyan-400" />
+                    <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-cyan-400">
+                        South Asia's Elite Engineering Network
+                    </span>
                 </m.div>
 
                 {/* Main Heading */}
@@ -41,12 +39,12 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-sans tracking-tight text-white mb-6 max-w-5xl mx-auto leading-[1.05]"
+                    className="font-sans text-[clamp(3rem,6vw,5.2rem)] font-normal leading-[1.05] tracking-tight mb-6"
                 >
-                    Above the Noise,<br />
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-500">
-                        Without Borders.
-                    </span>
+                    The best builders,<br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
+                        AI-native
+                    </span> by design.
                 </m.h1>
 
                 {/* Description */}
@@ -54,9 +52,9 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-lg md:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto leading-relaxed font-light"
+                    className="text-lg leading-[1.7] text-zinc-400 max-w-[520px] mb-10 font-light"
                 >
-                    Talspace is where the rarest engineering talent operates globally. A curated universe built in response to a broken talent market.
+                    Talspace is not a staffing agency. It's a curated network of exceptional engineers — hackathon champions, olympiad medalists, and ex-founders from South Asia — who use AI to build at a pace no traditional team can match.
                 </m.p>
 
                 {/* CTA Buttons */}
@@ -64,44 +62,24 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
+                    className="flex flex-wrap items-center gap-4"
                 >
-                    <a
-                        href="#talent-showcase"
-                        className="group bg-white text-black px-8 py-3.5 rounded-full font-medium text-sm hover:bg-zinc-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] flex items-center"
-                    >
-                        Explore Missions
-                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
                     <a
                         href="https://calendly.com/absaarmalik15/30min"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-transparent text-white border border-zinc-800 px-8 py-3.5 rounded-full font-medium text-sm hover:bg-zinc-900 transition-all backdrop-blur-sm"
+                        className="font-mono text-xs tracking-[0.06em] uppercase bg-cyan-400 text-black px-6 py-3 rounded-[2px] font-medium hover:bg-cyan-500 transition-colors flex items-center gap-2"
                     >
-                        Apply as Talnaut
+                        Hire an engineer
+                        <ArrowRight className="w-3.5 h-3.5" />
                     </a>
-                </m.div>
-
-                {/* Trust Indicators */}
-                <m.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 0.6 }}
-                    className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-zinc-500 text-sm font-mono tracking-wide uppercase"
-                >
-                    <div className="flex items-center">
-                        <Check className="w-4 h-4 text-purple-500 mr-2 opacity-70" />
-                        Signal over noise
-                    </div>
-                    <div className="flex items-center">
-                        <Check className="w-4 h-4 text-purple-500 mr-2 opacity-70" />
-                        Trust over speed
-                    </div>
-                    <div className="flex items-center">
-                        <Check className="w-4 h-4 text-purple-500 mr-2 opacity-70" />
-                        Scarcity over volume
-                    </div>
+                    <a
+                        href="#talent-showcase"
+                        className="font-mono text-xs tracking-[0.06em] uppercase text-zinc-400 hover:text-white transition-colors flex items-center gap-2"
+                    >
+                        Apply to the network
+                        <span className="text-sm">↗</span>
+                    </a>
                 </m.div>
             </div>
         </section>

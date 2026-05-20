@@ -4,8 +4,8 @@
   --font-sans: var(--font-space-grotesk);
   --font-mono: var(--font-space-mono);
 
+  /* Zinc colors */
   --color-zinc-950: #020617;
-  /* Deep navy/slate for a rich space feel */
   --color-zinc-900: #0f172a;
   --color-zinc-800: #1e293b;
   --color-primary: #ffffff;
@@ -15,8 +15,8 @@
 }
 
 :root {
-  --background: var(--color-zinc-950);
-  --foreground: #ffffff;
+  --background: var(--color-black);
+  --foreground: var(--color-white);
 }
 
 @keyframes aurora {
@@ -34,7 +34,7 @@
   }
 }
 
-@keyframes marquee {
+@keyframes ticker {
   from {
     transform: translateX(0);
   }
@@ -43,12 +43,8 @@
   }
 }
 
-.animate-aurora {
-  animation: aurora 22s linear infinite;
-}
-
-.animate-marquee {
-  animation: marquee 26s linear infinite;
+.animate-ticker {
+  animation: ticker 28s linear infinite;
 }
 
 html {
@@ -65,6 +61,7 @@ body {
   font-family: var(--font-sans), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
 }
 
 /* Ensure all clickable elements show pointer cursor */

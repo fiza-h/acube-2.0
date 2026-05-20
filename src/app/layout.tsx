@@ -15,8 +15,8 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Talspace — Above the Noise, Without Borders",
-  description: "Talspace is where the rarest engineering talent operates globally. A curated universe built in response to a broken talent market.",
+  title: "Talspace — Silicon Valley Talent, Global Access",
+  description: "Elite AI-native engineers from South Asia. Less than 1% acceptance rate. Hackathon winners, olympiad medalists, ex-founders. World-class remote talent for exceptional companies.",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-black text-white`}
+        className={`${spaceGrotesk.variable} ${spaceMono.variable} antialiased`}
       >
         <MotionProvider>{children}</MotionProvider>
       </body>
