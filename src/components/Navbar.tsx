@@ -3,7 +3,11 @@
 import Link from 'next/link';
 import { m } from 'motion/react';
 
-const Navbar = () => {
+type NavbarProps = {
+    variant?: 'default' | 'vibe-support';
+};
+
+const Navbar = ({ variant = 'default' }: NavbarProps) => {
     return (
         <m.nav
             initial={{ y: -100 }}
